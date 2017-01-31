@@ -34,41 +34,41 @@ fileprivate extension InputEvent.Code {
 	    13: "=", // EQUAL
 	//    14: "BACKSPACE",
 	    15: "\t", // TAB
-	    16: "Q",
-	    17: "W",
-	    18: "E",
-	    19: "R",
-	    20: "T",
-	    21: "Y",
-	    22: "U",
-	    23: "I",
-	    24: "O",
-	    25: "P",
+	    16: "q",
+	    17: "w",
+	    18: "e",
+	    19: "r",
+	    20: "t",
+	    21: "y",
+	    22: "u",
+	    23: "i",
+	    24: "o",
+	    25: "p",
 	    26: "(", // LEFTBRACE
 	    27: ")", // RIGHTBRACE
 	    28: "\n", // ENTER
 	//    29: "LEFTCTRL",
-	    30: "A",
-	    31: "S",
-	    32: "D",
-	    33: "F",
-	    34: "G",
-	    35: "H",
-	    36: "J",
-	    37: "K",
-	    38: "L",
+	    30: "a",
+	    31: "s",
+	    32: "d",
+	    33: "f",
+	    34: "g",
+	    35: "h",
+	    36: "j",
+	    37: "k",
+	    38: "l",
 	    39: ";", // SEMICOLON
 	    40: "`", // APOSTROPHE
 	    41: "^", // GRAVE
 	//    42: "LEFTSHIFT",
 	    43: "\\", // BACKSLASH
-	    44: "Z",
-	    45: "X",
-	    46: "C",
-	    47: "V",
-	    48: "B",
-	    49: "N",
-	    50: "M",
+	    44: "z",
+	    45: "x",
+	    46: "c",
+	    47: "v",
+	    48: "b",
+	    49: "n",
+	    50: "m",
 	    51: ",", // COMMA
 	    52: ".", // DOT
 	   53: "/", // SLASH
@@ -133,9 +133,9 @@ fileprivate extension InputEvent.Code {
 	    0x209: "9",
 	    0x20a: "*", // NUMERIC_STAR
 	//    0x20b: "NUMERIC_POUND",
-	    0x20c: "A", // NUMERIC_A
-	    0x20d: "B", // NUMERIC_B
-	    0x20e: "C", // NUMERIC_C
-	    0x20f: "D" // NUMERIC_D
+	    0x20c: "a", // NUMERIC_A
+	    0x20d: "b", // NUMERIC_B
+	    0x20e: "c", // NUMERIC_C
+	    0x20f: "d" // NUMERIC_D
 	]
 }
