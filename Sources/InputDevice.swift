@@ -5,8 +5,9 @@ public struct InputDevice: Equatable {
 	private let streamer: Streamer
 
 	public init?(eventFile: URL) {
-		guard FileManager.default.fileExists(atPath: eventFile.path) else { return nil }
-		guard let streamer = Streamer(file: eventFile) else { return nil }
+		let resolvedFile = eventFile.resolvingSymlinksInPath()
+		guard FileManager.default.fileExists(atPath: resolvedFile.path) else { return nil }
+		guard let streamer = Streamer(file: resolvedFile) else { return nil }
 		self.eventFile = eventFile
 		self.streamer = streamer
 		self.streamer.device = self
@@ -47,6 +48,11 @@ public extension InputDevice {
 
 		public static func ==(lhs: InputDevice.EventConsumer, rhs: InputDevice.EventConsumer) -> Bool {
 			return lhs.uuid == rhs.uuid
+		}
+
+		public init(queue: DispatchQueue, handler: @escaping (InputDevice, InputEvent) -> Void) {
+			self.queue = queue
+			self.handler = handler
 		}
 	}
 }
