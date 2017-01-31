@@ -16,7 +16,7 @@ public struct InputDevice: Equatable {
 		return lhs.eventFile == rhs.eventFile
 	}
 
-	public func startRecevingEvents() {
+	public func startReceivingEvents() {
 		streamer.beginStreaming()
 	}
 
