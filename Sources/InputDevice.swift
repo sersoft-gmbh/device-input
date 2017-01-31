@@ -1,5 +1,9 @@
 import Foundation
 
+#if os(Linux)
+import Dispatch
+#endif
+
 public struct InputDevice: Equatable {
 	public let eventFile: URL
 	private let streamer: Streamer
