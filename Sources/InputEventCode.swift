@@ -17,7 +17,7 @@ public extension InputEvent.Code {
 }
 
 fileprivate extension InputEvent.Code {
-	static let keyCodeMapping: [CUnsignedShort: String] = [
+	static let keyCodeMapping: [InputEvent.Code.RawValue: String] = [
 	//    0: "RESERVED",
 	//    1: "ESC",
 	    2: "1",
