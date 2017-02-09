@@ -4,16 +4,19 @@ import Foundation
 import Dispatch
 #endif
 
+// Copied from linux headers
+fileprivate let EVIOCGRAB = UInt(UnicodeScalar("E").value << 8 | 0x90)
+
 public struct InputDevice: Equatable {
 	public let eventFile: URL
 	private let streamer: Streamer
 
-	public init?(eventFile: URL) {
+	public init(eventFile: URL) throws {
 		let resolvedFile = eventFile.resolvingSymlinksInPath()
-		guard FileManager.default.fileExists(atPath: resolvedFile.path) else { return nil }
-		guard let streamer = Streamer(file: resolvedFile) else { return nil }
+		// guard FileManager.default.fileExists(atPath: resolvedFile.path) else { return nil }
+		// guard let streamer = Streamer(file: resolvedFile) else { return nil }
 		self.eventFile = eventFile
-		self.streamer = streamer
+		self.streamer = try Streamer(file: resolvedFile)
 		self.streamer.device = self
 	}
 
@@ -62,9 +65,8 @@ public extension InputDevice {
 }
 
 fileprivate extension InputDevice {
-	fileprivate class Streamer {
-		private let workerQueue = DispatchQueue(label: "de.sersoft.deviceinput.inputdevice.streamer.worker")
-		let stream: InputStream
+	fileprivate final class Streamer {
+		let fileHandle: FileHandle
 		var device: InputDevice! = nil
 
 		private var isOpen = false
@@ -73,43 +75,56 @@ fileprivate extension InputDevice {
 
 		var handler: Set<InputDevice.EventConsumer> = []
 
-		init?(file: URL) {
-			guard let stream = InputStream(url: file) else { return nil }
-			self.stream = stream
+		init(file: URL) throws {
+			fileHandle = try FileHandle(forReadingFrom: file)
 		}
 
 		deinit { close() }
 
 		func open() {
 			guard !isOpen else { return }
-			stream.open()
+			if ioctl(fileHandle.fileDescriptor, EVIOCGRAB, 1) != 0 {
+				print("Failed to grab exclusive rights on file ptr (\(errno))!")
+			}
 			isOpen = true
 		}
 
 		func beginStreaming() {
+			guard !isStreaming else { return }
+			wantsStop = false
 			open()
-			workerQueue.async { [weak self] in
-				guard let `self` = self else { return }
-				let chunkSize = MemoryLayout<CInputEvent>.size
-				while !self.wantsStop {
-					var buffer = [UInt8](repeating: 0, count: chunkSize)
-					_ = self.stream.read(&buffer, maxLength: chunkSize)
-					let eventPtr = UnsafePointer<CInputEvent>(OpaquePointer(buffer))
-					if let event = InputEvent(cInputEvent: eventPtr.pointee) {
-						self.handler.forEach { $0.notify(about: event, from: self.device) }
-					}
-				}
-				self.wantsStop = false
+			fileHandle.seekToEndOfFile()
+			fileHandle.readabilityHandler = { [weak self] handle in
+				self?.handleReading(for: handle)
 			}
+			isStreaming = true
 		}
 
 		func endStreaming() {
+			guard isStreaming else { return }
 			wantsStop = true
+			fileHandle.readabilityHandler = nil
+			isStreaming = false
+		}
+
+		private func handleReading(for handle: FileHandle) {
+			guard !wantsStop else { return }
+			guard handle === fileHandle else { return }
+			let chunkSize = MemoryLayout<CInputEvent>.size
+			let data = handle.readData(ofLength: chunkSize)
+			if data.count == chunkSize {
+				if let event = data.withUnsafeBytes({ (ptr: UnsafePointer<CInputEvent>) in InputEvent(cInputEvent: ptr.pointee) }) {
+					handler.forEach { $0.notify(about: event, from: self.device) }
+				}
+			}
 		}
 
 		func close() {
 			guard isOpen else { return }
-			stream.close()
+			if ioctl(fileHandle.fileDescriptor, EVIOCGRAB, 0) != 0 {
+				print("Failed to release exclusive rights on file ptr (\(errno))!")
+			}
+			fileHandle.closeFile()
 			isOpen = false
 		}
 	}
