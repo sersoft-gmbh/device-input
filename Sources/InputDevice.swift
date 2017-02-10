@@ -100,7 +100,8 @@ fileprivate extension InputDevice {
 				workerQueue.sync { wantsStop = false }
 			}
 			open()
-			fileHandle.seekToEndOfFile()
+			// This will crash on linux on event files...
+			// fileHandle.seekToEndOfFile()
 			workerQueue.async { [weak self] in
 				guard let `self` = self else { return }
 				let chunkSize = MemoryLayout<CInputEvent>.size
