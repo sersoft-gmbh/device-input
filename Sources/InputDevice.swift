@@ -66,6 +66,8 @@ public extension InputDevice {
 
 fileprivate extension InputDevice {
 	fileprivate final class Streamer {
+		private let workerQueue = DispatchQueue(label: "de.sersoft.deviceinput.inputdevice.streamer.worker")
+
 		let fileHandle: FileHandle
 		var device: InputDevice! = nil
 
@@ -91,33 +93,53 @@ fileprivate extension InputDevice {
 
 		func beginStreaming() {
 			guard !isStreaming else { return }
-			wantsStop = false
+			if wantsStop {
+				// Wait for the current stream to stop.
+				workerQueue.sync { wantsStop = false }
+			}
 			open()
 			fileHandle.seekToEndOfFile()
-			fileHandle.readabilityHandler = { [weak self] handle in
-				self?.handleReading(for: handle)
+			workerQueue.async { [weak self] in
+				guard let `self` = self else { return }
+				let chunkSize = MemoryLayout<CInputEvent>.size
+				while !self.wantsStop {
+					let data = self.fileHandle.readData(ofLength: chunkSize)
+					if data.count == chunkSize,
+						let event = data.withUnsafeBytes({ (ptr: UnsafePointer<CInputEvent>) in InputEvent(cInputEvent: ptr.pointee) }) {
+							self.handler.forEach { $0.notify(about: event, from: self.device) }
+					}
+				}
 			}
+			// fileHandle.readabilityHandler = { [weak self] handle in
+			// 	self?.handleReading(for: handle)
+			// }
+			// fileHandle.waitForDataInBackgroundAndNotify()
+			// notificationObserver = NotificationCenter.default.addObserver(forName: .NSFileHandleDataAvailable, object: fileHandle, queue: nil) { [weak self] _ in
+			// 	guard let `self` = self else { return }
+			// 	self.handleReading(for: self.fileHandle)
+			// }
 			isStreaming = true
 		}
 
 		func endStreaming() {
 			guard isStreaming else { return }
 			wantsStop = true
-			fileHandle.readabilityHandler = nil
+			// fileHandle.readabilityHandler = nil
+			// NotificationCenter.default.removeObserver(notificationObserver)
 			isStreaming = false
 		}
 
-		private func handleReading(for handle: FileHandle) {
-			guard !wantsStop else { return }
-			guard handle === fileHandle else { return }
-			let chunkSize = MemoryLayout<CInputEvent>.size
-			let data = handle.readData(ofLength: chunkSize)
-			if data.count == chunkSize {
-				if let event = data.withUnsafeBytes({ (ptr: UnsafePointer<CInputEvent>) in InputEvent(cInputEvent: ptr.pointee) }) {
-					handler.forEach { $0.notify(about: event, from: self.device) }
-				}
-			}
-		}
+		// private func handleReading(for handle: FileHandle) {
+		// 	guard !wantsStop else { return }
+		// 	guard handle === fileHandle else { return }
+		// 	let chunkSize = MemoryLayout<CInputEvent>.size
+		// 	let data = handle.readData(ofLength: chunkSize)
+		// 	if data.count == chunkSize {
+		// 		if let event = data.withUnsafeBytes({ (ptr: UnsafePointer<CInputEvent>) in InputEvent(cInputEvent: ptr.pointee) }) {
+		// 			handler.forEach { $0.notify(about: event, from: self.device) }
+		// 		}
+		// 	}
+		// }
 
 		func close() {
 			guard isOpen else { return }
