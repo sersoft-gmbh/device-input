@@ -2,21 +2,19 @@ import Foundation
 
 #if os(Linux)
 import Dispatch
+import Clibgrabdevice
 #endif
-
-// Copied from linux headers
-fileprivate let EVIOCGRAB = UInt(UnicodeScalar("E").value << 8 | 0x90)
 
 public struct InputDevice: Equatable {
 	public let eventFile: URL
 	private let streamer: Streamer
 
-	public init(eventFile: URL) throws {
+	public init(eventFile: URL, grabDevice: Bool = true) throws {
 		let resolvedFile = eventFile.resolvingSymlinksInPath()
 		// guard FileManager.default.fileExists(atPath: resolvedFile.path) else { return nil }
 		// guard let streamer = Streamer(file: resolvedFile) else { return nil }
 		self.eventFile = eventFile
-		self.streamer = try Streamer(file: resolvedFile)
+		self.streamer = try Streamer(file: resolvedFile, grabDevice: grabDevice)
 		self.streamer.device = self
 	}
 
@@ -69,25 +67,29 @@ fileprivate extension InputDevice {
 		private let workerQueue = DispatchQueue(label: "de.sersoft.deviceinput.inputdevice.streamer.worker")
 
 		let fileHandle: FileHandle
+		let grabDevice: Bool
+
 		var device: InputDevice! = nil
+		var handler: Set<InputDevice.EventConsumer> = []
 
 		private var isOpen = false
 		private var isStreaming = false
 		private var wantsStop = false
 
-		var handler: Set<InputDevice.EventConsumer> = []
-
-		init(file: URL) throws {
-			fileHandle = try FileHandle(forReadingFrom: file)
+		init(file: URL, grabDevice: Bool) throws {
+			self.fileHandle = try FileHandle(forReadingFrom: file)
+			self.grabDevice = grabDevice
 		}
 
 		deinit { close() }
 
 		func open() {
 			guard !isOpen else { return }
-			if ioctl(fileHandle.fileDescriptor, EVIOCGRAB, 1) != 0 {
-				print("Failed to grab exclusive rights on file ptr (\(errno))!")
-			}
+			#if os(Linux)
+				if grabDevice && grab_device(fileHandle.fileDescriptor) != 0 {
+					print("Failed to grab exclusive rights on file ptr (\(errno))!")
+				}
+			#endif
 			isOpen = true
 		}
 
@@ -143,9 +145,11 @@ fileprivate extension InputDevice {
 
 		func close() {
 			guard isOpen else { return }
-			if ioctl(fileHandle.fileDescriptor, EVIOCGRAB, 0) != 0 {
-				print("Failed to release exclusive rights on file ptr (\(errno))!")
-			}
+			#if os(Linux)
+				if grabDevice && release_device(fileHandle.fileDescriptor) != 0 {
+					print("Failed to release exclusive rights on file ptr (\(errno))!")
+				}
+			#endif
 			fileHandle.closeFile()
 			isOpen = false
 		}
