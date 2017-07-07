@@ -5,6 +5,7 @@ import class Dispatch.DispatchQueue
 
 #if os(Linux)
 import Clibgrabdevice
+import Glibc
 #endif
 
 public struct InputDevice: Equatable {
