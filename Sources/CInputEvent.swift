@@ -11,5 +11,5 @@ internal struct CInputEvent {
     let value: CUnsignedInt
 
     // Instances are created by the system. No init needed. This gets optimized away by the compiler.
-    private init() { time = timeval(); type = CUnsignedShort(); code = CUnsignedShort(); value = CUnsignedInt() }
+    private init() { time = .init(); type = .init(); code = .init(); value = .init() }
 }

@@ -1,4 +1,4 @@
-import Foundation
+import struct Foundation.Date
 
 public struct InputEvent: Hashable {
 	public let date: Date

@@ -1,7 +1,9 @@
-import Foundation
+import struct Foundation.URL
+import struct Foundation.UUID
+import class Foundation.FileHandle
+import class Dispatch.DispatchQueue
 
 #if os(Linux)
-import Dispatch
 import Clibgrabdevice
 #endif
 
@@ -107,10 +109,10 @@ fileprivate extension InputDevice {
 				let chunkSize = MemoryLayout<CInputEvent>.size
 				while !self.wantsStop {
 					let data = self.fileHandle.readData(ofLength: chunkSize)
-					if data.count == chunkSize,
-						let event = data.withUnsafeBytes({ (ptr: UnsafePointer<CInputEvent>) in InputEvent(cInputEvent: ptr.pointee) }) {
-							self.handler.forEach { $0.notify(about: event, from: self.device) }
-					}
+                    if data.count == chunkSize,
+                        let event = data.withUnsafeBytes({ InputEvent(cInputEvent: $0.pointee) }) {
+                        self.handler.forEach { $0.notify(about: event, from: self.device) }
+                    }
 				}
 			}
 			// fileHandle.readabilityHandler = { [weak self] handle in

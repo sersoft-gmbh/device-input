@@ -3,6 +3,8 @@ public extension InputEvent {
 		public typealias RawValue = CUnsignedInt
 
 		public let rawValue: RawValue
+        
+        public var hashValue: Int { return rawValue.hashValue }
 
 		public init(rawValue: RawValue) {
 			self.rawValue = rawValue
