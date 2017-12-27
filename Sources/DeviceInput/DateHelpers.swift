@@ -1,5 +1,5 @@
 #if os(Linux)
-    import struct GlibC.timeval
+    import struct Glibc.timeval
 #else
     import struct Darwin.timeval
 #endif
