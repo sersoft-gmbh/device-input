@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Clibgrabdevice",
+        "repositoryURL": "https://github.com/sersoft-gmbh/Clibgrabdevice.git",
+        "state": {
+          "branch": null,
+          "revision": "4ddc5d7777ef06cd2c7607afc3c511a833ee33fd",
+          "version": "1.0.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
