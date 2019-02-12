@@ -4,9 +4,7 @@ public extension InputEvent {
 
 		public let rawValue: RawValue
         
-        public var hashValue: Int { return rawValue.hashValue }
-
-		public init(rawValue: RawValue) {
+        public init(rawValue: RawValue) {
 			self.rawValue = rawValue
 		}
 	}
