@@ -48,20 +48,22 @@ public extension InputDevice {
 		public let queue: DispatchQueue
 		public let handler: (InputDevice, InputEvent) -> Void
 
-		public var hashValue: Int { return uuid.hashValue }
+        public init(queue: DispatchQueue, handler: @escaping (InputDevice, InputEvent) -> Void) {
+            self.queue = queue
+            self.handler = handler
+        }
 
-		fileprivate func notify(about event: InputEvent, from device: InputDevice) {
-			queue.async { self.handler(device, event) }
-		}
+        public func hash(into hasher: inout Hasher) {
+            hasher.combine(uuid)
+        }
 
 		public static func ==(lhs: InputDevice.EventConsumer, rhs: InputDevice.EventConsumer) -> Bool {
 			return lhs.uuid == rhs.uuid
 		}
 
-		public init(queue: DispatchQueue, handler: @escaping (InputDevice, InputEvent) -> Void) {
-			self.queue = queue
-			self.handler = handler
-		}
+        fileprivate func notify(about event: InputEvent, from device: InputDevice) {
+            queue.async { self.handler(device, event) }
+        }
 	}
 }
 
