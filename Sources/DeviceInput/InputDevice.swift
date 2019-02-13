@@ -99,16 +99,14 @@ fileprivate extension InputDevice {
 		}
 
 		func beginStreaming() {
-			guard !isStreaming else { return }
 			if wantsStop {
 				// Wait for the current stream to stop.
 				workerQueue.sync { wantsStop = false }
 			}
+            guard !isStreaming else { return }
 			open()
-			// This will crash on linux on event files...
-			// fileHandle.seekToEndOfFile()
-			workerQueue.async { [weak self] in
-				guard let `self` = self else { return }
+			workerQueue.async {
+                defer { self.isStreaming = false }
 				let chunkSize = MemoryLayout<CInputEvent>.size
 				while !self.wantsStop {
 					let data = self.fileHandle.readData(ofLength: chunkSize)
@@ -118,36 +116,13 @@ fileprivate extension InputDevice {
                     }
 				}
 			}
-			// fileHandle.readabilityHandler = { [weak self] handle in
-			// 	self?.handleReading(for: handle)
-			// }
-			// fileHandle.waitForDataInBackgroundAndNotify()
-			// notificationObserver = NotificationCenter.default.addObserver(forName: .NSFileHandleDataAvailable, object: fileHandle, queue: nil) { [weak self] _ in
-			// 	guard let `self` = self else { return }
-			// 	self.handleReading(for: self.fileHandle)
-			// }
 			isStreaming = true
 		}
 
 		func endStreaming() {
 			guard isStreaming else { return }
 			wantsStop = true
-			// fileHandle.readabilityHandler = nil
-			// NotificationCenter.default.removeObserver(notificationObserver)
-			isStreaming = false
 		}
-
-		// private func handleReading(for handle: FileHandle) {
-		// 	guard !wantsStop else { return }
-		// 	guard handle === fileHandle else { return }
-		// 	let chunkSize = MemoryLayout<CInputEvent>.size
-		// 	let data = handle.readData(ofLength: chunkSize)
-		// 	if data.count == chunkSize {
-		// 		if let event = data.withUnsafeBytes({ (ptr: UnsafePointer<CInputEvent>) in InputEvent(cInputEvent: ptr.pointee) }) {
-		// 			handler.forEach { $0.notify(about: event, from: self.device) }
-		// 		}
-		// 	}
-		// }
 
 		func close() {
 			guard isOpen else { return }
