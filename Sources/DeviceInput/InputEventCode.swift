@@ -1,4 +1,4 @@
-public extension InputEvent {
+extension InputEvent {
 	public struct Code: RawRepresentable, Hashable {
 		public typealias RawValue = CUnsignedShort
 
@@ -10,7 +10,7 @@ public extension InputEvent {
 	}
 }
 
-public extension InputEvent.Code {
+extension InputEvent.Code {
 	public var stringValue: String? {
 		return InputEvent.Code.keyCodeMapping[rawValue]
 	}

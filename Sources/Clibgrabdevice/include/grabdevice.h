@@ -1,5 +1,5 @@
-#ifndef _LIBGRABDEVICE_H
-#define _LIBGRABDEVICE_H
+#ifndef _GRABDEVICE_H
+#define _GRABDEVICE_H
 
 #if __has_include(<linux/input.h>)
 #define _CAN_GRAB 1

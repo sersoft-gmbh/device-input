@@ -5,18 +5,18 @@
 #include <linux/input.h>
 #endif
 
-inline _GRAB_CONST int grab_device(_GRAB_UNUSED int fd) {
+static inline _GRAB_CONST int _perform_grab_action(_GRAB_UNUSED int fd, _GRAB_UNUSED int action) {
 #if _CAN_GRAB
-	return ioctl(fd, EVIOCGRAB, 1);
+    return ioctl(fd, EVIOCGRAB, (void *)action);
 #else
     return 0;
 #endif
 }
 
+inline _GRAB_CONST int grab_device(_GRAB_UNUSED int fd) {
+    return _perform_grab_action(fd, 1);
+}
+
 inline _GRAB_CONST int release_device(_GRAB_UNUSED int fd) {
-#if _CAN_GRAB
-    return ioctl(fd, EVIOCGRAB, 0);
-#else
-    return 0;
-#endif
+    return _perform_grab_action(fd, 0);
 }

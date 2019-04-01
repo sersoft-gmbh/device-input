@@ -4,8 +4,8 @@ import class Foundation.FileHandle
 import class Dispatch.DispatchQueue
 
 #if os(Linux)
-import Clibgrabdevice
 import Glibc
+import Clibgrabdevice
 #endif
 
 public struct InputDevice: Equatable {
@@ -13,11 +13,8 @@ public struct InputDevice: Equatable {
 	private let streamer: Streamer
 
 	public init(eventFile: URL, grabDevice: Bool = true) throws {
-		let resolvedFile = eventFile.resolvingSymlinksInPath()
-		// guard FileManager.default.fileExists(atPath: resolvedFile.path) else { return nil }
-		// guard let streamer = Streamer(file: resolvedFile) else { return nil }
 		self.eventFile = eventFile
-		self.streamer = try Streamer(file: resolvedFile, grabDevice: grabDevice)
+		self.streamer = try Streamer(file: eventFile, grabDevice: grabDevice)
 		self.streamer.device = self
 	}
 
@@ -42,7 +39,7 @@ public struct InputDevice: Equatable {
 	}
 }
 
-public extension InputDevice {
+extension InputDevice {
 	public struct EventConsumer: Hashable {
 		private let uuid = UUID()
 		public let queue: DispatchQueue
@@ -68,7 +65,7 @@ public extension InputDevice {
 }
 
 fileprivate extension InputDevice {
-	fileprivate final class Streamer {
+	final class Streamer {
 		private let workerQueue = DispatchQueue(label: "de.sersoft.deviceinput.inputdevice.streamer.worker")
 
 		let fileHandle: FileHandle
@@ -82,7 +79,7 @@ fileprivate extension InputDevice {
 		private var wantsStop = false
 
 		init(file: URL, grabDevice: Bool) throws {
-			self.fileHandle = try FileHandle(forReadingFrom: file)
+			self.fileHandle = try FileHandle(forReadingFrom: file.resolvingSymlinksInPath())
 			self.grabDevice = grabDevice
 		}
 
@@ -110,10 +107,19 @@ fileprivate extension InputDevice {
 				let chunkSize = MemoryLayout<CInputEvent>.size
 				while !self.wantsStop {
 					let data = self.fileHandle.readData(ofLength: chunkSize)
+                    #if swift(>=5.0)
+                    if data.count.isMultiple(of: chunkSize) {
+                        data.withUnsafeBytes { $0.bindMemory(to: CInputEvent.self).compactMap { InputEvent(cInputEvent: $0) } }
+                            .forEach { event in
+                                self.handler.forEach { $0.notify(about: event, from: self.device) }
+                        }
+                    }
+                    #else
                     if data.count == chunkSize,
                         let event = data.withUnsafeBytes({ InputEvent(cInputEvent: $0.pointee) }) {
                         self.handler.forEach { $0.notify(about: event, from: self.device) }
                     }
+                    #endif
 				}
 			}
 			isStreaming = true

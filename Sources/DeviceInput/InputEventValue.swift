@@ -1,4 +1,4 @@
-public extension InputEvent {
+extension InputEvent {
 	public struct Value: RawRepresentable, Hashable {
 		public typealias RawValue = CUnsignedInt
 
@@ -10,7 +10,7 @@ public extension InputEvent {
 	}
 }
 
-public extension InputEvent.Value {
+extension InputEvent.Value {
 	public static let keyUp = InputEvent.Value(rawValue: 0)
 	public static let keyDown = InputEvent.Value(rawValue: 1)
 }

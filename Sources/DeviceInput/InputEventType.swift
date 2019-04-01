@@ -15,7 +15,7 @@
 #define EV_CNT			(EV_MAX+1)
 */
 
-public extension InputEvent {
+extension InputEvent {
 	public enum Kind: CUnsignedShort {
 		case syn = 0x00
 		case key = 0x01
