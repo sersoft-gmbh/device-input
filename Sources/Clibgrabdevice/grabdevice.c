@@ -7,7 +7,7 @@
 
 static inline _GRAB_CONST int _perform_grab_action(_GRAB_UNUSED int fd, _GRAB_UNUSED int action) {
 #if _CAN_GRAB
-    return ioctl(fd, EVIOCGRAB, (void *)action);
+    return ioctl(fd, EVIOCGRAB, action);
 #else
     return 0;
 #endif
