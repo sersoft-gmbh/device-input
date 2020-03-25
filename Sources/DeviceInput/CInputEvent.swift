@@ -8,7 +8,7 @@
 * It's crucial that this is not changed and matches the C Struct exactly.
 * Otherwise it might not be possible to read events!
 */
-internal struct CInputEvent {
+struct CInputEvent {
     let time: timeval
     let type: CUnsignedShort
     let code: CUnsignedShort

@@ -1,6 +1,8 @@
 import XCTest
-@testable import DeviceInputTests
 
-XCTMain([
-     testCase(DeviceInputTests.allTests),
-])
+import DeviceInputTests
+
+var tests = [XCTestCaseEntry]()
+tests += DeviceInputTests.__allTests()
+
+XCTMain(tests)

@@ -107,19 +107,12 @@ fileprivate extension InputDevice {
 				let chunkSize = MemoryLayout<CInputEvent>.size
 				while !self.wantsStop {
 					let data = self.fileHandle.readData(ofLength: chunkSize)
-                    #if swift(>=5.0)
                     if data.count.isMultiple(of: chunkSize) {
                         data.withUnsafeBytes { $0.bindMemory(to: CInputEvent.self).compactMap { InputEvent(cInputEvent: $0) } }
                             .forEach { event in
                                 self.handler.forEach { $0.notify(about: event, from: self.device) }
                         }
                     }
-                    #else
-                    if data.count == chunkSize,
-                        let event = data.withUnsafeBytes({ InputEvent(cInputEvent: $0.pointee) }) {
-                        self.handler.forEach { $0.notify(about: event, from: self.device) }
-                    }
-                    #endif
 				}
 			}
 			isStreaming = true
