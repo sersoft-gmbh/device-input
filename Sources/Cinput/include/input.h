@@ -33,7 +33,7 @@ struct input_event {
 };
 #endif
 
-// The following teypdefs and 
+// The following teypdefs and functions are convenience APIs
 typedef __u16 input_event_type;
 typedef __u16 input_event_code;
 typedef __s32 input_event_value;
