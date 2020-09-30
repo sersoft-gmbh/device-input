@@ -1,6 +1,8 @@
+import Cinput
+
 extension InputEvent {
 	public struct Value: RawRepresentable, Hashable {
-		public typealias RawValue = CUnsignedInt
+		public typealias RawValue = input_event_value
 
 		public let rawValue: RawValue
         

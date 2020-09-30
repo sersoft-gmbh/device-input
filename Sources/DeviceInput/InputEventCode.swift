@@ -1,6 +1,8 @@
+import Cinput
+
 extension InputEvent {
 	public struct Code: RawRepresentable, Hashable {
-		public typealias RawValue = CUnsignedShort
+		public typealias RawValue = input_event_code
 
 		public let rawValue: RawValue
 
@@ -11,9 +13,7 @@ extension InputEvent {
 }
 
 extension InputEvent.Code {
-	public var stringValue: String? {
-		return InputEvent.Code.keyCodeMapping[rawValue]
-	}
+	public var stringValue: String? { InputEvent.Code.keyCodeMapping[rawValue] }
 }
 
 fileprivate extension InputEvent.Code {

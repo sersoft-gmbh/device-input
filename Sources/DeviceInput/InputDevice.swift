@@ -1,42 +1,67 @@
-import struct Foundation.URL
-import struct Foundation.UUID
-import class Foundation.FileHandle
 import class Dispatch.DispatchQueue
-
-#if os(Linux)
-import Glibc
-import Clibgrabdevice
-#endif
+import class Dispatch.DispatchSource
+import protocol Dispatch.DispatchSourceFileSystemObject
+import func Dispatch.dispatchPrecondition
+import struct Foundation.UUID
+import Cinput
+import SystemPackage
 
 public struct InputDevice: Equatable {
-	public let eventFile: URL
-	private let streamer: Streamer
+    public let eventFile: FilePath
+    public let grabsDevice: Bool
 
-	public init(eventFile: URL, grabDevice: Bool = true) throws {
+	public init(eventFile: FilePath, grabDevice: Bool = true) {
 		self.eventFile = eventFile
-		self.streamer = try Streamer(file: eventFile, grabDevice: grabDevice)
-		self.streamer.device = self
+        self.grabsDevice = grabDevice
 	}
 
-	public static func ==(lhs: InputDevice, rhs: InputDevice) -> Bool {
-		return lhs.eventFile == rhs.eventFile
+	public func startReceivingEvents(informing eventConsumer: EventConsumer) throws {
+        let streamer = InputDevice.makeStreamer(for: self)
+        streamer.addHandler(eventConsumer)
+        try streamer.beginStreaming()
 	}
 
-	public func startReceivingEvents() {
-		streamer.beginStreaming()
-	}
-
-	public func stopReceivingEvents() {
-		streamer.endStreaming()
+	public func stopReceivingEvents() throws {
+        guard let streamer = InputDevice.removeStreamer(for: self) else { return }
+        try streamer.close()
 	}
 
 	public func add(eventConsumer: EventConsumer) {
-		streamer.handler.insert(eventConsumer)
+        InputDevice.streamer(for: self)?.addHandler(eventConsumer)
 	}
 
 	public func remove(eventConsumer: EventConsumer) {
-		streamer.handler.remove(eventConsumer)
+        InputDevice.streamer(for: self)?.removeHandler(eventConsumer)
 	}
+
+    public static func ==(lhs: Self, rhs: Self) -> Bool {
+        lhs.eventFile == rhs.eventFile
+    }
+}
+
+extension InputDevice {
+    private static let fileStreamersLock = DispatchQueue(label: "de.sersoft.deviceinput.inputdevice.streamers.lock")
+    private static var fileStreamers: [FilePath: Streamer] = [:]
+
+    fileprivate static func streamer(for device: InputDevice) -> Streamer? {
+        dispatchPrecondition(condition: .notOnQueue(fileStreamersLock))
+        return fileStreamersLock.sync { fileStreamers[device.eventFile] }
+    }
+
+    fileprivate static func makeStreamer(for device: InputDevice) -> Streamer {
+        dispatchPrecondition(condition: .notOnQueue(fileStreamersLock))
+        return fileStreamersLock.sync {
+            if let existingStreamer = fileStreamers[device.eventFile] { return existingStreamer }
+            let newStreamer = Streamer(inputDevice: device)
+            fileStreamers[device.eventFile] = newStreamer
+            return newStreamer
+        }
+    }
+
+    fileprivate static func removeStreamer(for device: InputDevice) -> Streamer? {
+        dispatchPrecondition(condition: .notOnQueue(fileStreamersLock))
+        return fileStreamersLock.sync { fileStreamers.removeValue(forKey: device.eventFile) }
+    }
 }
 
 extension InputDevice {
@@ -54,84 +79,163 @@ extension InputDevice {
             hasher.combine(uuid)
         }
 
-		public static func ==(lhs: InputDevice.EventConsumer, rhs: InputDevice.EventConsumer) -> Bool {
-			return lhs.uuid == rhs.uuid
+		public static func ==(lhs: Self, rhs: Self) -> Bool {
+			lhs.uuid == rhs.uuid
 		}
 
         fileprivate func notify(about event: InputEvent, from device: InputDevice) {
-            queue.async { self.handler(device, event) }
+            queue.async { handler(device, event) }
         }
 	}
 }
 
-fileprivate extension InputDevice {
-	final class Streamer {
-		private let workerQueue = DispatchQueue(label: "de.sersoft.deviceinput.inputdevice.streamer.worker")
+extension InputDevice {
+    fileprivate final class Streamer {
+        private enum State {
+            case closed
+            case open(FileDescriptor)
+            case streaming(FileDescriptor, DispatchSourceFileSystemObject)
+        }
 
-		let fileHandle: FileHandle
-		let grabDevice: Bool
+        private struct Storage {
+            var state: State = .closed
+            var handler: Set<InputDevice.EventConsumer> = []
+        }
 
-		var device: InputDevice! = nil
-		var handler: Set<InputDevice.EventConsumer> = []
+        let device: InputDevice
 
-		private var isOpen = false
-		private var isStreaming = false
-		private var wantsStop = false
+        private let storageLock = DispatchQueue(label: "de.sersoft.deviceinput.inputdevice.streamer.storage.lock")
+        private var storage = Storage()
 
-		init(file: URL, grabDevice: Bool) throws {
-			self.fileHandle = try FileHandle(forReadingFrom: file.resolvingSymlinksInPath())
-			self.grabDevice = grabDevice
+		init(inputDevice: InputDevice) {
+            device = inputDevice
 		}
 
-		deinit { close() }
+		deinit {
+            do {
+                try close()
+            } catch {
+                print("Trying to close the file descriptor at \(device.eventFile) on streamer deallocation failed: \(error)")
+            }
+        }
 
-		func open() {
-			guard !isOpen else { return }
-			#if os(Linux)
-				if grabDevice && grab_device(fileHandle.fileDescriptor) != 0 {
-					print("Failed to grab exclusive rights on file ptr (\(errno))!")
-				}
-			#endif
-			isOpen = true
+        private func withStorage<T>(do work: (inout Storage) throws -> T) rethrows -> T {
+            dispatchPrecondition(condition: .notOnQueue(storageLock))
+            return try storageLock.sync { try work(&storage) }
+        }
+
+        private func withStorageValue<Value, T>(_ keyPath: WritableKeyPath<Storage, Value>, do work: (inout Value) throws -> T) rethrows -> T {
+            try withStorage { try work(&$0[keyPath: keyPath]) }
+        }
+
+        private func getStorageValue<Value>(for keyPath: KeyPath<Storage, Value>) -> Value {
+            withStorage { $0[keyPath: keyPath] }
+        }
+
+        func addHandler(_ handler: EventConsumer) {
+            withStorageValue(\.handler) { _ = $0.insert(handler) }
+        }
+
+        func removeHandler(_ handler: EventConsumer) {
+            withStorageValue(\.handler) { _ = $0.remove(handler) }
+        }
+
+		func open() throws {
+            try withStorageValue(\.state) {
+                guard case .closed = $0 else { return }
+                $0 = try .open(_open())
+            }
 		}
 
-		func beginStreaming() {
-			if wantsStop {
-				// Wait for the current stream to stop.
-				workerQueue.sync { wantsStop = false }
-			}
-            guard !isStreaming else { return }
-			open()
-			workerQueue.async {
-                defer { self.isStreaming = false }
-				let chunkSize = MemoryLayout<CInputEvent>.size
-				while !self.wantsStop {
-					let data = self.fileHandle.readData(ofLength: chunkSize)
-                    if data.count.isMultiple(of: chunkSize) {
-                        data.withUnsafeBytes { $0.bindMemory(to: CInputEvent.self).compactMap { InputEvent(cInputEvent: $0) } }
-                            .forEach { event in
-                                self.handler.forEach { $0.notify(about: event, from: self.device) }
+        private func _open() throws -> FileDescriptor {
+            let descriptor = try FileDescriptor.open(device.eventFile, .readOnly)
+            if device.grabsDevice {
+                do {
+                    try descriptor.takeGrab()
+                } catch {
+                    do {
+                        try descriptor.close()
+                    } catch {
+                        print("Grabbing the device at \(device.eventFile) threw an error and trying to close the file descriptor failed: \(error)")
+                    }
+                    throw error
+                }
+            }
+            return descriptor
+        }
+
+        func beginStreaming() throws {
+            try withStorageValue(\.state) {
+                switch $0 {
+                case .closed:
+                    let fileDesc = try _open()
+                    $0 = try .streaming(fileDesc, _beginStreaming(from: fileDesc))
+                case .open(let fileDesc):
+                    $0 = try .streaming(fileDesc, _beginStreaming(from: fileDesc))
+                case .streaming(_, _): return
+                }
+            }
+        }
+
+        private func _beginStreaming(from fileDesc: FileDescriptor) throws -> DispatchSourceFileSystemObject {
+            let workerQueue = DispatchQueue(label: "de.sersoft.deviceinput.inputdevice.streamer.worker")
+            let source = DispatchSource.makeFileSystemObjectSource(fileDescriptor: fileDesc.rawValue, eventMask: [.write, .extend], queue: workerQueue)
+            source.setEventHandler(handler: { [unowned self] in
+                do {
+                    let buffer = UnsafeMutableBufferPointer<input_event>.allocate(capacity: 1)
+                    defer { buffer.deallocate() }
+                    let bytesRead = try fileDesc.read(into: UnsafeMutableRawBufferPointer(buffer))
+                    if bytesRead.isMultiple(of: MemoryLayout<input_event>.size) {
+                        buffer.lazy.compactMap { InputEvent(cInputEvent: $0) }.forEach { event in
+                            self.getStorageValue(for: \.handler).forEach { $0.notify(about: event, from: self.device) }
+                        }
+                    } else {
+                        do {
+                            try fileDesc.seek(offset: Int64(-bytesRead), from: .current)
+                        } catch {
+                            print("File handle did not contain enough data, but seeking back failed: \(error)")
                         }
                     }
-				}
-			}
-			isStreaming = true
+                } catch {
+                    print("Failed to read from event file: \(error)")
+                }
+            })
+            source.activate()
+            source.resume()
+            return source
 		}
 
-		func endStreaming() {
-			guard isStreaming else { return }
-			wantsStop = true
+		func endStreaming() throws {
+            try withStorageValue(\.state) {
+                guard case .streaming(let fileDesc, let source) = $0 else { return }
+                try _endStreaming(of: source)
+                $0 = .open(fileDesc)
+            }
 		}
 
-		func close() {
-			guard isOpen else { return }
-			#if os(Linux)
-				if grabDevice && release_device(fileHandle.fileDescriptor) != 0 {
-					print("Failed to release exclusive rights on file ptr (\(errno))!")
-				}
-			#endif
-			fileHandle.closeFile()
-			isOpen = false
+        private func _endStreaming(of source: DispatchSourceFileSystemObject) throws {
+            source.cancel()
+        }
+
+		func close() throws {
+            try withStorageValue(\.state) {
+                switch $0 {
+                case .closed: return
+                case .streaming(let fileDesc, let source):
+                    try _endStreaming(of: source)
+                    fallthrough
+                case .open(let fileDesc): try _close(fileDesc)
+                }
+                $0 = .closed
+            }
 		}
+
+        private func _close(_ fileDesc: FileDescriptor) throws {
+            try fileDesc.closeAfter {
+                if device.grabsDevice {
+                    try fileDesc.releaseGrab()
+                }
+            }
+        }
 	}
 }

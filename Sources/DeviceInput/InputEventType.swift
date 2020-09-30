@@ -1,3 +1,5 @@
+import Cinput
+
 /*
 #define EV_SYN			0x00
 #define EV_KEY			0x01
@@ -16,7 +18,7 @@
 */
 
 extension InputEvent {
-	public enum Kind: CUnsignedShort {
+	public enum Kind: input_event_type {
 		case syn = 0x00
 		case key = 0x01
 		case rel = 0x02
@@ -30,7 +32,7 @@ extension InputEvent {
 		case pwr = 0x16
 		case ffStatus = 0x17
 
-		case max = 0x1f
-		case cnt = 0x20 //(0x1f + 1)
+        static var max: RawValue { 0x1f }
+        static var cnt: RawValue { max + 1 }
 	}
 }
