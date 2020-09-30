@@ -178,6 +178,7 @@ extension InputDevice {
         private func _beginStreaming(from fileDesc: FileDescriptor) throws -> FileSource {
             let workerQueue = DispatchQueue(label: "de.sersoft.deviceinput.inputdevice.streamer.worker")
             let source = DispatchSource.makeReadSource(fileDescriptor: fileDesc.rawValue, queue: workerQueue)
+            // This is not available on linux...
 //                .makeFileSystemObjectSource(fileDescriptor: fileDesc.rawValue, eventMask: [.write, .extend], queue: workerQueue)
             source.setEventHandler(handler: { [unowned self] in
                 do {
@@ -200,7 +201,6 @@ extension InputDevice {
                 }
             })
             source.activate()
-//            source.resume()
             return source
 		}
 
