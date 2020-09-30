@@ -1,7 +1,4 @@
-import class Dispatch.DispatchQueue
-import class Dispatch.DispatchSource
-import protocol Dispatch.DispatchSourceFileSystemObject
-import func Dispatch.dispatchPrecondition
+import Dispatch
 import struct Foundation.UUID
 import Cinput
 import SystemPackage
@@ -91,10 +88,11 @@ extension InputDevice {
 
 extension InputDevice {
     fileprivate final class Streamer {
+        private typealias FileSource = DispatchSourceRead
         private enum State {
             case closed
             case open(FileDescriptor)
-            case streaming(FileDescriptor, DispatchSourceFileSystemObject)
+            case streaming(FileDescriptor, FileSource)
         }
 
         private struct Storage {
@@ -177,9 +175,10 @@ extension InputDevice {
             }
         }
 
-        private func _beginStreaming(from fileDesc: FileDescriptor) throws -> DispatchSourceFileSystemObject {
+        private func _beginStreaming(from fileDesc: FileDescriptor) throws -> FileSource {
             let workerQueue = DispatchQueue(label: "de.sersoft.deviceinput.inputdevice.streamer.worker")
-            let source = DispatchSource.makeFileSystemObjectSource(fileDescriptor: fileDesc.rawValue, eventMask: [.write, .extend], queue: workerQueue)
+            let source = DispatchSource.makeReadSource(fileDescriptor: fileDesc.rawValue, queue: workerQueue)
+//                .makeFileSystemObjectSource(fileDescriptor: fileDesc.rawValue, eventMask: [.write, .extend], queue: workerQueue)
             source.setEventHandler(handler: { [unowned self] in
                 do {
                     let buffer = UnsafeMutableBufferPointer<input_event>.allocate(capacity: 1)
@@ -213,7 +212,7 @@ extension InputDevice {
             }
 		}
 
-        private func _endStreaming(of source: DispatchSourceFileSystemObject) throws {
+        private func _endStreaming(of source: FileSource) throws {
             source.cancel()
         }
 
