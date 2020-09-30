@@ -200,7 +200,7 @@ extension InputDevice {
                 }
             })
             source.activate()
-            source.resume()
+//            source.resume()
             return source
 		}
 
