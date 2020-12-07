@@ -4,7 +4,7 @@
 ![Tests](https://github.com/sersoft-gmbh/device-input/workflows/Tests/badge.svg)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/1c5dcd572904497db008ad2eb49e7a59)](https://www.codacy.com/gh/sersoft-gmbh/device-input/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sersoft-gmbh/device-input&amp;utm_campaign=Badge_Grade)
 [![codecov](https://codecov.io/gh/sersoft-gmbh/device-input/branch/master/graph/badge.svg?token=LXIl04FQV7)](https://codecov.io/gh/sersoft-gmbh/device-input)
-[![jazzy](https://raw.githubusercontent.com/sersoft-gmbh/device-input./gh-pages/badge.svg?sanitize=true)](https://sersoft-gmbh.github.io/device-input.)
+[![jazzy](https://raw.githubusercontent.com/sersoft-gmbh/device-input/gh-pages/badge.svg?sanitize=true)](https://sersoft-gmbh.github.io/device-input)
 
 Processes inputs read from `/dev/input` device streams.
 
