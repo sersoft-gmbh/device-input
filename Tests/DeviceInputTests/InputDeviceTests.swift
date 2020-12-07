@@ -133,15 +133,15 @@ final class InputDeviceTests: XCTestCase {
         let consumer3 = InputDevice.EventConsumer(queue: DispatchQueue(label: "consumer3")) { _, _ in }
         let consumer4 = InputDevice.EventConsumer(queue: DispatchQueue(label: "consumer4")) { _, _ in }
         let inputDevice = InputDevice(eventFile: FilePath(eventFile))
-        inputDevice.add(eventConsumer: consumer1)
+        inputDevice.addEventConsumer(consumer1)
         try inputDevice.startReceivingEvents(informing: consumer2)
-        inputDevice.add(eventConsumer: consumer3)
+        inputDevice.addEventConsumer(consumer3)
         try inputDevice.startReceivingEvents(informing: consumer4)
-        inputDevice.remove(eventConsumer: consumer1)
+        inputDevice.removeEventConsumer(consumer1)
         try inputDevice.stopReceivingEvents()
-        inputDevice.remove(eventConsumer: consumer2)
+        inputDevice.removeEventConsumer(consumer2)
         try inputDevice.startReceivingEvents(informing: consumer2)
-        inputDevice.remove(eventConsumer: consumer2)
+        inputDevice.removeEventConsumer(consumer2)
         try inputDevice.stopReceivingEvents()
     }
 }
