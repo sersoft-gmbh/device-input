@@ -2,10 +2,15 @@ import struct Foundation.Date
 import typealias Foundation.TimeInterval
 import Cinput
 
+/// Describes an input event.
 public struct InputEvent: Hashable {
+    /// The timestamp of the event.
 	public let date: Date
+    /// The kind of event.
 	public let kind: Kind
+    /// The code of the event.
 	public let code: Code
+    /// The value of the event.
 	public let value: Value
 
 	internal init?(cInputEvent: input_event) {

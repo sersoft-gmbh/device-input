@@ -1,11 +1,16 @@
 import Cinput
 
 extension InputEvent {
+    /// Contains the code of an input event.
+    @frozen
 	public struct Code: RawRepresentable, Hashable {
+        /// inherited
 		public typealias RawValue = input_event_code
 
+        /// inherited
 		public let rawValue: RawValue
 
+        /// inherited
 		public init(rawValue: RawValue) {
 			self.rawValue = rawValue
 		}
@@ -13,11 +18,13 @@ extension InputEvent {
 }
 
 extension InputEvent.Code {
-	public var stringValue: String? { InputEvent.Code.keyCodeMapping[rawValue] }
+    /// Returns the character value of the event code if available.
+    /// Certain control codes (e.g. escape, shift, ...) don't have a character value.
+	public var character: Character? { InputEvent.Code.keyCodeMapping[rawValue] }
 }
 
 fileprivate extension InputEvent.Code {
-	static let keyCodeMapping: [InputEvent.Code.RawValue: String] = [
+	static let keyCodeMapping: [InputEvent.Code.RawValue: Character] = [
 	//    0: "RESERVED",
 	//    1: "ESC",
 	    2: "1",
@@ -71,9 +78,9 @@ fileprivate extension InputEvent.Code {
 	    50: "m",
 	    51: ",", // COMMA
 	    52: ".", // DOT
-	   53: "/", // SLASH
+	    53: "/", // SLASH
 	//    54: "RIGHTSHIFT",
-	//    55: "KPASTERISK",
+	    55: "*", // KPASTERISK
 	//    56: "LEFTALT",
 	    57: " ", // SPACE
 	//    58: "CAPSLOCK",
@@ -89,19 +96,19 @@ fileprivate extension InputEvent.Code {
 	//    68: "F10",
 	//    69: "NUMLOCK",
 	//    70: "SCROLLLOCK",
-	//    71: "KP7",
-	//    72: "KP8",
-	//    73: "KP9",
-	//    74: "KPMINUS",
-	//    75: "KP4",
-	//    76: "KP5",
-	//    77: "KP6",
-	//    78: "KPPLUS",
-	//    79: "KP1",
-	//    80: "KP2",
-	//    81: "KP3",
-	//    82: "KP0",
-	//    83: "KPDOT",
+	    71: "7", // KP7
+	    72: "8", // KP8
+	    73: "9", // KP9
+	    74: "-", // KPMINUS
+	    75: "4", // KP4
+	    76: "5", // KP5
+	    77: "6", // KP6
+	    78: "+", // KPPLUS
+	    79: "1", // KP1
+	    80: "2", // KP2
+	    81: "3", // KP3
+	    82: "0", // KP0
+	    83: ".", // KPDOT
 	//    85: "ZENKAKUHANKAKU",
 	//    86: "102ND",
 	//    87: "F11",
@@ -112,10 +119,10 @@ fileprivate extension InputEvent.Code {
 	//    92: "HENKAN",
 	//    93: "KATAKANAHIRAGANA",
 	//    94: "MUHENKAN",
-	//    95: "KPJPCOMMA",
+	    95: ",", // KPJPCOMMA
 	//    96: "KPENTER",
 	//    97: "RIGHTCTRL",
-	//    98: "KPSLASH",
+	    98: "/", // KPSLASH
 	//    99: "SYSRQ",
 	//    100: "RIGHTALT",
 	    101: "\n", // LINEFEED
@@ -132,10 +139,10 @@ fileprivate extension InputEvent.Code {
 	    0x208: "8",
 	    0x209: "9",
 	    0x20a: "*", // NUMERIC_STAR
-	//    0x20b: "NUMERIC_POUND",
+	    0x20b: "#", // NUMERIC_POUND
 	    0x20c: "a", // NUMERIC_A
 	    0x20d: "b", // NUMERIC_B
 	    0x20e: "c", // NUMERIC_C
-	    0x20f: "d" // NUMERIC_D
+	    0x20f: "d", // NUMERIC_D
 	]
 }

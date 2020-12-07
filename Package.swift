@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "DeviceInput",
+    name: "device-input",
     platforms: [
         .macOS(.v10_12),
     ],
