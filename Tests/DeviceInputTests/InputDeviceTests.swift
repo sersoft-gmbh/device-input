@@ -51,7 +51,7 @@ final class InputDeviceTests: XCTestCase {
         let handle = try FileDescriptor.open(eventFile, .writeOnly,
                                              options: [.create, .append],
                                              permissions: [.ownerReadWrite, .groupReadWrite])
-        let inputDevice = InputDevice(eventFile: eventFile)
+        let inputDevice = InputDevice(eventFile: eventFile, grabDevice: false)
         let expect = expectation(description: "Waiting for events to be received")
         var (foundDevice, foundEvents): (InputDevice?, [InputEvent]) = (nil, [])
         let consumer = InputDevice.EventConsumer(queue: .global()) {
@@ -85,7 +85,7 @@ final class InputDeviceTests: XCTestCase {
         let handle = try FileDescriptor.open(eventFile, .writeOnly,
                                              options: [.create, .append],
                                              permissions: [.ownerReadWrite, .groupReadWrite])
-        let inputDevice = InputDevice(eventFile: eventFile)
+        let inputDevice = InputDevice(eventFile: eventFile, grabDevice: false)
         let expect = expectation(description: "Waiting for events to be received")
         let eventsToSend = [
             InputEvent.cEvent(date: Date(), kind: .keyStateChange, code: .init(rawValue: 5), value: .keyUp),
@@ -132,7 +132,7 @@ final class InputDeviceTests: XCTestCase {
         let consumer2 = InputDevice.EventConsumer(queue: DispatchQueue(label: "consumer2")) { _, _ in }
         let consumer3 = InputDevice.EventConsumer(queue: DispatchQueue(label: "consumer3")) { _, _ in }
         let consumer4 = InputDevice.EventConsumer(queue: DispatchQueue(label: "consumer4")) { _, _ in }
-        let inputDevice = InputDevice(eventFile: FilePath(eventFile))
+        let inputDevice = InputDevice(eventFile: FilePath(eventFile), grabDevice: false)
         inputDevice.addEventConsumer(consumer1)
         try inputDevice.startReceivingEvents(informing: consumer2)
         inputDevice.addEventConsumer(consumer3)
