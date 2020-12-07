@@ -53,4 +53,3 @@ If you find a bug / like to see a new feature in DeviceInput there are a few way
 ## License
 
 See [LICENSE](./LICENSE) file.
-
