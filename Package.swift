@@ -7,6 +7,9 @@ let package = Package(
     name: "device-input",
     platforms: [
         .macOS(.v10_12),
+        .iOS(.v10),
+        .tvOS(.v10),
+        .watchOS(.v3),
     ],
     products: [
         .library(name: "DeviceInput", targets: ["DeviceInput"]),
