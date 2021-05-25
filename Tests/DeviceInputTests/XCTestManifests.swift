@@ -1,4 +1,4 @@
-#if !canImport(ObjectiveC) && swift(<5.4)
+#if !canImport(ObjectiveC)
 import XCTest
 
 extension InputDeviceTests {
