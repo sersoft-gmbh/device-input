@@ -1,4 +1,4 @@
-#if !canImport(ObjectiveC)
+#if !canImport(ObjectiveC) && swift(<5.4)
 import XCTest
 
 extension InputDeviceTests {
@@ -10,7 +10,6 @@ extension InputDeviceTests {
         ("testEventConsumerHashable", testEventConsumerHashable),
         ("testEventParsing", testEventParsing),
         ("testMultipleEventsParsing", testMultipleEventsParsing),
-        ("testNoOpInvocationsOnInputDevice", testNoOpInvocationsOnInputDevice),
     ]
 }
 
