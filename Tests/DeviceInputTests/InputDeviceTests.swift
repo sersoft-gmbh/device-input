@@ -32,15 +32,6 @@ final class InputDeviceTests: XCTestCase {
         XCTAssertNotEqual(device2, device3)
     }
 
-    func testEventConsumerHashable() {
-        let consumer1 = InputDevice.EventConsumer(queue: .global(), handler: { _, _ in })
-        let consumer2 = InputDevice.EventConsumer(queue: .global(), handler: { _, _ in })
-        XCTAssertEqual(consumer1, consumer1)
-        XCTAssertNotEqual(consumer1, consumer2)
-        XCTAssertEqual(consumer1.hashValue, consumer1.hashValue)
-        XCTAssertNotEqual(consumer1.hashValue, consumer2.hashValue)
-    }
-
     func testEventParsing() throws {
         let tempDir = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
         try FileManager.default.createDirectory(at: tempDir, withIntermediateDirectories: true)
@@ -58,9 +49,9 @@ final class InputDeviceTests: XCTestCase {
             (foundDevice, foundEvents) = ($0, $1)
             expect.fulfill()
         }
-        try inputDevice.startReceivingEvents(informing: consumer)
+        let activeStream = try inputDevice.startStreaming(informing: consumer)
         defer {
-            try? inputDevice.stopReceivingEvents()
+            try? activeStream.stopStreaming()
         }
         var cEvent = InputEvent.cEvent(date: Date(), kind: .keyStateChange, code: .init(rawValue: 5), value: .keyUp)
         try handle.closeAfter {
@@ -103,9 +94,9 @@ final class InputDeviceTests: XCTestCase {
                 expect.fulfill()
             }
         }
-        try inputDevice.startReceivingEvents(informing: consumer)
+        let activeStream = try inputDevice.startStreaming(informing: consumer)
         defer {
-            try? inputDevice.stopReceivingEvents()
+            try? activeStream.stopStreaming()
         }
         try handle.closeAfter {
             try eventsToSend.dropLast(4).withUnsafeBytes {
@@ -118,30 +109,5 @@ final class InputDeviceTests: XCTestCase {
         waitForExpectations(timeout: 5)
         XCTAssertEqual(eventsToSend.count, foundEvents.count)
         XCTAssertEqual(foundEvents, eventsToSend.compactMap(InputEvent.init))
-    }
-
-    func testNoOpInvocationsOnInputDevice() throws {
-        let tempDir = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
-        try FileManager.default.createDirectory(at: tempDir, withIntermediateDirectories: true)
-        defer {
-            try? FileManager.default.removeItem(at: tempDir)
-        }
-        let eventFile = tempDir.appendingPathComponent("event_file").path
-        XCTAssertTrue(FileManager.default.createFile(atPath: eventFile, contents: nil))
-        let consumer1 = InputDevice.EventConsumer(queue: DispatchQueue(label: "consumer1")) { _, _ in }
-        let consumer2 = InputDevice.EventConsumer(queue: DispatchQueue(label: "consumer2")) { _, _ in }
-        let consumer3 = InputDevice.EventConsumer(queue: DispatchQueue(label: "consumer3")) { _, _ in }
-        let consumer4 = InputDevice.EventConsumer(queue: DispatchQueue(label: "consumer4")) { _, _ in }
-        let inputDevice = InputDevice(eventFile: FilePath(eventFile), grabDevice: false)
-        inputDevice.addEventConsumer(consumer1)
-        try inputDevice.startReceivingEvents(informing: consumer2)
-        inputDevice.addEventConsumer(consumer3)
-        try inputDevice.startReceivingEvents(informing: consumer4)
-        inputDevice.removeEventConsumer(consumer1)
-        try inputDevice.stopReceivingEvents()
-        inputDevice.removeEventConsumer(consumer2)
-        try inputDevice.startReceivingEvents(informing: consumer2)
-        inputDevice.removeEventConsumer(consumer2)
-        try inputDevice.stopReceivingEvents()
     }
 }

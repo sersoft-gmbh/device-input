@@ -24,31 +24,19 @@ public struct InputDevice: Equatable {
     /// Registers an event consumer and starts receiving events from the input device.
     /// - Parameter eventConsumer: The consumer to register.
     /// - Throws: Errors that occur while starting to stream.
-	public func startReceivingEvents(informing eventConsumer: EventConsumer) throws {
-        try InputDevice.getStream(for: self, adding: eventConsumer).beginStreaming()
+    /// - Note: The `eventConsumer` will always be registered, even if the device is already streaming.
+    @inlinable
+	public func startStreaming(informing eventConsumer: EventConsumer) throws -> ActiveStream {
+        let active = try InputDevice._getStream(for: self)
+        active.addEventConsumer(eventConsumer)
+        return active
 	}
 
-    /// Stops the input device from receivng any events. All registered event consumers will be automatically deregistered by this call.
-    /// - Throws: Errors that occur while closing the file handle.
-	public func stopReceivingEvents() throws {
-        try InputDevice.removeStream(for: self)?.close()
-	}
-
-    /// Adds an event consumer to the device.
-    /// - Parameter eventConsumer: The consumer to add.
-    /// - Note: This methods does internal preprarations for receiving events if necessary.
-    ///         Thus only call this if you called or will call `startReceivingEvents` on this input device.
-	public func addEventConsumer(_ eventConsumer: EventConsumer) {
-        InputDevice.addConsumer(eventConsumer, for: self)
-	}
-
-    /// Removes the given event consumer from the input device.
-    /// - Parameter eventConsumer: The consumer to remove.
-    /// - Note: If this is the last registered event consumer, the input device will stop streaming events
-    ///         and needs to be re-started with `startReceivingEvents`.
-	public func removeEventConsumer(_ eventConsumer: EventConsumer) {
-        InputDevice.removeConsumer(eventConsumer, for: self)
-	}
+    /// Returns the currently active stream for this device if there is one.
+    @inlinable
+    public func currentActiveStream() -> ActiveStream? {
+        InputDevice._getExistingStream(for: self)
+    }
 
     /// inherited
     public static func ==(lhs: Self, rhs: Self) -> Bool {
@@ -58,8 +46,7 @@ public struct InputDevice: Equatable {
 
 extension InputDevice {
     /// An object that calls a given closure for an input device event.
-    public struct EventConsumer: Hashable {
-        private let uuid = UUID()
+    public struct EventConsumer {
         private let queue: DispatchQueue
         private let closure: (InputDevice, [InputEvent]) -> Void
 
@@ -72,16 +59,6 @@ extension InputDevice {
             self.closure = handler
         }
 
-        /// inherited
-        public func hash(into hasher: inout Hasher) {
-            hasher.combine(uuid)
-        }
-
-        /// inherited
-        public static func ==(lhs: Self, rhs: Self) -> Bool {
-            lhs.uuid == rhs.uuid
-        }
-
         fileprivate func notify(about events: [InputEvent], from device: InputDevice) {
             queue.async { closure(device, events) }
         }
@@ -89,62 +66,79 @@ extension InputDevice {
 }
 
 extension InputDevice {
-    typealias OpenStream = (stream: FileStream<input_event>, consumers: Set<EventConsumer>)
+    public struct ActiveStream: Equatable {
+        public let device: InputDevice
+        let stream: FileStream<input_event>
+
+        fileprivate init(device: InputDevice) throws {
+            self.device = device
+            self.stream = try FileStream(fileDescriptor: .open(device.eventFile, .readOnly))
+            if device.grabsDevice {
+                do {
+                    try stream.fileDescriptor.takeGrab()
+                } catch {
+                    do {
+                        try stream.fileDescriptor.close()
+                    } catch {
+                        print("Grabbing the device at \(device.eventFile) threw an error and trying to close the file descriptor failed: \(error)")
+                    }
+                    throw error
+                }
+            }
+            try stream.beginStreaming()
+        }
+
+        /// Adds an event consumer to the device.
+        /// - Parameter eventConsumer: The consumer to add.
+        public func addEventConsumer(_ eventConsumer: EventConsumer) {
+            stream.addCallback {
+                eventConsumer.notify(about: $1.compactMap(InputEvent.init), from: device)
+            }
+        }
+
+        /// Stops the input device from receivng any events. All registered event consumers will be automatically deregistered by this call.
+        /// - Throws: Errors that occur while closing the file handle.
+        public func stopStreaming() throws {
+            guard let stream = InputDevice._removeStream(for: device)?.stream else { return }
+            assert(stream.fileDescriptor == self.stream.fileDescriptor)
+            try stream.endStreaming()
+            try stream.fileDescriptor.closeAfter {
+                if device.grabsDevice {
+                    try stream.fileDescriptor.releaseGrab()
+                }
+            }
+        }
+
+        public static func ==(lhs: Self, rhs: Self) -> Bool {
+            lhs.device == rhs.device && lhs.stream.fileDescriptor == rhs.stream.fileDescriptor
+        }
+    }
+}
+
+extension InputDevice {
     private static let fileStreamersLock = DispatchQueue(label: "de.sersoft.deviceinput.inputdevice.streamers.lock")
-    private static var fileStreamers: [FilePath: OpenStream] = [:]
+    private static var fileStreamers: [FilePath: ActiveStream] = [:]
 
-    private static func makeStream(for device: InputDevice) -> FileStream<input_event> {
-        let newStream = FileStream<input_event>(filePath: device.eventFile)
-        if device.grabsDevice {
-            newStream.addOpenCallback { try $1.takeGrab() }
-            newStream.addCloseCallback { try $1.releaseGrab() }
-        }
-        newStream.addCallback { stream, values in
-            let events = values.compactMap(InputEvent.init)
-            registeredConsumers(for: device)
-                .forEach { $0.notify(about: events, from: device) }
-        }
-        return newStream
-    }
-
-    private static func registeredConsumers(for device: InputDevice) -> Set<EventConsumer> {
+    @usableFromInline
+    static func _getExistingStream(for device: InputDevice) -> ActiveStream? {
         dispatchPrecondition(condition: .notOnQueue(fileStreamersLock))
-        return fileStreamersLock.sync {
-            fileStreamers[device.eventFile]?.consumers
-        } ?? []
+        return fileStreamersLock.sync { fileStreamers[device.eventFile] }
     }
 
-    private static func withRegisteredConsumers<T>(for device: InputDevice, do work: (FileStream<input_event>, inout Set<EventConsumer>) throws -> T) rethrows -> T {
+    @usableFromInline
+    static func _getStream(for device: InputDevice) throws -> ActiveStream {
         dispatchPrecondition(condition: .notOnQueue(fileStreamersLock))
         return try fileStreamersLock.sync {
-            var value = fileStreamers[device.eventFile] ?? (makeStream(for: device), [])
-            defer { fileStreamers[device.eventFile] = value }
-            return try work(value.stream, &value.consumers)
+            if let existing = fileStreamers[device.eventFile] { return existing }
+            let new = try ActiveStream(device: device)
+            fileStreamers[device.eventFile] = new
+            return new
         }
     }
 
-    fileprivate static func getStream(for device: InputDevice, adding consumer: EventConsumer) -> FileStream<input_event> {
-        withRegisteredConsumers(for: device) {
-            $1.insert(consumer)
-            return $0
-        }
-    }
-
-    fileprivate static func addConsumer(_ consumer: EventConsumer, for device: InputDevice) {
-        withRegisteredConsumers(for: device) { _ = $1.insert(consumer) }
-    }
-
-    fileprivate static func removeConsumer(_ consumer: EventConsumer, for device: InputDevice) {
+    @usableFromInline
+    static func _removeStream(for device: InputDevice) -> ActiveStream? {
         dispatchPrecondition(condition: .notOnQueue(fileStreamersLock))
-        return fileStreamersLock.sync {
-            guard var value = fileStreamers[device.eventFile] else { return }
-            value.consumers.remove(consumer)
-            fileStreamers[device.eventFile] = value.consumers.isEmpty ? nil : value
-        }
-    }
-
-    fileprivate static func removeStream(for device: InputDevice) -> FileStream<input_event>? {
-        dispatchPrecondition(condition: .notOnQueue(fileStreamersLock))
-        return fileStreamersLock.sync { fileStreamers.removeValue(forKey: device.eventFile)?.stream }
+        return fileStreamersLock.sync { fileStreamers.removeValue(forKey: device.eventFile) }
     }
 }
