@@ -7,7 +7,6 @@ extension InputDeviceTests {
     // to regenerate.
     static let __allTests__InputDeviceTests = [
         ("testEquatable", testEquatable),
-        ("testEventConsumerHashable", testEventConsumerHashable),
         ("testEventParsing", testEventParsing),
         ("testMultipleEventsParsing", testMultipleEventsParsing),
     ]
