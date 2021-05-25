@@ -5,13 +5,9 @@ import SystemPackage
 @_implementationOnly import Glibc
 #endif
 
-extension Errno {
-    fileprivate static var current: Errno { Errno(rawValue: errno) }
-}
-
 // Results in errno if i == -1
 fileprivate func valueOrErrno<I: FixedWidthInteger>(_ i: I) -> Result<I, Errno> {
-    i == -1 ? .failure(.current) : .success(i)
+    i == -1 ? .failure(Errno(rawValue: errno)) : .success(i)
 }
 
 fileprivate func valueOrErrno<I: FixedWidthInteger>(

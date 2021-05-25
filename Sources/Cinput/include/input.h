@@ -7,7 +7,7 @@
 #include <linux/input.h>
 #else
 #include <time.h>
-// If we can't import the linux input header, we simply used the copied values form uapi/linux/input.h
+// If we can't import the linux input header, we simply used the copied values from uapi/linux/input.h
 typedef unsigned short __u16;
 typedef __signed__ int __s32;
 
@@ -31,7 +31,7 @@ struct input_event {
     __u16 code;
     __s32 value;
 };
-#endif
+#endif /* _HAS_LINUX_INPUT */
 
 // The following teypdefs and functions are convenience APIs
 typedef __u16 input_event_type;

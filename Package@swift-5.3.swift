@@ -15,7 +15,8 @@ let package = Package(
         .library(name: "DeviceInput", targets: ["DeviceInput"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-system.git", .upToNextMinor(from: "0.0.1")),
+        .package(url: "https://github.com/apple/swift-system.git", .upToNextMinor(from: "0.0.2")),
+        .package(url: "https://github.com/sersoft-gmbh/swift-filestreamer.git", .upToNextMinor(from: "0.0.1")),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -26,6 +27,7 @@ let package = Package(
             dependencies: [
                 "Cinput",
                 .product(name: "SystemPackage", package: "swift-system"),
+                .product(name: "FileStreamer", package: "swift-filestreamer"),
             ]
         ),
         .testTarget(name: "DeviceInputTests", dependencies: ["DeviceInput"]),
