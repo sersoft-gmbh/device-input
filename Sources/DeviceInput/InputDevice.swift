@@ -1,5 +1,4 @@
 import Dispatch
-import struct Foundation.UUID
 import SystemPackage
 import FileStreamer
 import Cinput
@@ -15,7 +14,7 @@ public struct InputDevice: Equatable {
     /// Creates a new input device with the given parameters.
     /// - Parameters:
     ///   - eventFile: The path to the input device's event file.
-    ///   - grabDevice: Whether or not to grab the device. Default is `true`.
+    ///   - grabDevice: Whether to grab the device. Default is `true`.
     public init(eventFile: FilePath, grabDevice: Bool = true) {
 		self.eventFile = eventFile
         self.grabsDevice = grabDevice
@@ -66,8 +65,11 @@ extension InputDevice {
 }
 
 extension InputDevice {
+    /// An active stream for an `InputDevice`.
     public struct ActiveStream: Equatable {
+        /// The device that is streaming.
         public let device: InputDevice
+        /// The open file stream.
         let stream: FileStream<input_event>
 
         fileprivate init(device: InputDevice) throws {
@@ -109,6 +111,7 @@ extension InputDevice {
             }
         }
 
+        /// inherited
         public static func ==(lhs: Self, rhs: Self) -> Bool {
             lhs.device == rhs.device && lhs.stream.fileDescriptor == rhs.stream.fileDescriptor
         }
