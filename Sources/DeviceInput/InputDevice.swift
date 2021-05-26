@@ -67,14 +67,37 @@ extension InputDevice {
 extension InputDevice {
     /// An active stream for an `InputDevice`.
     public struct ActiveStream: Equatable {
+        @usableFromInline
+        final class _Callbacks {
+            private let lock = DispatchQueue(label: "de.sersoft.deviceinput.inputdevice.activestream.callbacks.lock")
+            private var _callbacks = Array<EventConsumer>()
+
+            var current: Array<EventConsumer> {
+                dispatchPrecondition(condition: .notOnQueue(lock))
+                return lock.sync { _callbacks }
+            }
+
+            @usableFromInline
+            func add(_ consumer: EventConsumer) {
+                dispatchPrecondition(condition: .notOnQueue(lock))
+                lock.sync { _callbacks.append(consumer) }
+            }
+        }
+
         /// The device that is streaming.
         public let device: InputDevice
         /// The open file stream.
         let stream: FileStream<input_event>
+        /// The callbacks.
+        @usableFromInline
+        let callbacks = _Callbacks()
 
         fileprivate init(device: InputDevice) throws {
             self.device = device
-            self.stream = try FileStream(fileDescriptor: .open(device.eventFile, .readOnly))
+            self.stream = try FileStream(fileDescriptor: .open(device.eventFile, .readOnly)) { [callbacks] in
+                let events = $0.compactMap(InputEvent.init)
+                callbacks.current.forEach { $0.notify(about: events, from: device) }
+            }
             if device.grabsDevice {
                 do {
                     try stream.fileDescriptor.takeGrab()
@@ -87,15 +110,14 @@ extension InputDevice {
                     throw error
                 }
             }
-            try stream.beginStreaming()
+            stream.beginStreaming()
         }
 
         /// Adds an event consumer to the device.
         /// - Parameter eventConsumer: The consumer to add.
+        @inlinable
         public func addEventConsumer(_ eventConsumer: EventConsumer) {
-            stream.addCallback {
-                eventConsumer.notify(about: $1.compactMap(InputEvent.init), from: device)
-            }
+            callbacks.add(eventConsumer)
         }
 
         /// Stops the input device from receivng any events. All registered event consumers will be automatically deregistered by this call.
@@ -103,8 +125,8 @@ extension InputDevice {
         public func stopStreaming() throws {
             guard let stream = InputDevice._removeStream(for: device)?.stream else { return }
             assert(stream.fileDescriptor == self.stream.fileDescriptor)
-            try stream.endStreaming()
             try stream.fileDescriptor.closeAfter {
+                stream.endStreaming()
                 if device.grabsDevice {
                     try stream.fileDescriptor.releaseGrab()
                 }
