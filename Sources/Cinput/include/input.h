@@ -38,10 +38,10 @@ typedef __u16 input_event_type;
 typedef __u16 input_event_code;
 typedef __s32 input_event_value;
 
-extern inline int input_event_get_sec(struct input_event event);
-extern inline int input_event_get_usec(struct input_event event);
+extern inline time_t input_event_get_sec(struct input_event event);
+extern inline suseconds_t input_event_get_usec(struct input_event event);
 
-extern inline void input_event_set_sec(struct input_event *event, int new_sec);
-extern inline void input_event_set_usec(struct input_event *event, int new_usec);
+extern inline void input_event_set_sec(struct input_event *event, time_t new_sec);
+extern inline void input_event_set_usec(struct input_event *event, suseconds_t new_usec);
 
 #endif /* INPUT_h */

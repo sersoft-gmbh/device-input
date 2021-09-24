@@ -7,8 +7,8 @@ import Cinput
 fileprivate extension InputEvent {
     static func cEvent(date: Date, kind: Kind, code: Code, value: Value) -> input_event {
         var cEvent = input_event()
-        let seconds = Int32(date.timeIntervalSince1970)
-        let uSeconds = Int32((date.timeIntervalSince1970 - TimeInterval(seconds)) * 1_000_000)
+        let seconds = time_t(date.timeIntervalSince1970)
+        let uSeconds = suseconds_t((date.timeIntervalSince1970 - TimeInterval(seconds)) * 1_000_000)
         input_event_set_sec(&cEvent, seconds)
         input_event_set_usec(&cEvent, uSeconds)
         cEvent.type = kind.rawValue

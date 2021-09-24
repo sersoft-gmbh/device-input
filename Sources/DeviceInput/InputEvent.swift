@@ -13,6 +13,7 @@ public struct InputEvent: Hashable {
     /// The value of the event.
 	public let value: Value
 
+    @usableFromInline
 	internal init?(cInputEvent: input_event) {
 		guard let type = Kind(rawValue: cInputEvent.type) else { return nil }
         let timeInterval = TimeInterval(input_event_get_sec(cInputEvent)) + (TimeInterval(input_event_get_usec(cInputEvent)) / 1_000_000)
