@@ -37,7 +37,7 @@ public struct InputDevice: Equatable {
         InputDevice._getExistingStream(for: self)
     }
 
-#if swift(>=5.5) && !os(macOS)
+#if compiler(>=5.5) && canImport(_Concurrency)
     /// Creates an active stream sequence that asynchronously sends events.
     /// - Parameter eventConsumer: The consumer to register.
     /// - Throws: Errors that occur while starting to stream.
@@ -182,7 +182,7 @@ extension InputDevice {
     }
 }
 
-#if swift(>=5.5) && !os(macOS)
+#if compiler(>=5.5) && canImport(_Concurrency) && !os(Linux)
 extension InputDevice {
     /// An active stream sequence that asynchrounously sends events.
     @available(iOS 15, tvOS 15, watchOS 8, macOS 12, *)
