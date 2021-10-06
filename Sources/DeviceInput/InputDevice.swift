@@ -37,7 +37,7 @@ public struct InputDevice: Equatable {
         InputDevice._getExistingStream(for: self)
     }
 
-#if compiler(>=5.5) && canImport(_Concurrency)
+#if compiler(>=5.5) && canImport(_Concurrency) && !os(Linux)
     /// Creates an active stream sequence that asynchronously sends events.
     /// - Parameter eventConsumer: The consumer to register.
     /// - Throws: Errors that occur while starting to stream.
