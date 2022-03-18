@@ -12,7 +12,9 @@ let package = Package(
         .watchOS(.v3),
     ],
     products: [
-        .library(name: "DeviceInput", targets: ["DeviceInput"]),
+        .library(
+            name: "DeviceInput",
+            targets: ["DeviceInput"]),
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-system.git", from: "1.0.0"),
