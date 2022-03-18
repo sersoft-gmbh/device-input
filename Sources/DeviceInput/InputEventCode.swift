@@ -1,4 +1,4 @@
-import Cinput
+import CInput
 
 extension InputEvent {
     /// Contains the code of an input event.
@@ -16,6 +16,10 @@ extension InputEvent {
 		}
 	}
 }
+
+#if compiler(>=5.5.2) && canImport(_Concurrency)
+extension InputEvent.Code: Sendable {}
+#endif
 
 extension InputEvent.Code {
     /// Returns the character value of the event code if available.

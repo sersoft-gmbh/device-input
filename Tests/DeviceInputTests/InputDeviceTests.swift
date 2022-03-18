@@ -1,7 +1,7 @@
 import Foundation
 import XCTest
 import SystemPackage
-import Cinput
+import CInput
 @testable import DeviceInput
 
 fileprivate extension InputEvent {

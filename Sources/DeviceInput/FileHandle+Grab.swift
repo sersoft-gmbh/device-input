@@ -1,4 +1,4 @@
-import Cinput
+import CInput
 import SystemPackage
 
 #if os(Linux)

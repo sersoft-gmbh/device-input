@@ -1,4 +1,4 @@
-import Cinput
+import CInput
 
 extension InputEvent {
     /// Defines the type of input event.
@@ -22,3 +22,6 @@ extension InputEvent {
         static var count: RawValue { max + 1 } // EV_CNT
 	}
 }
+#if compiler(>=5.5.2) && canImport(_Concurrency)
+extension InputEvent.Kind: Sendable {}
+#endif

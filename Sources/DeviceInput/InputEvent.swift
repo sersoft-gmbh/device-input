@@ -1,6 +1,6 @@
 import struct Foundation.Date
 import typealias Foundation.TimeInterval
-import Cinput
+import CInput
 
 /// Describes an input event.
 public struct InputEvent: Hashable {
@@ -23,3 +23,8 @@ public struct InputEvent: Hashable {
 		value = Value(rawValue: cInputEvent.value)
 	}
 }
+
+
+//#if compiler(>=5.5.2) && canImport(_Concurrency)
+//extension InputEvent: Sendable {} // Missinc conformance of `Foundation.Date`
+//#endif

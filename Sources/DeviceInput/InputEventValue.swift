@@ -1,4 +1,4 @@
-import Cinput
+import CInput
 
 extension InputEvent {
     /// Represents the value of an input event.
@@ -25,3 +25,7 @@ extension InputEvent.Value {
     /// The auto-repeat value of an event.
     public static let autoRepeat = InputEvent.Value(rawValue: 2)
 }
+
+#if compiler(>=5.5.2) && canImport(_Concurrency)
+extension InputEvent.Value: Sendable {}
+#endif

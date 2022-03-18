@@ -1,7 +1,7 @@
 import Dispatch
 import SystemPackage
 import FileStreamer
-import Cinput
+import CInput
 
 /// Represents an input device at a given file path.
 public struct InputDevice: Equatable {
@@ -37,13 +37,13 @@ public struct InputDevice: Equatable {
         InputDevice._getExistingStream(for: self)
     }
 
-#if compiler(>=5.5) && canImport(_Concurrency) && !os(Linux)
+#if compiler(>=5.5.2) && canImport(_Concurrency)
     /// Creates an active stream sequence that asynchronously sends events.
     /// - Parameter eventConsumer: The consumer to register.
     /// - Throws: Errors that occur while starting to stream.
     /// - Note: The `eventConsumer` will always be registered, even if the device is already streaming.
     @inlinable
-    @available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+    @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
     public var events: ActiveStreamSequence {
         get throws {
             try InputDevice._getStreamSequence(for: self)
@@ -56,6 +56,11 @@ public struct InputDevice: Equatable {
         lhs.eventFile == rhs.eventFile
     }
 }
+
+//#if compiler(>=5.5.2) && canImport(_Concurrency)
+//extension InputDevice: Sendable {}
+//extension InputDevice.EventConsumer: Sendable {} // Missing conformance of InputEvent
+//#endif
 
 extension InputDevice {
     /// An object that calls a given closure for an input device event.
@@ -182,10 +187,10 @@ extension InputDevice {
     }
 }
 
-#if compiler(>=5.5) && canImport(_Concurrency) && !os(Linux)
+#if compiler(>=5.5.2) && canImport(_Concurrency)
 extension InputDevice {
     /// An active stream sequence that asynchrounously sends events.
-    @available(iOS 15, tvOS 15, watchOS 8, macOS 12, *)
+    @available(macOS 10.15, iOS 13, tvOS 13, watchOS 3, *)
     public struct ActiveStreamSequence: Equatable, AsyncSequence {
         /// inherited
         public typealias Element = InputEvent
@@ -199,22 +204,38 @@ extension InputDevice {
             typealias _UnderlyingIterator = AsyncCompactMapSequence<FileStream<input_event>.Sequence, InputEvent>.AsyncIterator
 
             @usableFromInline
+            let _device: InputDevice
+            @usableFromInline
             let _fileDescriptor: FileDescriptor
 
             @usableFromInline
             var _iterator: _UnderlyingIterator
 
             @usableFromInline
-            init(_fileDescriptor: FileDescriptor, _iterator: _UnderlyingIterator) {
+            init(_device: InputDevice,
+                 _fileDescriptor: FileDescriptor,
+                 _iterator: _UnderlyingIterator) {
+                self._device = _device
                 self._fileDescriptor = _fileDescriptor
                 self._iterator = _iterator
+            }
+
+            @usableFromInline
+            func _finalize() throws {
+                if _device.grabsDevice {
+                    try _fileDescriptor.closeAfter({
+                        try _fileDescriptor.releaseGrab()
+                    })
+                } else {
+                    try _fileDescriptor.close()
+                }
             }
 
             /// inherited
             @inlinable
             public mutating func next() async throws -> Element? {
                 guard !Task.isCancelled else {
-                    try _fileDescriptor.close()
+                    try _finalize()
                     return nil
                 }
                 return await _iterator.next()
@@ -248,7 +269,9 @@ extension InputDevice {
 
         /// inherited
         public func makeAsyncIterator() -> AsyncIterator {
-            .init(_fileDescriptor: fileDescriptor, _iterator: stream.compactMap(Element.init).makeAsyncIterator())
+            .init(_device: device,
+                  _fileDescriptor: fileDescriptor,
+                  _iterator: stream.compactMap(Element.init).makeAsyncIterator())
         }
 
         /// inherited
@@ -258,10 +281,10 @@ extension InputDevice {
     }
 }
 
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension InputDevice {
     private static let fileStreamerSequencesLock = DispatchQueue(label: "de.sersoft.deviceinput.inputdevice.streamer-sequences.lock")
-    private static var fileStreamerSequences: [FilePath: ActiveStreamSequence] = [:]
+    private static var fileStreamerSequences = Dictionary<FilePath, ActiveStreamSequence>()
 
     @usableFromInline
     static func _getExistingStreamSequence(for device: InputDevice) -> ActiveStreamSequence? {
