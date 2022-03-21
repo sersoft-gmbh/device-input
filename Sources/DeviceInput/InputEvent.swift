@@ -24,7 +24,6 @@ public struct InputEvent: Hashable {
 	}
 }
 
-
 //#if compiler(>=5.5.2) && canImport(_Concurrency)
 //extension InputEvent: Sendable {} // Missinc conformance of `Foundation.Date`
 //#endif

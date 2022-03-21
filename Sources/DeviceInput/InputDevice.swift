@@ -204,9 +204,7 @@ extension InputDevice {
             typealias _UnderlyingIterator = AsyncCompactMapSequence<FileStream<input_event>.Sequence, InputEvent>.AsyncIterator
 
             @usableFromInline
-            let _device: InputDevice
-            @usableFromInline
-            let _fileDescriptor: FileDescriptor
+            var _storage: (device: InputDevice, fileDescriptor: FileDescriptor)?
 
             @usableFromInline
             var _iterator: _UnderlyingIterator
@@ -215,19 +213,20 @@ extension InputDevice {
             init(_device: InputDevice,
                  _fileDescriptor: FileDescriptor,
                  _iterator: _UnderlyingIterator) {
-                self._device = _device
-                self._fileDescriptor = _fileDescriptor
+                self._storage = (_device, _fileDescriptor)
                 self._iterator = _iterator
             }
 
             @usableFromInline
-            func _finalize() throws {
-                if _device.grabsDevice {
-                    try _fileDescriptor.closeAfter({
-                        try _fileDescriptor.releaseGrab()
-                    })
+            mutating func _finalize() throws {
+                guard let storage = _storage else { return }
+                _storage = nil
+                if storage.device.grabsDevice {
+                    try storage.fileDescriptor.closeAfter {
+                        try storage.fileDescriptor.releaseGrab()
+                    }
                 } else {
-                    try _fileDescriptor.close()
+                    try storage.fileDescriptor.close()
                 }
             }
 
@@ -238,7 +237,11 @@ extension InputDevice {
                     try _finalize()
                     return nil
                 }
-                return await _iterator.next()
+                let next = await _iterator.next()
+                if next == nil {
+                    try _finalize()
+                }
+                return next
             }
         }
 
@@ -283,7 +286,7 @@ extension InputDevice {
 
 @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension InputDevice {
-    private static let fileStreamerSequencesLock = DispatchQueue(label: "de.sersoft.deviceinput.inputdevice.streamer-sequences.lock")
+    private static let fileStreamerSequencesLock = DispatchQueue(label: "de.sersoft.device-input.input-device.streamer-sequences.lock")
     private static var fileStreamerSequences = Dictionary<FilePath, ActiveStreamSequence>()
 
     @usableFromInline

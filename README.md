@@ -12,12 +12,14 @@ Processes inputs read from `/dev/input` device streams.
 
 Add the following dependency to your `Package.swift`:
 ```swift
-.package(url: "https://github.com/sersoft-gmbh/device-input.git", from: "4.0.0"),
+.package(url: "https://github.com/sersoft-gmbh/device-input.git", from: "6.0.0"),
 ```
 
 ## Compatibility
 
 -   For Swift as of version 5.3, use DeviceInput version 4.x.y.
+-   For Swift as of version 5.5, use DeviceInput version 5.x.y.
+-   For Swift as of version 5.6, use DeviceInput version 6.x.y.
 
 ## Usage
 
