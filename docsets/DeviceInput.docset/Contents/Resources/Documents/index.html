@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DeviceInput  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+
+    <a title="DeviceInput  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          DeviceInput 6.0.0 Docs
+        </a>
+         (81% documented)
+      </p>
+    
+      <div class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </div>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/sersoft-gmbh/device-input">
+            <img class="header-icon" src="img/gh.png" alt="GitHub"/>
+            View on GitHub
+          </a>
+        </p>
+    
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">DeviceInput Reference</a>
+      <img class="carat" src="img/carat.png" alt=""/>
+      DeviceInput  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/InputDevice.html">InputDevice</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/InputDevice/EventConsumer.html">– EventConsumer</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/InputDevice/ActiveStream.html">– ActiveStream</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/InputDevice/ActiveStreamSequence.html">– ActiveStreamSequence</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/InputEvent.html">InputEvent</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/InputEvent/Code.html">– Code</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/InputEvent/Kind.html">– Kind</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/InputEvent/Value.html">– Value</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content top-matter">
+            
+            <h1 id='deviceinput' class='heading'>DeviceInput</h1>
+
+<p><a href="https://github.com/sersoft-gmbh/device-input/releases/latest"><img src="https://img.shields.io/github/release/sersoft-gmbh/device-input.svg?style=flat" alt="GitHub release"></a>
+<img src="https://github.com/sersoft-gmbh/device-input/workflows/Tests/badge.svg" alt="Tests">
+<a href="https://www.codacy.com/gh/sersoft-gmbh/device-input/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sersoft-gmbh/device-input&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/1c5dcd572904497db008ad2eb49e7a59" alt="Codacy Badge"></a>
+<a href="https://codecov.io/gh/sersoft-gmbh/device-input"><img src="https://codecov.io/gh/sersoft-gmbh/device-input/branch/master/graph/badge.svg?token=LXIl04FQV7" alt="codecov"></a>
+<a href="https://sersoft-gmbh.github.io/device-input"><img src="https://raw.githubusercontent.com/sersoft-gmbh/device-input/gh-pages/badge.svg?sanitize=true" alt="jazzy"></a></p>
+
+<p>Processes inputs read from <code>/dev/input</code> device streams.</p>
+<h2 id='installation' class='heading'>Installation</h2>
+
+<p>Add the following dependency to your <code>Package.swift</code>:</p>
+<pre class="highlight swift"><code><span class="o">.</span><span class="nf">package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/sersoft-gmbh/device-input.git"</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="s">"6.0.0"</span><span class="p">),</span>
+</code></pre>
+<h2 id='compatibility' class='heading'>Compatibility</h2>
+
+<ul>
+<li>For Swift as of version 5.3, use DeviceInput version 4.x.y.</li>
+<li>For Swift as of version 5.5, use DeviceInput version 5.x.y.</li>
+<li>For Swift as of version 5.6, use DeviceInput version 6.x.y.</li>
+</ul>
+<h2 id='usage' class='heading'>Usage</h2>
+<h3 id='inputdevice' class='heading'>InputDevice</h3>
+
+<p>An <code><a href="Structs/InputDevice.html">InputDevice</a></code> is the entry point for streaming input events. Create an input device by passing it the path to the input file. By default, an input device &ldquo;grabs&rdquo; its input file when it begins streaming for events. By doing so, no other process (e.g. the default system input handler) will receive the events of the input device. However, this only works on Linux. You can manually pass <code>false</code> to the <code>grabDevice</code> parameter in the initializer if you explicitly don&rsquo;t want to grab the device.</p>
+
+<p>You then call <code>startReceivingEvents(informing:)</code> on the input device. The parameter you pass to this method is an <code><a href="Structs/InputDevice/EventConsumer.html">InputDevice.EventConsumer</a></code>. It takes a <code>DispatchQueue</code> and a <code>handler</code>. The latter is called on the queue and is passed the device as well as an array of events received from the device. After calling <code>startReceivingEvents</code>, the input device will start streaming for events and notify the passed event consumer. You can register more event consumers by calling <code>addEventConsumer</code>. You can as well deregister event consumers using <code>removeEventConsumer</code>. Note that when the last event consumer is removed, the input device automatically stops streaming events.
+Finally, if you&rsquo;re done with the input device, call <code>stopReceivingEvents</code> to deregister all event consumers and stop streaming events.</p>
+<h3 id='inputevent' class='heading'>InputEvent</h3>
+
+<p>Registered event consumers are passed an array of <code><a href="Structs/InputEvent.html">InputEvent</a></code> structs. It represents an <code>input_event</code> from the <a href="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/include/uapi/linux/input.h">linux source</a>, but uses native swift types instead of C types. Constants help dealing with events. However, it is currently optimized for handling key state change events. Axis events and other types might need additional work (see the section below about possible features). </p>
+<h2 id='possible-features' class='heading'>Possible Features</h2>
+
+<p>While not yet integrated, the following features might provide added value and could make it into DeviceInput in the future:</p>
+
+<ul>
+<li>Improved <code><a href="Structs/InputEvent.html">InputEvent</a></code> that is optimized for the various kinds of events sent by the <a href="https://www.kernel.org/doc/html/latest/input/input_uapi.html">input subsystem</a>.</li>
+</ul>
+<h2 id='documentation' class='heading'>Documentation</h2>
+
+<p>The API is documented using header doc. If you prefer to view the documentation as a webpage, there is an <a href="https://sersoft-gmbh.github.io/device-input">online version</a> available for you.</p>
+<h2 id='contributing' class='heading'>Contributing</h2>
+
+<p>If you find a bug / like to see a new feature in DeviceInput there are a few ways of helping out:</p>
+
+<ul>
+<li>If you can fix the bug / implement the feature yourself please do and open a PR.</li>
+<li>If you know how to code (which you probably do), please add a (failing) test and open a PR. We&rsquo;ll try to get your test green ASAP.</li>
+<li>If you can do neither, then open an issue. While this might be the easiest way, it will likely take the longest for the bug to be fixed / feature to be implemented.</li>
+</ul>
+<h2 id='license' class='heading'>License</h2>
+
+<p>See <a href="./LICENSE">LICENSE</a> file.</p>
+
+          </div>
+        </section>
+
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2022 <a class="link" href="https://sersoft.de" target="_blank" rel="external noopener">ser.soft GmbH</a>. All rights reserved. (Last updated: 2022-03-24)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+    </section>
+  </body>
+</html>
