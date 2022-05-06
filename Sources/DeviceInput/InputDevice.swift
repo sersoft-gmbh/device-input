@@ -72,19 +72,19 @@ extension InputDevice {
         /// - Parameters:
         ///   - queue: The queue on which to call `handler`.
         ///   - handler: The closure to call for each event of an input device.
-        public init(queue: DispatchQueue, handler: @escaping (InputDevice, [InputEvent]) -> Void) {
+        public init(queue: DispatchQueue, handler: @escaping (InputDevice, Array<InputEvent>) -> Void) {
             self.queue = queue
             self.closure = handler
         }
 
-        fileprivate func notify(about events: [InputEvent], from device: InputDevice) {
+        fileprivate func notify(about events: Array<InputEvent>, from device: InputDevice) {
             queue.async { closure(device, events) }
         }
     }
 }
 
 extension InputDevice {
-    /// An active stream for an `InputDevice`.
+    /// An active stream for an ``InputDevice``.
     public struct ActiveStream: Equatable {
         @usableFromInline
         final class _Callbacks {
