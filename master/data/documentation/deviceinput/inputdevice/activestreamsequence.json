@@ -1,0 +1,578 @@
+{
+  "abstract" : [
+    {
+      "text" : "An active stream sequence that asynchrounously sends events.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput",
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "DeviceInput",
+    "externalID" : "s:11DeviceInput0bA0V20ActiveStreamSequenceV",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "struct"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "ActiveStreamSequence"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "DeviceInput"
+      }
+    ],
+    "navigatorTitle" : [
+      {
+        "kind" : "identifier",
+        "text" : "ActiveStreamSequence"
+      }
+    ],
+    "platforms" : [
+      {
+        "beta" : false,
+        "deprecated" : false,
+        "introducedAt" : "13.0",
+        "name" : "iOS",
+        "unavailable" : false
+      },
+      {
+        "beta" : false,
+        "deprecated" : false,
+        "introducedAt" : "10.15",
+        "name" : "macOS",
+        "unavailable" : false
+      },
+      {
+        "beta" : false,
+        "deprecated" : false,
+        "introducedAt" : "13.0",
+        "name" : "tvOS",
+        "unavailable" : false
+      },
+      {
+        "beta" : false,
+        "deprecated" : false,
+        "introducedAt" : "3.0",
+        "name" : "watchOS",
+        "unavailable" : false
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Structure",
+    "symbolKind" : "struct",
+    "title" : "InputDevice.ActiveStreamSequence"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "Linux"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "struct"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "ActiveStreamSequence"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "relationshipsSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/DeviceInput\/SQ",
+        "doc:\/\/DeviceInput\/Sci"
+      ],
+      "kind" : "relationships",
+      "title" : "Conforms To",
+      "type" : "conformsTo"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 2,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "topicSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence\/Iterator"
+      ],
+      "title" : "Structures"
+    },
+    {
+      "identifiers" : [
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence\/==(_:_:)"
+      ],
+      "title" : "Operators"
+    },
+    {
+      "identifiers" : [
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence\/device"
+      ],
+      "title" : "Instance Properties"
+    },
+    {
+      "identifiers" : [
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence\/makeAsyncIterator()"
+      ],
+      "title" : "Instance Methods"
+    },
+    {
+      "identifiers" : [
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence\/AsyncIterator",
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence\/Element"
+      ],
+      "title" : "Type Aliases"
+    },
+    {
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence\/AsyncSequence-Implementations",
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence\/Equatable-Implementations"
+      ],
+      "title" : "Default Implementations"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/deviceinput\/inputdevice\/activestreamsequence"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://DeviceInput/SQ": {
+  "identifier" : "doc:\/\/DeviceInput\/SQ",
+  "title" : "Swift.Equatable",
+  "type" : "unresolvable"
+},
+"doc://DeviceInput/Sci": {
+  "identifier" : "doc:\/\/DeviceInput\/Sci",
+  "title" : "_Concurrency.AsyncSequence",
+  "type" : "unresolvable"
+},
+"doc://DeviceInput/documentation/DeviceInput": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "DeviceInput",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputDevice": {
+  "abstract" : [
+    {
+      "text" : "Represents an input device at a given file path.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "InputDevice"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "InputDevice"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InputDevice",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputdevice"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/ActiveStreamSequence": {
+  "abstract" : [
+    {
+      "text" : "An active stream sequence that asynchrounously sends events.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ActiveStreamSequence"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ActiveStreamSequence"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InputDevice.ActiveStreamSequence",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/ActiveStreamSequence/==(_:_:)": {
+  "abstract" : [
+    {
+      "text" : "inherited",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "=="
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:11DeviceInput0bA0V",
+      "text" : "InputDevice"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:11DeviceInput0bA0V20ActiveStreamSequenceV",
+      "text" : "ActiveStreamSequence"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:11DeviceInput0bA0V",
+      "text" : "InputDevice"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:11DeviceInput0bA0V20ActiveStreamSequenceV",
+      "text" : "ActiveStreamSequence"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sb",
+      "text" : "Bool"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence\/==(_:_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "==(_:_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/==(_:_:)"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/ActiveStreamSequence/AsyncIterator": {
+  "abstract" : [
+    {
+      "text" : "inherited",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "AsyncIterator"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence\/AsyncIterator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "AsyncIterator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InputDevice.ActiveStreamSequence.AsyncIterator",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/asynciterator"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/ActiveStreamSequence/AsyncSequence-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence\/AsyncSequence-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "AsyncSequence Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/asyncsequence-implementations"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/ActiveStreamSequence/Element": {
+  "abstract" : [
+    {
+      "text" : "inherited",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Element"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence\/Element",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Element"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InputDevice.ActiveStreamSequence.Element",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/element"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/ActiveStreamSequence/Equatable-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence\/Equatable-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Equatable Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/equatable-implementations"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/ActiveStreamSequence/Iterator": {
+  "abstract" : [
+    {
+      "text" : "The asynchronous iterator.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Iterator"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence\/Iterator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Iterator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InputDevice.ActiveStreamSequence.Iterator",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/iterator"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/ActiveStreamSequence/device": {
+  "abstract" : [
+    {
+      "text" : "The device that is streaming.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "device"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:11DeviceInput0bA0V",
+      "text" : "InputDevice"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence\/device",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "device",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/device"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/ActiveStreamSequence/makeAsyncIterator()": {
+  "abstract" : [
+    {
+      "text" : "inherited",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "makeAsyncIterator"
+    },
+    {
+      "kind" : "text",
+      "text" : "() -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:11DeviceInput0bA0V",
+      "text" : "InputDevice"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:11DeviceInput0bA0V20ActiveStreamSequenceV",
+      "text" : "ActiveStreamSequence"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:11DeviceInput0bA0V20ActiveStreamSequenceV13AsyncIteratora",
+      "text" : "AsyncIterator"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence\/makeAsyncIterator()",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "makeAsyncIterator()",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/makeasynciterator()"
+}
+}
+}
