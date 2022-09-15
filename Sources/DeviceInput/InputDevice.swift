@@ -57,16 +57,11 @@ public struct InputDevice: Equatable {
     }
 }
 
-//#if compiler(>=5.5.2) && canImport(_Concurrency)
-//extension InputDevice: Sendable {}
-//extension InputDevice.EventConsumer: Sendable {} // Missing conformance of InputEvent
-//#endif
-
 extension InputDevice {
     /// An object that calls a given closure for an input device event.
     public struct EventConsumer {
         private let queue: DispatchQueue
-        private let closure: (InputDevice, [InputEvent]) -> Void
+        private let closure: (InputDevice, Array<InputEvent>) -> Void
 
         /// Creates a new consumer with the given parameters.
         /// - Parameters:
@@ -186,6 +181,12 @@ extension InputDevice {
         return fileStreamersLock.sync { fileStreamers.removeValue(forKey: device.eventFile) }
     }
 }
+
+#if compiler(>=5.5.2) && canImport(_Concurrency)
+extension InputDevice.ActiveStream._Callbacks: @unchecked Sendable {} // unchecked because of manual locking
+extension InputDevice.ActiveStream: @unchecked Sendable {} // unchecked because of FileStream which we use in a Sendable-safe way.
+extension InputDevice: @unchecked Sendable {} // unchecked because of FilePath
+#endif
 
 #if compiler(>=5.5.2) && canImport(_Concurrency)
 extension InputDevice {

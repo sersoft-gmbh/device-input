@@ -1,4 +1,4 @@
-// swift-tools-version:5.7
+// swift-tools-version:5.6
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -7,10 +7,10 @@ import Foundation
 let package = Package(
     name: "device-input",
     platforms: [
-        .macOS(.v10_13),
-        .iOS(.v11),
-        .tvOS(.v11),
-        .watchOS(.v4),
+        .macOS(.v10_12),
+        .iOS(.v10),
+        .tvOS(.v10),
+        .watchOS(.v3),
     ],
     products: [
         .library(
@@ -19,7 +19,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-system.git", from: "1.0.0"),
-        .package(url: "https://github.com/sersoft-gmbh/swift-filestreamer.git", .upToNextMinor(from: "0.5.0")),
+        .package(url: "https://github.com/sersoft-gmbh/swift-filestreamer.git", .upToNextMinor(from: "0.4.0")),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.

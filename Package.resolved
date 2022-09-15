@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sersoft-gmbh/swift-filestreamer.git",
       "state" : {
-        "revision" : "25b7912d44022e29d1dc53b258fb4fdf7244dd74",
-        "version" : "0.4.0"
+        "revision" : "c2cb096378c5857ed8cc886dcad21dca117d0af4",
+        "version" : "0.5.0"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-system.git",
       "state" : {
-        "revision" : "836bc4557b74fe6d2660218d56e3ce96aff76574",
-        "version" : "1.1.1"
+        "revision" : "025bcb1165deab2e20d4eaba79967ce73013f496",
+        "version" : "1.2.1"
       }
     }
   ],
