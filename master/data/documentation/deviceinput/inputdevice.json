@@ -81,7 +81,8 @@
   "relationshipsSections" : [
     {
       "identifiers" : [
-        "doc:\/\/DeviceInput\/SQ"
+        "doc:\/\/DeviceInput\/SQ",
+        "doc:\/\/DeviceInput\/s8SendableP"
       ],
       "kind" : "relationships",
       "title" : "Conforms To",
@@ -90,7 +91,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -724,6 +725,11 @@
   "title" : "startStreaming(informing:)",
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputdevice\/startstreaming(informing:)"
+},
+"doc://DeviceInput/s8SendableP": {
+  "identifier" : "doc:\/\/DeviceInput\/s8SendableP",
+  "title" : "Swift.Sendable",
+  "type" : "unresolvable"
 }
 }
 }

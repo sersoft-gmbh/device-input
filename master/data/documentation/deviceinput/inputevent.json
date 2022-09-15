@@ -82,7 +82,8 @@
     {
       "identifiers" : [
         "doc:\/\/DeviceInput\/SQ",
-        "doc:\/\/DeviceInput\/SH"
+        "doc:\/\/DeviceInput\/SH",
+        "doc:\/\/DeviceInput\/s8SendableP"
       ],
       "kind" : "relationships",
       "title" : "Conforms To",
@@ -91,7 +92,7 @@
   ],
   "schemaVersion" : {
     "major" : 0,
-    "minor" : 2,
+    "minor" : 3,
     "patch" : 0
   },
   "sections" : [
@@ -484,6 +485,11 @@
   "title" : "value",
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputevent\/value-swift.property"
+},
+"doc://DeviceInput/s8SendableP": {
+  "identifier" : "doc:\/\/DeviceInput\/s8SendableP",
+  "title" : "Swift.Sendable",
+  "type" : "unresolvable"
 }
 }
 }
