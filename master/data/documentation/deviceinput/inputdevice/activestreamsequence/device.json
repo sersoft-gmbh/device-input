@@ -74,7 +74,7 @@
       {
         "beta" : false,
         "deprecated" : false,
-        "introducedAt" : "3.0",
+        "introducedAt" : "6.0",
         "name" : "watchOS",
         "unavailable" : false
       }
