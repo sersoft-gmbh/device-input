@@ -191,7 +191,7 @@ extension InputDevice: @unchecked Sendable {} // unchecked because of FilePath
 #if compiler(>=5.5.2) && canImport(_Concurrency)
 extension InputDevice {
     /// An active stream sequence that asynchrounously sends events.
-    @available(macOS 10.15, iOS 13, tvOS 13, watchOS 3, *)
+    @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
     public struct ActiveStreamSequence: Equatable, AsyncSequence {
         /// inherited
         public typealias Element = InputEvent
