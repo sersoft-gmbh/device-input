@@ -110,4 +110,54 @@ final class InputDeviceTests: XCTestCase {
         XCTAssertEqual(eventsToSend.count, foundEvents.count)
         XCTAssertEqual(foundEvents, eventsToSend.compactMap(InputEvent.init))
     }
+
+#if compiler(>=5.5.2) && canImport(_Concurrency)
+    func testAsyncEventStreams() async throws {
+        let tempDir = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+        try FileManager.default.createDirectory(at: tempDir, withIntermediateDirectories: true)
+        defer {
+            try? FileManager.default.removeItem(at: tempDir)
+        }
+        let eventFile = FilePath(tempDir.appendingPathComponent("event_file").path)
+        let handle = try FileDescriptor.open(eventFile, .writeOnly,
+                                             options: [.create, .append],
+                                             permissions: [.ownerReadWrite, .groupReadWrite])
+        let inputDevice = InputDevice(eventFile: eventFile, grabDevice: false)
+        let eventsToSend = [
+            InputEvent.cEvent(date: Date(), kind: .keyStateChange, code: .init(rawValue: 5), value: .keyUp),
+            InputEvent.cEvent(date: Date(), kind: .keyStateChange, code: .init(rawValue: 6), value: .keyUp),
+            InputEvent.cEvent(date: Date(), kind: .keyStateChange, code: .init(rawValue: 7), value: .keyUp),
+            InputEvent.cEvent(date: Date(), kind: .keyStateChange, code: .init(rawValue: 8), value: .keyUp),
+            InputEvent.cEvent(date: Date(), kind: .keyStateChange, code: .init(rawValue: 9), value: .keyUp),
+            InputEvent.cEvent(date: Date(), kind: .keyStateChange, code: .init(rawValue: 2), value: .keyUp),
+            InputEvent.cEvent(date: Date(), kind: .keyStateChange, code: .init(rawValue: 3), value: .keyUp),
+        ]
+        let task = Task<Array<InputEvent>, Error>.detached {
+            var foundEvents = Array<InputEvent>()
+            for try await event in inputDevice.events {
+                foundEvents.append(event)
+                if foundEvents.count >= eventsToSend.count {
+                    break
+                }
+            }
+            return foundEvents
+        }
+        try await Task.sleep(nanoseconds: 1_000_000) // wait for loop to be set up
+        try handle.closeAfter {
+            try eventsToSend.dropLast(4).withUnsafeBytes {
+                _ = try handle.write($0)
+            }
+            try eventsToSend.dropFirst(3).withUnsafeBytes {
+                _ = try handle.write($0)
+            }
+        }
+        let foundEvents = try await task.value
+        XCTAssertEqual(eventsToSend.count, foundEvents.count)
+        XCTAssertEqual(foundEvents, eventsToSend.compactMap(InputEvent.init))
+    }
+#else
+    func testAsyncEventStreams() throws {
+        throw XCTSkip("Tested API is not available with this compiler version.")
+    }
+#endif
 }

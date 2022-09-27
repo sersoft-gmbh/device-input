@@ -1,4 +1,4 @@
-import Dispatch
+    import Dispatch
 import SystemPackage
 import FileStreamer
 import CInput
@@ -10,6 +10,20 @@ public struct InputDevice: Equatable {
     /// Whether or not the device should be 'grabbed'.
     /// If true, an `ioctl` is done with `EVIOCGRAB` on the file handle.
     public let grabsDevice: Bool
+
+#if compiler(>=5.5.2) && canImport(_Concurrency)
+    /// Creates an active stream sequence that asynchronously sends events.
+    /// - Parameter eventConsumer: The consumer to register.
+    /// - Throws: Errors that occur while starting to stream.
+    /// - Note: The `eventConsumer` will always be registered, even if the device is already streaming.
+    @inlinable
+    @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
+    public var events: ActiveStreamSequence {
+        assert(!grabsDevice || currentActiveStream() == nil,
+               "Cannot use async events sequence and callback based streaming in parallel when the device is being grabbed!")
+        return .init(_device: self)
+    }
+#endif
 
     /// Creates a new input device with the given parameters.
     /// - Parameters:
@@ -36,20 +50,6 @@ public struct InputDevice: Equatable {
     public func currentActiveStream() -> ActiveStream? {
         InputDevice._getExistingStream(for: self)
     }
-
-#if compiler(>=5.5.2) && canImport(_Concurrency)
-    /// Creates an active stream sequence that asynchronously sends events.
-    /// - Parameter eventConsumer: The consumer to register.
-    /// - Throws: Errors that occur while starting to stream.
-    /// - Note: The `eventConsumer` will always be registered, even if the device is already streaming.
-    @inlinable
-    @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
-    public var events: ActiveStreamSequence {
-        get throws {
-            try InputDevice._getStreamSequence(for: self)
-        }
-    }
-#endif
 
     /// inherited
     public static func ==(lhs: Self, rhs: Self) -> Bool {
@@ -156,7 +156,7 @@ extension InputDevice {
 
 extension InputDevice {
     private static let fileStreamersLock = DispatchQueue(label: "de.sersoft.deviceinput.inputdevice.streamers.lock")
-    private static var fileStreamers: [FilePath: ActiveStream] = [:]
+    private static var fileStreamers = Dictionary<FilePath, ActiveStream>()
 
     @usableFromInline
     static func _getExistingStream(for device: InputDevice) -> ActiveStream? {
@@ -202,45 +202,46 @@ extension InputDevice {
         @frozen
         public struct Iterator: AsyncIteratorProtocol {
             @usableFromInline
-            typealias _UnderlyingIterator = AsyncCompactMapSequence<FileStream<input_event>.Sequence, InputEvent>.AsyncIterator
+            var _device: InputDevice?
 
             @usableFromInline
-            var _storage: (device: InputDevice, fileDescriptor: FileDescriptor)?
+            var _iterator: AsyncCompactMapSequence<FileStream<input_event>.Sequence, InputEvent>.AsyncIterator?
 
             @usableFromInline
-            var _iterator: _UnderlyingIterator
-
-            @usableFromInline
-            init(_device: InputDevice,
-                 _fileDescriptor: FileDescriptor,
-                 _iterator: _UnderlyingIterator) {
-                self._storage = (_device, _fileDescriptor)
-                self._iterator = _iterator
+            init(_device: InputDevice) {
+                self._device = _device
             }
 
             @usableFromInline
-            mutating func _finalize() throws {
-                guard let storage = _storage else { return }
-                _storage = nil
-                if storage.device.grabsDevice {
-                    try storage.fileDescriptor.closeAfter {
-                        try storage.fileDescriptor.releaseGrab()
-                    }
-                } else {
-                    try storage.fileDescriptor.close()
-                }
+            mutating func _setup() async throws {
+                assert(!Task.isCancelled)
+                assert(_device != nil)
+                assert(_iterator == nil)
+                guard let device = _device else { return }
+                _iterator = try await Self.streamsStorage
+                    ._getStreamSequence(for: device)
+                    .compactMap { Element(cInputEvent: $0) }
+                    .makeAsyncIterator()
+            }
+
+            @usableFromInline
+            mutating func _finalize() async throws {
+                guard let device = _device else { return }
+                (_device, _iterator) = (nil, nil)
+                try await Self.streamsStorage._removeStreamSequence(for: device)
             }
 
             /// inherited
             @inlinable
             public mutating func next() async throws -> Element? {
-                guard !Task.isCancelled else {
-                    try _finalize()
+                guard !Task.isCancelled && _device != nil else {
+                    try await _finalize()
                     return nil
                 }
-                let next = await _iterator.next()
+                if _iterator == nil { try await _setup() }
+                let next = await _iterator?.next()
                 if next == nil {
-                    try _finalize()
+                    try await _finalize()
                 }
                 return next
             }
@@ -248,69 +249,69 @@ extension InputDevice {
 
         /// The device that is streaming.
         public let device: InputDevice
-        /// The file descriptor.
-        let fileDescriptor: FileDescriptor
-        /// The open file stream sequence.
-        let stream: FileStream<input_event>.Sequence
 
-        fileprivate init(device: InputDevice) throws {
-            self.device = device
-            self.fileDescriptor = try .open(device.eventFile, .readOnly)
-            self.stream = .init(fileDescriptor: fileDescriptor)
+        @usableFromInline
+        init(_device: InputDevice) {
+            device = _device
+        }
+
+        /// inherited
+        @inlinable
+        public func makeAsyncIterator() -> AsyncIterator {
+            .init(_device: device)
+        }
+    }
+}
+
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
+extension InputDevice.ActiveStreamSequence.AsyncIterator {
+    fileprivate final actor StreamsStorage {
+        private typealias StreamInformation = (stream: FileStream<input_event>.Sequence, fileDescriptor: FileDescriptor, refCount: Int)
+
+        private var streamValues = Dictionary<FilePath, StreamInformation>()
+
+        func _getStreamSequence(for device: InputDevice) throws -> FileStream<input_event>.Sequence {
+            if var existing = streamValues[device.eventFile] {
+                existing.refCount += 1
+                streamValues[device.eventFile] = existing
+                return existing.stream
+            }
+            let fileDesc = try FileDescriptor.open(device.eventFile, .readOnly)
             if device.grabsDevice {
                 do {
-                    try fileDescriptor.takeGrab()
+                    try fileDesc.takeGrab()
                 } catch {
                     do {
-                        try fileDescriptor.close()
+                        try fileDesc.close()
                     } catch {
                         print("Grabbing the device at \(device.eventFile) threw an error and trying to close the file descriptor failed: \(error)")
                     }
                     throw error
                 }
             }
+            let newStream = FileStream<input_event>.Sequence(fileDescriptor: fileDesc)
+            streamValues[device.eventFile] = (newStream, fileDesc, 1)
+            return newStream
         }
 
-        /// inherited
-        public func makeAsyncIterator() -> AsyncIterator {
-            .init(_device: device,
-                  _fileDescriptor: fileDescriptor,
-                  _iterator: stream.compactMap(Element.init).makeAsyncIterator())
-        }
-
-        /// inherited
-        public static func ==(lhs: Self, rhs: Self) -> Bool {
-            lhs.device == rhs.device && lhs.fileDescriptor == rhs.fileDescriptor
-        }
-    }
-}
-
-@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
-extension InputDevice {
-    private static let fileStreamerSequencesLock = DispatchQueue(label: "de.sersoft.device-input.input-device.streamer-sequences.lock")
-    private static var fileStreamerSequences = Dictionary<FilePath, ActiveStreamSequence>()
-
-    @usableFromInline
-    static func _getExistingStreamSequence(for device: InputDevice) -> ActiveStreamSequence? {
-        dispatchPrecondition(condition: .notOnQueue(fileStreamerSequencesLock))
-        return fileStreamerSequencesLock.sync { fileStreamerSequences[device.eventFile] }
-    }
-
-    @usableFromInline
-    static func _getStreamSequence(for device: InputDevice) throws -> ActiveStreamSequence {
-        dispatchPrecondition(condition: .notOnQueue(fileStreamerSequencesLock))
-        return try fileStreamerSequencesLock.sync {
-            if let existing = fileStreamerSequences[device.eventFile] { return existing }
-            let new = try ActiveStreamSequence(device: device)
-            fileStreamerSequences[device.eventFile] = new
-            return new
+        func _removeStreamSequence(for device: InputDevice) throws {
+            guard var existing = streamValues[device.eventFile] else { return }
+            guard existing.refCount <= 1 else {
+                existing.refCount -= 1
+                streamValues[device.eventFile] = existing
+                return
+            }
+            streamValues.removeValue(forKey: device.eventFile)
+            if device.grabsDevice {
+                try existing.fileDescriptor.closeAfter {
+                    try existing.fileDescriptor.releaseGrab()
+                }
+            } else {
+                try existing.fileDescriptor.close()
+            }
         }
     }
 
-    @usableFromInline
-    static func _removeStreamSequence(for device: InputDevice) -> ActiveStreamSequence? {
-        dispatchPrecondition(condition: .notOnQueue(fileStreamerSequencesLock))
-        return fileStreamerSequencesLock.sync { fileStreamerSequences.removeValue(forKey: device.eventFile) }
-    }
+    fileprivate static let streamsStorage = StreamsStorage()
 }
 #endif
