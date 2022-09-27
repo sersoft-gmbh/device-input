@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "Stops the input device from receivng any events. All registered event consumers will be automatically deregistered by this call.",
+      "text" : "Stops the input device from receiving any events. All registered event consumers will be automatically deregistered by this call.",
       "type" : "text"
     }
   ],
@@ -230,7 +230,7 @@
 "doc://DeviceInput/documentation/DeviceInput/InputDevice/ActiveStream/stopStreaming()": {
   "abstract" : [
     {
-      "text" : "Stops the input device from receivng any events. All registered event consumers will be automatically deregistered by this call.",
+      "text" : "Stops the input device from receiving any events. All registered event consumers will be automatically deregistered by this call.",
       "type" : "text"
     }
   ],

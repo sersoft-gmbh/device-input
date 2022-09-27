@@ -231,7 +231,7 @@
 "doc://DeviceInput/documentation/DeviceInput/InputDevice/ActiveStreamSequence": {
   "abstract" : [
     {
-      "text" : "An active stream sequence that asynchrounously sends events.",
+      "text" : "An active stream sequence that asynchronously sends events.",
       "type" : "text"
     }
   ],
