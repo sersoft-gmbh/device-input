@@ -112,6 +112,7 @@ final class InputDeviceTests: XCTestCase {
     }
 
 #if compiler(>=5.5.2) && canImport(_Concurrency)
+    @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
     func testAsyncEventStreams() async throws {
         let tempDir = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
         try FileManager.default.createDirectory(at: tempDir, withIntermediateDirectories: true)
