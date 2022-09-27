@@ -1,4 +1,4 @@
-    import Dispatch
+import Dispatch
 import SystemPackage
 import FileStreamer
 import CInput
@@ -134,7 +134,7 @@ extension InputDevice {
             callbacks.add(eventConsumer)
         }
 
-        /// Stops the input device from receivng any events. All registered event consumers will be automatically deregistered by this call.
+        /// Stops the input device from receiving any events. All registered event consumers will be automatically deregistered by this call.
         /// - Throws: Errors that occur while closing the file handle.
         public func stopStreaming() throws {
             guard let stream = InputDevice._removeStream(for: device)?.stream else { return }
@@ -184,13 +184,13 @@ extension InputDevice {
 
 #if compiler(>=5.5.2) && canImport(_Concurrency)
 extension InputDevice.ActiveStream._Callbacks: @unchecked Sendable {} // unchecked because of manual locking
-extension InputDevice.ActiveStream: @unchecked Sendable {} // unchecked because of FileStream which we use in a Sendable-safe way.
+extension InputDevice.ActiveStream: @unchecked Sendable {} // unchecked because of FileStream which we use in a Sendable-safe way
 extension InputDevice: @unchecked Sendable {} // unchecked because of FilePath
 #endif
 
 #if compiler(>=5.5.2) && canImport(_Concurrency)
 extension InputDevice {
-    /// An active stream sequence that asynchrounously sends events.
+    /// An active stream sequence that asynchronously sends events.
     @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
     public struct ActiveStreamSequence: Equatable, AsyncSequence {
         /// inherited
