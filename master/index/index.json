@@ -95,15 +95,6 @@
                     "type" : "struct"
                   },
                   {
-                    "title" : "Operators",
-                    "type" : "groupMarker"
-                  },
-                  {
-                    "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/==(_:_:)",
-                    "title" : "static func == (InputDevice.ActiveStreamSequence, InputDevice.ActiveStreamSequence) -> Bool",
-                    "type" : "op"
-                  },
-                  {
                     "title" : "Instance Properties",
                     "type" : "groupMarker"
                   },

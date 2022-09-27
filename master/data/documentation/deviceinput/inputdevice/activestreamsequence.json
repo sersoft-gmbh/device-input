@@ -138,12 +138,6 @@
     },
     {
       "identifiers" : [
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence\/==(_:_:)"
-      ],
-      "title" : "Operators"
-    },
-    {
-      "identifiers" : [
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence\/device"
       ],
       "title" : "Instance Properties"
@@ -272,91 +266,6 @@
   "title" : "InputDevice.ActiveStreamSequence",
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence"
-},
-"doc://DeviceInput/documentation/DeviceInput/InputDevice/ActiveStreamSequence/==(_:_:)": {
-  "abstract" : [
-    {
-      "text" : "inherited",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "static"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "keyword",
-      "text" : "func"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "=="
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "text",
-      "text" : "("
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:11DeviceInput0bA0V",
-      "text" : "InputDevice"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:11DeviceInput0bA0V20ActiveStreamSequenceV",
-      "text" : "ActiveStreamSequence"
-    },
-    {
-      "kind" : "text",
-      "text" : ", "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:11DeviceInput0bA0V",
-      "text" : "InputDevice"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:11DeviceInput0bA0V20ActiveStreamSequenceV",
-      "text" : "ActiveStreamSequence"
-    },
-    {
-      "kind" : "text",
-      "text" : ") -> "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:Sb",
-      "text" : "Bool"
-    }
-  ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence\/==(_:_:)",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "==(_:_:)",
-  "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/==(_:_:)"
 },
 "doc://DeviceInput/documentation/DeviceInput/InputDevice/ActiveStreamSequence/AsyncIterator": {
   "abstract" : [
