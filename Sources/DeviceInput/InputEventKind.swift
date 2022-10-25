@@ -2,7 +2,7 @@ import CInput
 
 extension InputEvent {
     /// Defines the type of input event.
-	public enum Kind: input_event_type {
+	public enum Kind: input_event_type, Sendable {
 		case synchronization = 0x00 // EV_SYN
 		case keyStateChange = 0x01 // EV_KEY
 		case relativeAxis = 0x02 // EV_REL
@@ -22,7 +22,3 @@ extension InputEvent {
         static var count: RawValue { max + 1 } // EV_CNT
 	}
 }
-
-#if compiler(>=5.5.2) && canImport(_Concurrency)
-extension InputEvent.Kind: Sendable {}
-#endif

@@ -111,9 +111,10 @@ final class InputDeviceTests: XCTestCase {
         XCTAssertEqual(foundEvents, eventsToSend.compactMap(InputEvent.init))
     }
 
-#if compiler(>=5.5.2) && canImport(_Concurrency)
-    @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
     func testAsyncEventStreams() async throws {
+        guard #available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *) else {
+            throw XCTSkip("Tested API not available on this platform!")
+        }
         let tempDir = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
         try FileManager.default.createDirectory(at: tempDir, withIntermediateDirectories: true)
         defer {
@@ -156,9 +157,4 @@ final class InputDeviceTests: XCTestCase {
         XCTAssertEqual(eventsToSend.count, foundEvents.count)
         XCTAssertEqual(foundEvents, eventsToSend.compactMap(InputEvent.init))
     }
-#else
-    func testAsyncEventStreams() throws {
-        throw XCTSkip("Tested API is not available with this compiler version.")
-    }
-#endif
 }

@@ -3,7 +3,7 @@ import CInput
 extension InputEvent {
     /// Represents the value of an input event.
     @frozen
-	public struct Value: RawRepresentable, Hashable {
+	public struct Value: RawRepresentable, Hashable, Sendable {
         /// inherited
 		public typealias RawValue = input_event_value
 
@@ -25,7 +25,3 @@ extension InputEvent.Value {
     /// The auto-repeat value of an event.
     public static let autoRepeat = InputEvent.Value(rawValue: 2)
 }
-
-#if compiler(>=5.5.2) && canImport(_Concurrency)
-extension InputEvent.Value: Sendable {}
-#endif

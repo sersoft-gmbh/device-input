@@ -33,7 +33,7 @@ struct input_event {
 };
 #endif /* _HAS_LINUX_INPUT */
 
-// The following teypdefs and functions are convenience APIs
+// The following typedefs and functions are convenience APIs
 typedef __u16 input_event_type;
 typedef __u16 input_event_code;
 typedef __s32 input_event_value;

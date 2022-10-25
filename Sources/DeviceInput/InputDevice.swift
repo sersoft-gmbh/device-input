@@ -4,14 +4,13 @@ import FileStreamer
 import CInput
 
 /// Represents an input device at a given file path.
-public struct InputDevice: Equatable {
+public struct InputDevice: Equatable, @unchecked Sendable { // unchecked because of FilePath
     /// The file path to the input device.
     public let eventFile: FilePath
     /// Whether or not the device should be 'grabbed'.
     /// If true, an `ioctl` is done with `EVIOCGRAB` on the file handle.
     public let grabsDevice: Bool
 
-#if compiler(>=5.5.2) && canImport(_Concurrency)
     /// Creates an active stream sequence that asynchronously sends events.
     /// - Parameter eventConsumer: The consumer to register.
     /// - Throws: Errors that occur while starting to stream.
@@ -23,8 +22,6 @@ public struct InputDevice: Equatable {
                "Cannot use async events sequence and callback based streaming in parallel when the device is being grabbed!")
         return .init(_device: self)
     }
-#endif
-
     /// Creates a new input device with the given parameters.
     /// - Parameters:
     ///   - eventFile: The path to the input device's event file.
@@ -80,9 +77,9 @@ extension InputDevice {
 
 extension InputDevice {
     /// An active stream for an ``InputDevice``.
-    public struct ActiveStream: Equatable {
+    public struct ActiveStream: Equatable, @unchecked Sendable { // unchecked because of FileStream which we use in a Sendable-safe way
         @usableFromInline
-        final class _Callbacks {
+        final class _Callbacks: @unchecked Sendable { // unchecked because of manual locking
             private let lock = DispatchQueue(label: "de.sersoft.deviceinput.inputdevice.activestream.callbacks.lock")
             private var _callbacks = Array<EventConsumer>()
 
@@ -182,13 +179,6 @@ extension InputDevice {
     }
 }
 
-#if compiler(>=5.5.2) && canImport(_Concurrency)
-extension InputDevice.ActiveStream._Callbacks: @unchecked Sendable {} // unchecked because of manual locking
-extension InputDevice.ActiveStream: @unchecked Sendable {} // unchecked because of FileStream which we use in a Sendable-safe way
-extension InputDevice: @unchecked Sendable {} // unchecked because of FilePath
-#endif
-
-#if compiler(>=5.5.2) && canImport(_Concurrency)
 extension InputDevice {
     /// An active stream sequence that asynchronously sends events.
     @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
@@ -314,4 +304,3 @@ extension InputDevice.ActiveStreamSequence.AsyncIterator {
 
     fileprivate static let streamsStorage = StreamsStorage()
 }
-#endif

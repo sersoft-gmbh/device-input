@@ -3,7 +3,7 @@ import CInput
 extension InputEvent {
     /// Contains the code of an input event.
     @frozen
-	public struct Code: RawRepresentable, Hashable {
+	public struct Code: RawRepresentable, Hashable, Sendable {
         /// inherited
 		public typealias RawValue = input_event_code
 
@@ -17,10 +17,6 @@ extension InputEvent {
 	}
 }
 
-#if compiler(>=5.5.2) && canImport(_Concurrency)
-extension InputEvent.Code: Sendable {}
-#endif
-
 extension InputEvent.Code {
     /// Returns the character value of the event code if available.
     /// Certain control codes (e.g. escape, shift, ...) don't have a character value.
@@ -28,7 +24,7 @@ extension InputEvent.Code {
 }
 
 fileprivate extension InputEvent.Code {
-	static let keyCodeMapping: [InputEvent.Code.RawValue: Character] = [
+	static let keyCodeMapping: Dictionary<InputEvent.Code.RawValue, Character> = [
 	//    0: "RESERVED",
 	//    1: "ESC",
 	    2: "1",

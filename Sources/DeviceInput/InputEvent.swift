@@ -3,7 +3,7 @@ import typealias Foundation.TimeInterval
 import CInput
 
 /// Describes an input event.
-public struct InputEvent: Hashable {
+public struct InputEvent: Hashable, Sendable {
     /// The timestamp of the event.
 	public let date: Date
     /// The kind of event.
@@ -23,7 +23,3 @@ public struct InputEvent: Hashable {
 		value = Value(rawValue: cInputEvent.value)
 	}
 }
-
-#if compiler(>=5.7) && canImport(_Concurrency)
-extension InputEvent: Sendable {}
-#endif
