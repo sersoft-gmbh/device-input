@@ -1,0 +1,374 @@
+{
+  "abstract" : [
+    {
+      "text" : "Creates an active stream sequence that asynchronously sends events.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput",
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/events"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:11DeviceInput0bA0V6eventsAC20ActiveStreamSequenceVvp",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "var"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "events"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:11DeviceInput0bA0V",
+        "text" : "InputDevice"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:11DeviceInput0bA0V20ActiveStreamSequenceV",
+        "text" : "ActiveStreamSequence"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "DeviceInput"
+      }
+    ],
+    "platforms" : [
+      {
+        "beta" : false,
+        "deprecated" : false,
+        "introducedAt" : "13.0",
+        "name" : "iOS",
+        "unavailable" : false
+      },
+      {
+        "beta" : false,
+        "deprecated" : false,
+        "introducedAt" : "10.15",
+        "name" : "macOS",
+        "unavailable" : false
+      },
+      {
+        "beta" : false,
+        "deprecated" : false,
+        "introducedAt" : "13.0",
+        "name" : "tvOS",
+        "unavailable" : false
+      },
+      {
+        "beta" : false,
+        "deprecated" : false,
+        "introducedAt" : "6.0",
+        "name" : "watchOS",
+        "unavailable" : false
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Property",
+    "symbolKind" : "property",
+    "title" : "events"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "Linux"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "var"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "events"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:11DeviceInput0bA0V",
+              "text" : "InputDevice"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:11DeviceInput0bA0V20ActiveStreamSequenceV",
+              "text" : "ActiveStreamSequence"
+            },
+            {
+              "kind" : "text",
+              "text" : " { "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "get"
+            },
+            {
+              "kind" : "text",
+              "text" : " }"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "kind" : "parameters",
+      "parameters" : [
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "The consumer to register.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "eventConsumer"
+        }
+      ]
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "discussion",
+          "level" : 2,
+          "text" : "Discussion",
+          "type" : "heading"
+        },
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "Errors that occur while starting to stream.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "Throws",
+          "style" : "note",
+          "type" : "aside"
+        },
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "The ",
+                  "type" : "text"
+                },
+                {
+                  "code" : "eventConsumer",
+                  "type" : "codeVoice"
+                },
+                {
+                  "text" : " will always be registered, even if the device is already streaming.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "Note",
+          "style" : "note",
+          "type" : "aside"
+        }
+      ],
+      "kind" : "content"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/deviceinput\/inputdevice\/events"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://DeviceInput/documentation/DeviceInput": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "DeviceInput",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputDevice": {
+  "abstract" : [
+    {
+      "text" : "Represents an input device at a given file path.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "InputDevice"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "InputDevice"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InputDevice",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputdevice"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/ActiveStreamSequence": {
+  "abstract" : [
+    {
+      "text" : "An active stream sequence that asynchronously sends events.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ActiveStreamSequence"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ActiveStreamSequence"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InputDevice.ActiveStreamSequence",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/events": {
+  "abstract" : [
+    {
+      "text" : "Creates an active stream sequence that asynchronously sends events.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "events"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:11DeviceInput0bA0V",
+      "text" : "InputDevice"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:11DeviceInput0bA0V20ActiveStreamSequenceV",
+      "text" : "ActiveStreamSequence"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/events",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "events",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputdevice\/events"
+}
+}
+}

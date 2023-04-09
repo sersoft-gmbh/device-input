@@ -1,0 +1,293 @@
+{
+  "abstract" : [
+    {
+      "text" : "inherited",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput",
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice",
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence\/Element"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:11DeviceInput0bA0V20ActiveStreamSequenceV7Elementa",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "typealias"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "Element"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "DeviceInput"
+      }
+    ],
+    "navigatorTitle" : [
+      {
+        "kind" : "identifier",
+        "text" : "Element"
+      }
+    ],
+    "platforms" : [
+      {
+        "beta" : false,
+        "deprecated" : false,
+        "introducedAt" : "13.0",
+        "name" : "iOS",
+        "unavailable" : false
+      },
+      {
+        "beta" : false,
+        "deprecated" : false,
+        "introducedAt" : "10.15",
+        "name" : "macOS",
+        "unavailable" : false
+      },
+      {
+        "beta" : false,
+        "deprecated" : false,
+        "introducedAt" : "13.0",
+        "name" : "tvOS",
+        "unavailable" : false
+      },
+      {
+        "beta" : false,
+        "deprecated" : false,
+        "introducedAt" : "6.0",
+        "name" : "watchOS",
+        "unavailable" : false
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Type Alias",
+    "symbolKind" : "typealias",
+    "title" : "InputDevice.ActiveStreamSequence.Element"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "Linux"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "typealias"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "Element"
+            },
+            {
+              "kind" : "text",
+              "text" : " = "
+            },
+            {
+              "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:11DeviceInput0B5EventV",
+              "text" : "InputEvent"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/element"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://DeviceInput/documentation/DeviceInput": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "DeviceInput",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputDevice": {
+  "abstract" : [
+    {
+      "text" : "Represents an input device at a given file path.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "InputDevice"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "InputDevice"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InputDevice",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputdevice"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/ActiveStreamSequence": {
+  "abstract" : [
+    {
+      "text" : "An active stream sequence that asynchronously sends events.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ActiveStreamSequence"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ActiveStreamSequence"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InputDevice.ActiveStreamSequence",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/ActiveStreamSequence/Element": {
+  "abstract" : [
+    {
+      "text" : "inherited",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Element"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence\/Element",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Element"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InputDevice.ActiveStreamSequence.Element",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/element"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent": {
+  "abstract" : [
+    {
+      "text" : "Describes an input event.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "InputEvent"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "InputEvent"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InputEvent",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent"
+}
+}
+}
