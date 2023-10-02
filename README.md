@@ -12,7 +12,7 @@ Processes inputs read from `/dev/input` device streams.
 
 Add the following dependency to your `Package.swift`:
 ```swift
-.package(url: "https://github.com/sersoft-gmbh/device-input.git", from: "6.0.0"),
+.package(url: "https://github.com/sersoft-gmbh/device-input.git", from: "7.0.0"),
 ```
 
 ## Compatibility
@@ -20,15 +20,14 @@ Add the following dependency to your `Package.swift`:
 -   For Swift as of version 5.3, use DeviceInput version 4.x.y.
 -   For Swift as of version 5.5, use DeviceInput version 5.x.y.
 -   For Swift as of version 5.6, use DeviceInput version 6.x.y.
+-   For Swift as of version 5.9, use DeviceInput version 7.x.y.
 
 ## Usage
 
 ### InputDevice
 
 An `InputDevice` is the entry point for streaming input events. Create an input device by passing it the path to the input file. By default, an input device "grabs" its input file when it begins streaming for events. By doing so, no other process (e.g. the default system input handler) will receive the events of the input device. However, this only works on Linux. You can manually pass `false` to the `grabDevice` parameter in the initializer if you explicitly don't want to grab the device.
-
-You then call `startReceivingEvents(informing:)` on the input device. The parameter you pass to this method is an `InputDevice.EventConsumer`. It takes a `DispatchQueue` and a `handler`. The latter is called on the queue and is passed the device as well as an array of events received from the device. After calling `startReceivingEvents`, the input device will start streaming for events and notify the passed event consumer. You can register more event consumers by calling `addEventConsumer`. You can as well deregister event consumers using `removeEventConsumer`. Note that when the last event consumer is removed, the input device automatically stops streaming events.
-Finally, if you're done with the input device, call `stopReceivingEvents` to deregister all event consumers and stop streaming events.
+You then use the asynchronouse `events` sequence on the input device.
 
 ### InputEvent
 
