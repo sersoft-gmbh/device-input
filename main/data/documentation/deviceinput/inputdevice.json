@@ -100,9 +100,7 @@
   "topicSections" : [
     {
       "identifiers" : [
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStream",
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence",
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/EventConsumer"
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct"
       ],
       "title" : "Structures"
     },
@@ -121,17 +119,10 @@
     {
       "identifiers" : [
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/eventFile",
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/events",
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/events-swift.property",
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/grabsDevice"
       ],
       "title" : "Instance Properties"
-    },
-    {
-      "identifiers" : [
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/currentActiveStream()",
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/startStreaming(informing:)"
-      ],
-      "title" : "Instance Methods"
     },
     {
       "generated" : true,
@@ -207,10 +198,7 @@
 },
 "doc://DeviceInput/documentation/DeviceInput/InputDevice/==(_:_:)": {
   "abstract" : [
-    {
-      "text" : "inherited",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -272,50 +260,18 @@
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputdevice\/==(_:_:)"
 },
-"doc://DeviceInput/documentation/DeviceInput/InputDevice/ActiveStream": {
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/Equatable-Implementations": {
   "abstract" : [
-    {
-      "text" : "An active stream for an ",
-      "type" : "text"
-    },
-    {
-      "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice",
-      "isActive" : true,
-      "type" : "reference"
-    },
-    {
-      "text" : ".",
-      "type" : "text"
-    }
+
   ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "struct"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "ActiveStream"
-    }
-  ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStream",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "ActiveStream"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "InputDevice.ActiveStream",
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Equatable-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Equatable Implementations",
   "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputdevice\/activestream"
+  "url" : "\/documentation\/deviceinput\/inputdevice\/equatable-implementations"
 },
-"doc://DeviceInput/documentation/DeviceInput/InputDevice/ActiveStreamSequence": {
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct": {
   "abstract" : [
     {
       "text" : "An active stream sequence that asynchronously sends events.",
@@ -333,116 +289,21 @@
     },
     {
       "kind" : "identifier",
-      "text" : "ActiveStreamSequence"
+      "text" : "Events"
     }
   ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/ActiveStreamSequence",
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
       "kind" : "identifier",
-      "text" : "ActiveStreamSequence"
+      "text" : "Events"
     }
   ],
   "role" : "symbol",
-  "title" : "InputDevice.ActiveStreamSequence",
+  "title" : "InputDevice.Events",
   "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence"
-},
-"doc://DeviceInput/documentation/DeviceInput/InputDevice/Equatable-Implementations": {
-  "abstract" : [
-
-  ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Equatable-Implementations",
-  "kind" : "article",
-  "role" : "collectionGroup",
-  "title" : "Equatable Implementations",
-  "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputdevice\/equatable-implementations"
-},
-"doc://DeviceInput/documentation/DeviceInput/InputDevice/EventConsumer": {
-  "abstract" : [
-    {
-      "text" : "An object that calls a given closure for an input device event.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "struct"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "EventConsumer"
-    }
-  ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/EventConsumer",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "EventConsumer"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "InputDevice.EventConsumer",
-  "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputdevice\/eventconsumer"
-},
-"doc://DeviceInput/documentation/DeviceInput/InputDevice/currentActiveStream()": {
-  "abstract" : [
-    {
-      "text" : "Returns the currently active stream for this device if there is one.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "func"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "currentActiveStream"
-    },
-    {
-      "kind" : "text",
-      "text" : "() -> "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:11DeviceInput0bA0V",
-      "text" : "InputDevice"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:11DeviceInput0bA0V12ActiveStreamV",
-      "text" : "ActiveStream"
-    },
-    {
-      "kind" : "text",
-      "text" : "?"
-    }
-  ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/currentActiveStream()",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "currentActiveStream()",
-  "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputdevice\/currentactivestream()"
+  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct"
 },
 "doc://DeviceInput/documentation/DeviceInput/InputDevice/eventFile": {
   "abstract" : [
@@ -481,10 +342,10 @@
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputdevice\/eventfile"
 },
-"doc://DeviceInput/documentation/DeviceInput/InputDevice/events": {
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/events-swift.property": {
   "abstract" : [
     {
-      "text" : "Creates an active stream sequence that asynchronously sends events.",
+      "text" : "The async events sequence.",
       "type" : "text"
     }
   ],
@@ -516,16 +377,16 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:11DeviceInput0bA0V20ActiveStreamSequenceV",
-      "text" : "ActiveStreamSequence"
+      "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV",
+      "text" : "Events"
     }
   ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/events",
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/events-swift.property",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "events",
   "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputdevice\/events"
+  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.property"
 },
 "doc://DeviceInput/documentation/DeviceInput/InputDevice/grabsDevice": {
   "abstract" : [
@@ -645,86 +506,6 @@
   "title" : "init(eventFile:grabDevice:)",
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputdevice\/init(eventfile:grabdevice:)"
-},
-"doc://DeviceInput/documentation/DeviceInput/InputDevice/startStreaming(informing:)": {
-  "abstract" : [
-    {
-      "text" : "Registers an event consumer and starts receiving events from the input device.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "func"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "startStreaming"
-    },
-    {
-      "kind" : "text",
-      "text" : "("
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "informing"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:11DeviceInput0bA0V",
-      "text" : "InputDevice"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:11DeviceInput0bA0V13EventConsumerV",
-      "text" : "EventConsumer"
-    },
-    {
-      "kind" : "text",
-      "text" : ") "
-    },
-    {
-      "kind" : "keyword",
-      "text" : "throws"
-    },
-    {
-      "kind" : "text",
-      "text" : " -> "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:11DeviceInput0bA0V",
-      "text" : "InputDevice"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:11DeviceInput0bA0V12ActiveStreamV",
-      "text" : "ActiveStream"
-    }
-  ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/startStreaming(informing:)",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "startStreaming(informing:)",
-  "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputdevice\/startstreaming(informing:)"
 },
 "doc://DeviceInput/s8SendableP": {
   "identifier" : "doc:\/\/DeviceInput\/s8SendableP",

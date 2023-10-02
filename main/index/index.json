@@ -16,65 +16,6 @@
               {
                 "children" : [
                   {
-                    "title" : "Operators",
-                    "type" : "groupMarker"
-                  },
-                  {
-                    "path" : "\/documentation\/deviceinput\/inputdevice\/activestream\/==(_:_:)",
-                    "title" : "static func == (InputDevice.ActiveStream, InputDevice.ActiveStream) -> Bool",
-                    "type" : "op"
-                  },
-                  {
-                    "title" : "Instance Properties",
-                    "type" : "groupMarker"
-                  },
-                  {
-                    "path" : "\/documentation\/deviceinput\/inputdevice\/activestream\/device",
-                    "title" : "let device: InputDevice",
-                    "type" : "property"
-                  },
-                  {
-                    "title" : "Instance Methods",
-                    "type" : "groupMarker"
-                  },
-                  {
-                    "path" : "\/documentation\/deviceinput\/inputdevice\/activestream\/addeventconsumer(_:)",
-                    "title" : "func addEventConsumer(InputDevice.EventConsumer)",
-                    "type" : "method"
-                  },
-                  {
-                    "path" : "\/documentation\/deviceinput\/inputdevice\/activestream\/stopstreaming()",
-                    "title" : "func stopStreaming() throws",
-                    "type" : "method"
-                  },
-                  {
-                    "title" : "Default Implementations",
-                    "type" : "groupMarker"
-                  },
-                  {
-                    "children" : [
-                      {
-                        "title" : "Operators",
-                        "type" : "groupMarker"
-                      },
-                      {
-                        "path" : "\/documentation\/deviceinput\/inputdevice\/activestream\/!=(_:_:)",
-                        "title" : "static func != (Self, Self) -> Bool",
-                        "type" : "op"
-                      }
-                    ],
-                    "path" : "\/documentation\/deviceinput\/inputdevice\/activestream\/equatable-implementations",
-                    "title" : "Equatable Implementations",
-                    "type" : "symbol"
-                  }
-                ],
-                "path" : "\/documentation\/deviceinput\/inputdevice\/activestream",
-                "title" : "InputDevice.ActiveStream",
-                "type" : "struct"
-              },
-              {
-                "children" : [
-                  {
                     "title" : "Structures",
                     "type" : "groupMarker"
                   },
@@ -85,13 +26,13 @@
                         "type" : "groupMarker"
                       },
                       {
-                        "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/iterator\/next()",
-                        "title" : "func next() async throws -> InputDevice.ActiveStreamSequence.Element?",
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/iterator\/next()",
+                        "title" : "func next() async throws -> InputDevice.Events.Element?",
                         "type" : "method"
                       }
                     ],
-                    "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/iterator",
-                    "title" : "InputDevice.ActiveStreamSequence.Iterator",
+                    "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/iterator",
+                    "title" : "InputDevice.Events.Iterator",
                     "type" : "struct"
                   },
                   {
@@ -99,7 +40,7 @@
                     "type" : "groupMarker"
                   },
                   {
-                    "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/device",
+                    "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/device",
                     "title" : "let device: InputDevice",
                     "type" : "property"
                   },
@@ -108,8 +49,8 @@
                     "type" : "groupMarker"
                   },
                   {
-                    "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/makeasynciterator()",
-                    "title" : "func makeAsyncIterator() -> InputDevice.ActiveStreamSequence.AsyncIterator",
+                    "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/makeasynciterator()",
+                    "title" : "func makeAsyncIterator() -> InputDevice.Events.AsyncIterator",
                     "type" : "method"
                   },
                   {
@@ -117,13 +58,13 @@
                     "type" : "groupMarker"
                   },
                   {
-                    "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/asynciterator",
-                    "title" : "InputDevice.ActiveStreamSequence.AsyncIterator",
+                    "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asynciterator",
+                    "title" : "InputDevice.Events.AsyncIterator",
                     "type" : "typealias"
                   },
                   {
-                    "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/element",
-                    "title" : "InputDevice.ActiveStreamSequence.Element",
+                    "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/element",
+                    "title" : "InputDevice.Events.Element",
                     "type" : "typealias"
                   },
                   {
@@ -137,102 +78,102 @@
                         "type" : "groupMarker"
                       },
                       {
-                        "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/allsatisfy(_:)",
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/allsatisfy(_:)",
                         "title" : "func allSatisfy((Self.Element) async throws -> Bool) async rethrows -> Bool",
                         "type" : "method"
                       },
                       {
-                        "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/compactmap(_:)-5ln9w",
-                        "title" : "func compactMap<ElementOfResult>((Self.Element) async -> ElementOfResult?) -> AsyncCompactMapSequence<Self, ElementOfResult>",
-                        "type" : "method"
-                      },
-                      {
-                        "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/compactmap(_:)-6abwe",
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/compactmap(_:)-6rr24",
                         "title" : "func compactMap<ElementOfResult>((Self.Element) async throws -> ElementOfResult?) -> AsyncThrowingCompactMapSequence<Self, ElementOfResult>",
                         "type" : "method"
                       },
                       {
-                        "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/contains(_:)",
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/compactmap(_:)-7e9i0",
+                        "title" : "func compactMap<ElementOfResult>((Self.Element) async -> ElementOfResult?) -> AsyncCompactMapSequence<Self, ElementOfResult>",
+                        "type" : "method"
+                      },
+                      {
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/contains(_:)",
                         "title" : "func contains(Self.Element) async rethrows -> Bool",
                         "type" : "method"
                       },
                       {
-                        "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/contains(where:)",
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/contains(where:)",
                         "title" : "func contains(where: (Self.Element) async throws -> Bool) async rethrows -> Bool",
                         "type" : "method"
                       },
                       {
-                        "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/drop(while:)",
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/drop(while:)",
                         "title" : "func drop(while: (Self.Element) async -> Bool) -> AsyncDropWhileSequence<Self>",
                         "type" : "method"
                       },
                       {
-                        "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/dropfirst(_:)",
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/dropfirst(_:)",
                         "title" : "func dropFirst(Int) -> AsyncDropFirstSequence<Self>",
                         "type" : "method"
                       },
                       {
-                        "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/filter(_:)",
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/filter(_:)",
                         "title" : "func filter((Self.Element) async -> Bool) -> AsyncFilterSequence<Self>",
                         "type" : "method"
                       },
                       {
-                        "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/first(where:)",
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/first(where:)",
                         "title" : "func first(where: (Self.Element) async throws -> Bool) async rethrows -> Self.Element?",
                         "type" : "method"
                       },
                       {
-                        "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/flatmap(_:)-4p1o0",
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/flatmap(_:)-8wc5g",
                         "title" : "func flatMap<SegmentOfResult>((Self.Element) async throws -> SegmentOfResult) -> AsyncThrowingFlatMapSequence<Self, SegmentOfResult>",
                         "type" : "method"
                       },
                       {
-                        "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/flatmap(_:)-8w0ob",
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/flatmap(_:)-k3d",
                         "title" : "func flatMap<SegmentOfResult>((Self.Element) async -> SegmentOfResult) -> AsyncFlatMapSequence<Self, SegmentOfResult>",
                         "type" : "method"
                       },
                       {
-                        "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/map(_:)-36xdo",
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/map(_:)-15n1n",
                         "title" : "func map<Transformed>((Self.Element) async throws -> Transformed) -> AsyncThrowingMapSequence<Self, Transformed>",
                         "type" : "method"
                       },
                       {
-                        "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/map(_:)-4dwsi",
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/map(_:)-1fnuv",
                         "title" : "func map<Transformed>((Self.Element) async -> Transformed) -> AsyncMapSequence<Self, Transformed>",
                         "type" : "method"
                       },
                       {
-                        "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/max(by:)",
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/max(by:)",
                         "title" : "func max(by: (Self.Element, Self.Element) async throws -> Bool) async rethrows -> Self.Element?",
                         "type" : "method"
                       },
                       {
-                        "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/min(by:)",
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/min(by:)",
                         "title" : "func min(by: (Self.Element, Self.Element) async throws -> Bool) async rethrows -> Self.Element?",
                         "type" : "method"
                       },
                       {
-                        "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/prefix(_:)",
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/prefix(_:)",
                         "title" : "func prefix(Int) -> AsyncPrefixSequence<Self>",
                         "type" : "method"
                       },
                       {
-                        "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/prefix(while:)",
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/prefix(while:)",
                         "title" : "func prefix(while: (Self.Element) async -> Bool) rethrows -> AsyncPrefixWhileSequence<Self>",
                         "type" : "method"
                       },
                       {
-                        "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/reduce(_:_:)",
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/reduce(_:_:)",
                         "title" : "func reduce<Result>(Result, (Result, Self.Element) async throws -> Result) async rethrows -> Result",
                         "type" : "method"
                       },
                       {
-                        "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/reduce(into:_:)",
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/reduce(into:_:)",
                         "title" : "func reduce<Result>(into: Result, (inout Result, Self.Element) async throws -> Void) async rethrows -> Result",
                         "type" : "method"
                       }
                     ],
-                    "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/asyncsequence-implementations",
+                    "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asyncsequence-implementations",
                     "title" : "AsyncSequence Implementations",
                     "type" : "symbol"
                   },
@@ -243,34 +184,18 @@
                         "type" : "groupMarker"
                       },
                       {
-                        "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/!=(_:_:)",
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/!=(_:_:)",
                         "title" : "static func != (Self, Self) -> Bool",
                         "type" : "op"
                       }
                     ],
-                    "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence\/equatable-implementations",
+                    "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/equatable-implementations",
                     "title" : "Equatable Implementations",
                     "type" : "symbol"
                   }
                 ],
-                "path" : "\/documentation\/deviceinput\/inputdevice\/activestreamsequence",
-                "title" : "InputDevice.ActiveStreamSequence",
-                "type" : "struct"
-              },
-              {
-                "children" : [
-                  {
-                    "title" : "Initializers",
-                    "type" : "groupMarker"
-                  },
-                  {
-                    "path" : "\/documentation\/deviceinput\/inputdevice\/eventconsumer\/init(queue:handler:)",
-                    "title" : "init(queue: DispatchQueue, handler: (InputDevice, Array<InputEvent>) -> Void)",
-                    "type" : "init"
-                  }
-                ],
-                "path" : "\/documentation\/deviceinput\/inputdevice\/eventconsumer",
-                "title" : "InputDevice.EventConsumer",
+                "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct",
+                "title" : "InputDevice.Events",
                 "type" : "struct"
               },
               {
@@ -301,28 +226,14 @@
                 "type" : "property"
               },
               {
-                "path" : "\/documentation\/deviceinput\/inputdevice\/events",
-                "title" : "var events: InputDevice.ActiveStreamSequence",
+                "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.property",
+                "title" : "var events: InputDevice.Events",
                 "type" : "property"
               },
               {
                 "path" : "\/documentation\/deviceinput\/inputdevice\/grabsdevice",
                 "title" : "let grabsDevice: Bool",
                 "type" : "property"
-              },
-              {
-                "title" : "Instance Methods",
-                "type" : "groupMarker"
-              },
-              {
-                "path" : "\/documentation\/deviceinput\/inputdevice\/currentactivestream()",
-                "title" : "func currentActiveStream() -> InputDevice.ActiveStream?",
-                "type" : "method"
-              },
-              {
-                "path" : "\/documentation\/deviceinput\/inputdevice\/startstreaming(informing:)",
-                "title" : "func startStreaming(informing: InputDevice.EventConsumer) throws -> InputDevice.ActiveStream",
-                "type" : "method"
               },
               {
                 "title" : "Default Implementations",
@@ -725,6 +636,6 @@
   "schemaVersion" : {
     "major" : 0,
     "minor" : 1,
-    "patch" : 0
+    "patch" : 1
   }
 }

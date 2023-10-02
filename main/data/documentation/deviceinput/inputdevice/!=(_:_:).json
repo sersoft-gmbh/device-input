@@ -69,7 +69,10 @@
     ],
     "modules" : [
       {
-        "name" : "DeviceInput"
+        "name" : "DeviceInput",
+        "relatedModules" : [
+          "Swift"
+        ]
       }
     ],
     "role" : "symbol",

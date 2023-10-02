@@ -1,10 +1,4 @@
 {
-  "abstract" : [
-    {
-      "text" : "inherited",
-      "type" : "text"
-    }
-  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -242,10 +236,7 @@
 },
 "doc://DeviceInput/documentation/DeviceInput/InputEvent/Code-swift.struct/RawValue-swift.typealias": {
   "abstract" : [
-    {
-      "text" : "inherited",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -276,10 +267,7 @@
 },
 "doc://DeviceInput/documentation/DeviceInput/InputEvent/Code-swift.struct/init(rawValue:)": {
   "abstract" : [
-    {
-      "text" : "inherited",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
