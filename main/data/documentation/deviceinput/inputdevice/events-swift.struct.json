@@ -84,6 +84,7 @@
     {
       "identifiers" : [
         "doc:\/\/DeviceInput\/SQ",
+        "doc:\/\/DeviceInput\/s8SendableP",
         "doc:\/\/DeviceInput\/Sci"
       ],
       "kind" : "relationships",
@@ -443,6 +444,11 @@
   "title" : "makeAsyncIterator()",
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/makeasynciterator()"
+},
+"doc://DeviceInput/s8SendableP": {
+  "identifier" : "doc:\/\/DeviceInput\/s8SendableP",
+  "title" : "Swift.Sendable",
+  "type" : "unresolvable"
 }
 }
 }
