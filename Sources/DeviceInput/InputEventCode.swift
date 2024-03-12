@@ -3,7 +3,7 @@ import CInput
 extension InputEvent {
     /// Contains the code of an input event.
     @frozen
-    public struct Code: RawRepresentable, Hashable, Sendable {
+    public struct Code: RawRepresentable, Sendable, Hashable {
         public typealias RawValue = input_event_code
 
         public let rawValue: RawValue

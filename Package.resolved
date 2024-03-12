@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sersoft-gmbh/swift-filestreamer.git",
       "state" : {
-        "revision" : "6eba1dfea6ec38a56570d20eb2eec2b3efd96898",
-        "version" : "0.7.0"
+        "revision" : "3505dfa1e2fdba28d0b8a599ac979240d970a362",
+        "version" : "0.8.1"
       }
     },
     {

@@ -2,7 +2,7 @@ import CInput
 
 extension InputEvent {
     /// Defines the type of input event.
-    public enum Kind: input_event_type, Sendable {
+    public enum Kind: input_event_type, Sendable, Hashable {
         case synchronization = 0x00 // EV_SYN
         case keyStateChange = 0x01 // EV_KEY
         case relativeAxis = 0x02 // EV_REL

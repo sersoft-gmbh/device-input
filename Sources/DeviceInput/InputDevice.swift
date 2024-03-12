@@ -31,7 +31,7 @@ public struct InputDevice: Equatable, @unchecked Sendable { // unchecked because
 
 extension InputDevice {
     /// An active stream sequence that asynchronously sends events.
-    public struct Events: Equatable, AsyncSequence {
+    public struct Events: Sendable, Equatable, AsyncSequence {
         public typealias Element = InputEvent
         public typealias AsyncIterator = Iterator
 

@@ -6,7 +6,7 @@ import Foundation
 import CInput
 
 /// Describes an input event.
-public struct InputEvent: Hashable, Sendable {
+public struct InputEvent: Sendable, Hashable {
     /// The timestamp of the event.
     public let date: Date
     /// The kind of event.
