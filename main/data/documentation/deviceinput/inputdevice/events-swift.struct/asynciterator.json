@@ -40,6 +40,10 @@
         "text" : "AsyncIterator"
       }
     ],
+    "remoteSource" : {
+      "fileName" : "InputDevice.swift",
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/device-input\/Sources\/DeviceInput\/InputDevice.swift#L36"
+    },
     "role" : "symbol",
     "roleHeading" : "Type Alias",
     "symbolKind" : "typealias",

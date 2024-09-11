@@ -82,6 +82,10 @@
         "name" : "DeviceInput"
       }
     ],
+    "remoteSource" : {
+      "fileName" : "InputDevice.swift",
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/device-input\/Sources\/DeviceInput\/InputDevice.swift#L90"
+    },
     "role" : "symbol",
     "roleHeading" : "Instance Method",
     "symbolKind" : "method",

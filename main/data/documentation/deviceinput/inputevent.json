@@ -44,6 +44,10 @@
         "text" : "InputEvent"
       }
     ],
+    "remoteSource" : {
+      "fileName" : "InputEvent.swift",
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/device-input\/Sources\/DeviceInput\/InputEvent.swift#L9"
+    },
     "role" : "symbol",
     "roleHeading" : "Structure",
     "symbolKind" : "struct",

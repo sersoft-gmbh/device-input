@@ -48,6 +48,10 @@
         "name" : "DeviceInput"
       }
     ],
+    "remoteSource" : {
+      "fileName" : "InputDevice.swift",
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/device-input\/Sources\/DeviceInput\/InputDevice.swift#L8"
+    },
     "role" : "symbol",
     "roleHeading" : "Instance Property",
     "symbolKind" : "property",

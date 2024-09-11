@@ -40,6 +40,10 @@
         "text" : "Element"
       }
     ],
+    "remoteSource" : {
+      "fileName" : "InputDevice.swift",
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/device-input\/Sources\/DeviceInput\/InputDevice.swift#L35"
+    },
     "role" : "symbol",
     "roleHeading" : "Type Alias",
     "symbolKind" : "typealias",

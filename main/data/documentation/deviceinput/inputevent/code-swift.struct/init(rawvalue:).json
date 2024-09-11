@@ -65,6 +65,10 @@
         "name" : "DeviceInput"
       }
     ],
+    "remoteSource" : {
+      "fileName" : "InputEventCode.swift",
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/device-input\/Sources\/DeviceInput\/InputEventCode.swift#L11"
+    },
     "role" : "symbol",
     "roleHeading" : "Initializer",
     "symbolKind" : "init",

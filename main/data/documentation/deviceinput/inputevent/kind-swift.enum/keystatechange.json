@@ -34,6 +34,10 @@
         "name" : "DeviceInput"
       }
     ],
+    "remoteSource" : {
+      "fileName" : "InputEventKind.swift",
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/device-input\/Sources\/DeviceInput\/InputEventKind.swift#L7"
+    },
     "role" : "symbol",
     "roleHeading" : "Case",
     "symbolKind" : "case",

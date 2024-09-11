@@ -40,6 +40,10 @@
         "text" : "RawValue"
       }
     ],
+    "remoteSource" : {
+      "fileName" : "InputEventCode.swift",
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/device-input\/Sources\/DeviceInput\/InputEventCode.swift#L7"
+    },
     "role" : "symbol",
     "roleHeading" : "Type Alias",
     "symbolKind" : "typealias",
