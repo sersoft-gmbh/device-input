@@ -1,0 +1,482 @@
+{
+  "abstract" : [
+    {
+      "text" : "Contains the code of an input event.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput",
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Code-swift.struct"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "DeviceInput",
+    "externalID" : "s:11DeviceInput0B5EventV4CodeV",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "struct"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "Code"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "DeviceInput"
+      }
+    ],
+    "navigatorTitle" : [
+      {
+        "kind" : "identifier",
+        "text" : "Code"
+      }
+    ],
+    "remoteSource" : {
+      "fileName" : "InputEventCode.swift",
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/device-input\/Sources\/DeviceInput\/InputEventCode.swift#L6"
+    },
+    "role" : "symbol",
+    "roleHeading" : "Structure",
+    "symbolKind" : "struct",
+    "title" : "InputEvent.Code"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "Linux"
+          ],
+          "tokens" : [
+            {
+              "kind" : "attribute",
+              "text" : "@frozen"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "struct"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "Code"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "relationshipsSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/DeviceInput\/s15BitwiseCopyableP",
+        "doc:\/\/DeviceInput\/SQ",
+        "doc:\/\/DeviceInput\/SH",
+        "doc:\/\/DeviceInput\/SY",
+        "doc:\/\/DeviceInput\/s8SendableP"
+      ],
+      "kind" : "relationships",
+      "title" : "Conforms To",
+      "type" : "conformsTo"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "topicSections" : [
+    {
+      "anchor" : "Initializers",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Code-swift.struct\/init(rawValue:)"
+      ],
+      "title" : "Initializers"
+    },
+    {
+      "anchor" : "Instance-Properties",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Code-swift.struct\/character",
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Code-swift.struct\/rawValue-swift.property"
+      ],
+      "title" : "Instance Properties"
+    },
+    {
+      "anchor" : "Type-Aliases",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Code-swift.struct\/RawValue-swift.typealias"
+      ],
+      "title" : "Type Aliases"
+    },
+    {
+      "anchor" : "Default-Implementations",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Code-swift.struct\/Equatable-Implementations",
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Code-swift.struct\/RawRepresentable-Implementations"
+      ],
+      "title" : "Default Implementations"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/deviceinput\/inputevent\/code-swift.struct"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://DeviceInput/SH": {
+  "identifier" : "doc:\/\/DeviceInput\/SH",
+  "title" : "Swift.Hashable",
+  "type" : "unresolvable"
+},
+"doc://DeviceInput/SQ": {
+  "identifier" : "doc:\/\/DeviceInput\/SQ",
+  "title" : "Swift.Equatable",
+  "type" : "unresolvable"
+},
+"doc://DeviceInput/SY": {
+  "identifier" : "doc:\/\/DeviceInput\/SY",
+  "title" : "Swift.RawRepresentable",
+  "type" : "unresolvable"
+},
+"doc://DeviceInput/documentation/DeviceInput": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "DeviceInput",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent": {
+  "abstract" : [
+    {
+      "text" : "Describes an input event.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "InputEvent"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "InputEvent"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InputEvent",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent/Code-swift.struct": {
+  "abstract" : [
+    {
+      "text" : "Contains the code of an input event.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Code"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Code-swift.struct",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Code"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InputEvent.Code",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent\/code-swift.struct"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent/Code-swift.struct/Equatable-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Code-swift.struct\/Equatable-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Equatable Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent\/code-swift.struct\/equatable-implementations"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent/Code-swift.struct/RawRepresentable-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Code-swift.struct\/RawRepresentable-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "RawRepresentable Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent\/code-swift.struct\/rawrepresentable-implementations"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent/Code-swift.struct/RawValue-swift.typealias": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "RawValue"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Code-swift.struct\/RawValue-swift.typealias",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "RawValue"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InputEvent.Code.RawValue",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent\/code-swift.struct\/rawvalue-swift.typealias"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent/Code-swift.struct/character": {
+  "abstract" : [
+    {
+      "text" : "Returns the character value of the event code if available.",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "Certain control codes (e.g. escape, shift, …) don’t have a character value.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "character"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SJ",
+      "text" : "Character"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Code-swift.struct\/character",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "character",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent\/code-swift.struct\/character"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent/Code-swift.struct/init(rawValue:)": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "identifier",
+      "text" : "init"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "rawValue"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:11DeviceInput0B5EventV",
+      "text" : "InputEvent"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:11DeviceInput0B5EventV4CodeV",
+      "text" : "Code"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:11DeviceInput0B5EventV4CodeV8RawValuea",
+      "text" : "RawValue"
+    },
+    {
+      "kind" : "text",
+      "text" : ")"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Code-swift.struct\/init(rawValue:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "init(rawValue:)",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent\/code-swift.struct\/init(rawvalue:)"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent/Code-swift.struct/rawValue-swift.property": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "rawValue"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:11DeviceInput0B5EventV",
+      "text" : "InputEvent"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:11DeviceInput0B5EventV4CodeV",
+      "text" : "Code"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:11DeviceInput0B5EventV4CodeV8RawValuea",
+      "text" : "RawValue"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Code-swift.struct\/rawValue-swift.property",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "rawValue",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent\/code-swift.struct\/rawvalue-swift.property"
+},
+"doc://DeviceInput/s15BitwiseCopyableP": {
+  "identifier" : "doc:\/\/DeviceInput\/s15BitwiseCopyableP",
+  "title" : "Swift.BitwiseCopyable",
+  "type" : "unresolvable"
+},
+"doc://DeviceInput/s8SendableP": {
+  "identifier" : "doc:\/\/DeviceInput\/s8SendableP",
+  "title" : "Swift.Sendable",
+  "type" : "unresolvable"
+}
+}
+}
