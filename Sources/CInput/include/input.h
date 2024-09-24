@@ -6,7 +6,7 @@
 #if _HAS_LINUX_INPUT
 #include <linux/input.h>
 #else
-#include <time.h>
+#include <sys/time.h>
 // If we can't import the linux input header, we simply used the copied values from uapi/linux/input.h
 typedef unsigned short __u16;
 typedef __signed__ int __s32;

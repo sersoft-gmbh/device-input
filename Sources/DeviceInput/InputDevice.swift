@@ -1,6 +1,6 @@
-import SystemPackage
-import FileStreamer
-import CInput
+public import SystemPackage
+public import FileStreamer
+public import CInput
 
 /// Represents an input device at a given file path.
 public struct InputDevice: Equatable, @unchecked Sendable { // unchecked because of FilePath

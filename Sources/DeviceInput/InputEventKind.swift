@@ -1,4 +1,4 @@
-import CInput
+public import CInput
 
 extension InputEvent {
     /// Defines the type of input event.

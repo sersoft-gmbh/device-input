@@ -1,8 +1,8 @@
-import CInput
-import SystemPackage
+internal import CInput
+internal import SystemPackage
 
 #if os(Linux)
-@_implementationOnly import Glibc
+internal import Glibc
 #endif
 
 // Results in errno if i == -1

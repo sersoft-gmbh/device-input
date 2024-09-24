@@ -1,4 +1,4 @@
-import CInput
+public import CInput
 
 extension InputEvent {
     /// Contains the code of an input event.
