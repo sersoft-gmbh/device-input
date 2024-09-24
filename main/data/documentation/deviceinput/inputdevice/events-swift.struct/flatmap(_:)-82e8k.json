@@ -25,12 +25,12 @@
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/flatMap(_:)-k3d"
+    "url" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/flatMap(_:)-82e8k"
   },
   "kind" : "symbol",
   "metadata" : {
     "extendedModule" : "_Concurrency",
-    "externalID" : "s:Sci12_ConcurrencyE7flatMapyAA09AsyncFlatC8SequenceVyxqd__Gqd__7ElementQzYacSciRd__lF::SYNTHESIZED::s:11DeviceInput0bA0V6EventsV",
+    "externalID" : "s:Sci12_ConcurrencyE7flatMapyAA09AsyncFlatC8SequenceVyxqd__Gqd__7ElementQzYacSciRd__s5NeverO7FailureRtzAiJRtd__lF::SYNTHESIZED::s:11DeviceInput0bA0V6EventsV",
     "fragments" : [
       {
         "kind" : "keyword",
@@ -303,6 +303,58 @@
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:Sci",
               "text" : "AsyncSequence"
+            },
+            {
+              "kind" : "text",
+              "text" : ", "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "Self"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:Sci7FailureQa",
+              "text" : "Failure"
+            },
+            {
+              "kind" : "text",
+              "text" : " == "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:s5NeverO",
+              "text" : "Never"
+            },
+            {
+              "kind" : "text",
+              "text" : ", "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "SegmentOfResult"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:Sci7FailureQa",
+              "text" : "Failure"
+            },
+            {
+              "kind" : "text",
+              "text" : " == "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:s5NeverO",
+              "text" : "Never"
             }
           ]
         }
@@ -585,7 +637,7 @@
   "variants" : [
     {
       "paths" : [
-        "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/flatmap(_:)-k3d"
+        "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/flatmap(_:)-82e8k"
       ],
       "traits" : [
         {
@@ -686,7 +738,7 @@
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asyncsequence-implementations"
 },
-"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/flatMap(_:)-k3d": {
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/flatMap(_:)-82e8k": {
   "abstract" : [
     {
       "text" : "Creates an asynchronous sequence that concatenates the results of calling",
@@ -785,12 +837,12 @@
       "text" : ">"
     }
   ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/flatMap(_:)-k3d",
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/flatMap(_:)-82e8k",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "flatMap(_:)",
   "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/flatmap(_:)-k3d"
+  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/flatmap(_:)-82e8k"
 }
 }
 }

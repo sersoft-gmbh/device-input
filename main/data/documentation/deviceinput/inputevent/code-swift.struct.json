@@ -95,6 +95,7 @@
   "relationshipsSections" : [
     {
       "identifiers" : [
+        "doc:\/\/DeviceInput\/s15BitwiseCopyableP",
         "doc:\/\/DeviceInput\/SQ",
         "doc:\/\/DeviceInput\/SH",
         "doc:\/\/DeviceInput\/SY",
@@ -115,12 +116,16 @@
   ],
   "topicSections" : [
     {
+      "anchor" : "Initializers",
+      "generated" : true,
       "identifiers" : [
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Code-swift.struct\/init(rawValue:)"
       ],
       "title" : "Initializers"
     },
     {
+      "anchor" : "Instance-Properties",
+      "generated" : true,
       "identifiers" : [
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Code-swift.struct\/character",
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Code-swift.struct\/rawValue-swift.property"
@@ -128,12 +133,15 @@
       "title" : "Instance Properties"
     },
     {
+      "anchor" : "Type-Aliases",
+      "generated" : true,
       "identifiers" : [
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Code-swift.struct\/RawValue-swift.typealias"
       ],
       "title" : "Type Aliases"
     },
     {
+      "anchor" : "Default-Implementations",
       "generated" : true,
       "identifiers" : [
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Code-swift.struct\/Equatable-Implementations",
@@ -459,6 +467,11 @@
   "title" : "rawValue",
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputevent\/code-swift.struct\/rawvalue-swift.property"
+},
+"doc://DeviceInput/s15BitwiseCopyableP": {
+  "identifier" : "doc:\/\/DeviceInput\/s15BitwiseCopyableP",
+  "title" : "Swift.BitwiseCopyable",
+  "type" : "unresolvable"
 },
 "doc://DeviceInput/s8SendableP": {
   "identifier" : "doc:\/\/DeviceInput\/s8SendableP",

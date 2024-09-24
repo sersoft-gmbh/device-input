@@ -107,6 +107,8 @@
   ],
   "topicSections" : [
     {
+      "anchor" : "Enumeration-Cases",
+      "generated" : true,
       "identifiers" : [
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/absoluteAxis",
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/autoRepeat",
@@ -124,12 +126,15 @@
       "title" : "Enumeration Cases"
     },
     {
+      "anchor" : "Initializers",
+      "generated" : true,
       "identifiers" : [
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/init(rawValue:)"
       ],
       "title" : "Initializers"
     },
     {
+      "anchor" : "Default-Implementations",
       "generated" : true,
       "identifiers" : [
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/Equatable-Implementations",

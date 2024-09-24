@@ -33,6 +33,8 @@
   ],
   "topicSections" : [
     {
+      "anchor" : "Structures",
+      "generated" : true,
       "identifiers" : [
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice",
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent"

@@ -104,6 +104,8 @@
   ],
   "topicSections" : [
     {
+      "anchor" : "Structures",
+      "generated" : true,
       "identifiers" : [
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Code-swift.struct",
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Value-swift.struct"
@@ -111,6 +113,8 @@
       "title" : "Structures"
     },
     {
+      "anchor" : "Instance-Properties",
+      "generated" : true,
       "identifiers" : [
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/code-swift.property",
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/date",
@@ -120,12 +124,15 @@
       "title" : "Instance Properties"
     },
     {
+      "anchor" : "Enumerations",
+      "generated" : true,
       "identifiers" : [
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum"
       ],
       "title" : "Enumerations"
     },
     {
+      "anchor" : "Default-Implementations",
       "generated" : true,
       "identifiers" : [
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Equatable-Implementations"
@@ -387,7 +394,7 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:10Foundation4DateV",
+      "preciseIdentifier" : "s:20FoundationEssentials4DateV",
       "text" : "Date"
     }
   ],

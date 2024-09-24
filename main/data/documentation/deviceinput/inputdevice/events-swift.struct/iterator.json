@@ -112,10 +112,20 @@
   ],
   "topicSections" : [
     {
+      "anchor" : "Instance-Methods",
+      "generated" : true,
       "identifiers" : [
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator\/next()"
       ],
       "title" : "Instance Methods"
+    },
+    {
+      "anchor" : "Default-Implementations",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator\/AsyncIteratorProtocol-Implementations"
+      ],
+      "title" : "Default Implementations"
     }
   ],
   "variants" : [
@@ -249,6 +259,17 @@
   "title" : "InputDevice.Events.Iterator",
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/iterator"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/Iterator/AsyncIteratorProtocol-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator\/AsyncIteratorProtocol-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "AsyncIteratorProtocol Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/iterator\/asynciteratorprotocol-implementations"
 },
 "doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/Iterator/next()": {
   "abstract" : [

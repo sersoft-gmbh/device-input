@@ -1,4 +1,7 @@
 {
+  "includedArchiveIdentifiers" : [
+    "DeviceInput"
+  ],
   "interfaceLanguages" : {
     "swift" : [
       {
@@ -29,6 +32,26 @@
                         "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/iterator\/next()",
                         "title" : "func next() async throws -> InputDevice.Events.Element?",
                         "type" : "method"
+                      },
+                      {
+                        "title" : "Default Implementations",
+                        "type" : "groupMarker"
+                      },
+                      {
+                        "children" : [
+                          {
+                            "title" : "Instance Methods",
+                            "type" : "groupMarker"
+                          },
+                          {
+                            "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/iterator\/next(isolation:)",
+                            "title" : "func next(isolation: isolated (any Actor)?) async throws(Self.Failure) -> Self.Element?",
+                            "type" : "method"
+                          }
+                        ],
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/iterator\/asynciteratorprotocol-implementations",
+                        "title" : "AsyncIteratorProtocol Implementations",
+                        "type" : "symbol"
                       }
                     ],
                     "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/iterator",
@@ -123,13 +146,23 @@
                         "type" : "method"
                       },
                       {
-                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/flatmap(_:)-8wc5g",
-                        "title" : "func flatMap<SegmentOfResult>((Self.Element) async throws -> SegmentOfResult) -> AsyncThrowingFlatMapSequence<Self, SegmentOfResult>",
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/flatmap(_:)-4zht4",
+                        "title" : "func flatMap<SegmentOfResult>((Self.Element) async -> SegmentOfResult) -> AsyncFlatMapSequence<Self, SegmentOfResult>",
                         "type" : "method"
                       },
                       {
-                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/flatmap(_:)-k3d",
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/flatmap(_:)-82e8k",
                         "title" : "func flatMap<SegmentOfResult>((Self.Element) async -> SegmentOfResult) -> AsyncFlatMapSequence<Self, SegmentOfResult>",
+                        "type" : "method"
+                      },
+                      {
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/flatmap(_:)-85x95",
+                        "title" : "func flatMap<SegmentOfResult>((Self.Element) async -> SegmentOfResult) -> AsyncFlatMapSequence<Self, SegmentOfResult>",
+                        "type" : "method"
+                      },
+                      {
+                        "path" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/flatmap(_:)-8wc5g",
+                        "title" : "func flatMap<SegmentOfResult>((Self.Element) async throws -> SegmentOfResult) -> AsyncThrowingFlatMapSequence<Self, SegmentOfResult>",
                         "type" : "method"
                       },
                       {
@@ -636,6 +669,6 @@
   "schemaVersion" : {
     "major" : 0,
     "minor" : 1,
-    "patch" : 1
+    "patch" : 2
   }
 }
