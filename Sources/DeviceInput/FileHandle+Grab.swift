@@ -1,8 +1,16 @@
 internal import CInput
 internal import SystemPackage
 
-#if os(Linux)
+#if canImport(Darwin)
+internal import Darwin
+#elseif canImport(Glibc)
 internal import Glibc
+#elseif canImport(Musl)
+internal import Musl
+#elseif os(Windows)
+internal import ucrt
+#else
+#error("Unknown platform")
 #endif
 
 // Results in errno if i == -1
