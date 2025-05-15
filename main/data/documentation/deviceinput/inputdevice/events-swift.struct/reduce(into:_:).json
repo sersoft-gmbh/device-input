@@ -18,8 +18,7 @@
       [
         "doc:\/\/DeviceInput\/documentation\/DeviceInput",
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice",
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct",
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncSequence-Implementations"
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct"
       ]
     ]
   },
@@ -400,6 +399,48 @@
             }
           ],
           "name" : "initialResult"
+        },
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "A closure that combines an accumulating",
+                  "type" : "text"
+                },
+                {
+                  "text" : " ",
+                  "type" : "text"
+                },
+                {
+                  "text" : "value and an element of the asynchronous sequence into a new",
+                  "type" : "text"
+                },
+                {
+                  "text" : " ",
+                  "type" : "text"
+                },
+                {
+                  "text" : "accumulating value, for use in the next call of the",
+                  "type" : "text"
+                },
+                {
+                  "text" : " ",
+                  "type" : "text"
+                },
+                {
+                  "code" : "nextPartialResult",
+                  "type" : "codeVoice"
+                },
+                {
+                  "text" : " closure or returned to the caller.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "updateAccumulatingResult"
         }
       ]
     },
@@ -487,11 +528,11 @@
               "type" : "text"
             },
             {
-              "code" : "nextPartialResult",
+              "code" : "updateAccumulatingResult",
               "type" : "codeVoice"
             },
             {
-              "text" : " closure executes sequentially with an accumulating",
+              "text" : " closure executes sequentially with an",
               "type" : "text"
             },
             {
@@ -499,7 +540,7 @@
               "type" : "text"
             },
             {
-              "text" : "value initialized to ",
+              "text" : "accumulating value initialized to ",
               "type" : "text"
             },
             {
@@ -507,7 +548,15 @@
               "type" : "codeVoice"
             },
             {
-              "text" : " and each element of the sequence.",
+              "text" : " and each element of the",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "sequence.",
               "type" : "text"
             }
           ],
@@ -658,17 +707,6 @@
   "title" : "InputDevice.Events",
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct"
-},
-"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/AsyncSequence-Implementations": {
-  "abstract" : [
-
-  ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncSequence-Implementations",
-  "kind" : "article",
-  "role" : "collectionGroup",
-  "title" : "AsyncSequence Implementations",
-  "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asyncsequence-implementations"
 },
 "doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/reduce(into:_:)": {
   "abstract" : [

@@ -4,8 +4,7 @@
       [
         "doc:\/\/DeviceInput\/documentation\/DeviceInput",
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent",
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Code-swift.struct",
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Code-swift.struct\/RawRepresentable-Implementations"
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Code-swift.struct"
       ]
     ]
   },
@@ -287,17 +286,6 @@
   "title" : "InputEvent.Code",
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputevent\/code-swift.struct"
-},
-"doc://DeviceInput/documentation/DeviceInput/InputEvent/Code-swift.struct/RawRepresentable-Implementations": {
-  "abstract" : [
-
-  ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Code-swift.struct\/RawRepresentable-Implementations",
-  "kind" : "article",
-  "role" : "collectionGroup",
-  "title" : "RawRepresentable Implementations",
-  "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputevent\/code-swift.struct\/rawrepresentable-implementations"
 },
 "doc://DeviceInput/documentation/DeviceInput/InputEvent/Code-swift.struct/hash(into:)": {
   "abstract" : [

@@ -18,8 +18,7 @@
       [
         "doc:\/\/DeviceInput\/documentation\/DeviceInput",
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice",
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct",
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncSequence-Implementations"
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct"
       ]
     ]
   },
@@ -492,17 +491,6 @@
   "title" : "InputDevice.Events",
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct"
-},
-"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/AsyncSequence-Implementations": {
-  "abstract" : [
-
-  ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncSequence-Implementations",
-  "kind" : "article",
-  "role" : "collectionGroup",
-  "title" : "AsyncSequence Implementations",
-  "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asyncsequence-implementations"
 },
 "doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/prefix(_:)": {
   "abstract" : [

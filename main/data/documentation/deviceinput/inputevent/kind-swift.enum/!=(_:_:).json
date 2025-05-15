@@ -10,8 +10,7 @@
       [
         "doc:\/\/DeviceInput\/documentation\/DeviceInput",
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent",
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum",
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/Equatable-Implementations"
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum"
       ]
     ]
   },
@@ -464,17 +463,6 @@
   "title" : "!=(_:_:)",
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputevent\/kind-swift.enum\/!=(_:_:)"
-},
-"doc://DeviceInput/documentation/DeviceInput/InputEvent/Kind-swift.enum/Equatable-Implementations": {
-  "abstract" : [
-
-  ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/Equatable-Implementations",
-  "kind" : "article",
-  "role" : "collectionGroup",
-  "title" : "Equatable Implementations",
-  "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputevent\/kind-swift.enum\/equatable-implementations"
 }
 }
 }

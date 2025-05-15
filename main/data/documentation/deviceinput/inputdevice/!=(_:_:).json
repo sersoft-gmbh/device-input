@@ -9,8 +9,7 @@
     "paths" : [
       [
         "doc:\/\/DeviceInput\/documentation\/DeviceInput",
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice",
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Equatable-Implementations"
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice"
       ]
     ]
   },
@@ -429,17 +428,6 @@
   "title" : "!=(_:_:)",
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputdevice\/!=(_:_:)"
-},
-"doc://DeviceInput/documentation/DeviceInput/InputDevice/Equatable-Implementations": {
-  "abstract" : [
-
-  ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Equatable-Implementations",
-  "kind" : "article",
-  "role" : "collectionGroup",
-  "title" : "Equatable Implementations",
-  "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputdevice\/equatable-implementations"
 }
 }
 }

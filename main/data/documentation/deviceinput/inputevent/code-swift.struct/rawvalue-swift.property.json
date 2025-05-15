@@ -63,7 +63,7 @@
     ],
     "remoteSource" : {
       "fileName" : "InputEventCode.swift",
-      "url" : "https:\/\/github.com\/sersoft-gmbh\/device-input\/Sources\/DeviceInput\/InputEventCode.swift#L9"
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/device-input\/blob\/refs\/heads\/main\/Sources\/DeviceInput\/InputEventCode.swift#L9"
     },
     "role" : "symbol",
     "roleHeading" : "Instance Property",

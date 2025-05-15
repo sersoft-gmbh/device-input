@@ -5,7 +5,7 @@
       "type" : "text"
     },
     {
-      "code" : "next()",
+      "code" : "next(isolation:)",
       "type" : "codeVoice"
     },
     {
@@ -17,7 +17,7 @@
       "type" : "codeVoice"
     },
     {
-      "text" : ", which is",
+      "text" : ", which",
       "type" : "text"
     },
     {
@@ -25,7 +25,15 @@
       "type" : "text"
     },
     {
-      "text" : "required to maintain backward compatibility with existing async iterators.",
+      "text" : "is required to maintain backward compatibility with existing async",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "iterators.",
       "type" : "text"
     }
   ],
@@ -35,8 +43,7 @@
         "doc:\/\/DeviceInput\/documentation\/DeviceInput",
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice",
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct",
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator",
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator\/AsyncIteratorProtocol-Implementations"
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator"
       ]
     ]
   },
@@ -450,17 +457,6 @@
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/iterator"
 },
-"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/Iterator/AsyncIteratorProtocol-Implementations": {
-  "abstract" : [
-
-  ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator\/AsyncIteratorProtocol-Implementations",
-  "kind" : "article",
-  "role" : "collectionGroup",
-  "title" : "AsyncIteratorProtocol Implementations",
-  "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/iterator\/asynciteratorprotocol-implementations"
-},
 "doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/Iterator/next(isolation:)": {
   "abstract" : [
     {
@@ -468,7 +464,7 @@
       "type" : "text"
     },
     {
-      "code" : "next()",
+      "code" : "next(isolation:)",
       "type" : "codeVoice"
     },
     {
@@ -480,7 +476,7 @@
       "type" : "codeVoice"
     },
     {
-      "text" : ", which is",
+      "text" : ", which",
       "type" : "text"
     },
     {
@@ -488,7 +484,15 @@
       "type" : "text"
     },
     {
-      "text" : "required to maintain backward compatibility with existing async iterators.",
+      "text" : "is required to maintain backward compatibility with existing async",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "iterators.",
       "type" : "text"
     }
   ],

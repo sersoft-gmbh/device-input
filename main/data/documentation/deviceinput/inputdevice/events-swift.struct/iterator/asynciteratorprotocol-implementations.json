@@ -37,6 +37,7 @@
       "anchor" : "Instance-Methods",
       "generated" : true,
       "identifiers" : [
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator\/next()-8sy53",
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator\/next(isolation:)"
       ],
       "title" : "Instance Methods"
@@ -169,7 +170,7 @@
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/iterator"
 },
-"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/Iterator/next(isolation:)": {
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/Iterator/next()-8sy53": {
   "abstract" : [
     {
       "text" : "Default implementation of ",
@@ -184,11 +185,11 @@
       "type" : "text"
     },
     {
-      "code" : "next()",
+      "code" : "next(isolation:)",
       "type" : "codeVoice"
     },
     {
-      "text" : ", which is",
+      "text" : ", which",
       "type" : "text"
     },
     {
@@ -196,7 +197,129 @@
       "type" : "text"
     },
     {
-      "text" : "required to maintain backward compatibility with existing async iterators.",
+      "text" : "is required to maintain backward compatibility with existing async",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "iterators.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "next"
+    },
+    {
+      "kind" : "text",
+      "text" : "() "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "async"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "throws"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ScI7FailureQa",
+      "text" : "Failure"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ScI7ElementQa",
+      "text" : "Element"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator\/next()-8sy53",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "next()",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/iterator\/next()-8sy53"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/Iterator/next(isolation:)": {
+  "abstract" : [
+    {
+      "text" : "Default implementation of ",
+      "type" : "text"
+    },
+    {
+      "code" : "next(isolation:)",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " in terms of ",
+      "type" : "text"
+    },
+    {
+      "code" : "next()",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ", which",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "is required to maintain backward compatibility with existing async",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "iterators.",
       "type" : "text"
     }
   ],

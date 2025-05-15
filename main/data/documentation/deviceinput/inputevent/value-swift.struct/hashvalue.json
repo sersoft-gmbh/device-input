@@ -4,8 +4,7 @@
       [
         "doc:\/\/DeviceInput\/documentation\/DeviceInput",
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent",
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Value-swift.struct",
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Value-swift.struct\/RawRepresentable-Implementations"
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Value-swift.struct"
       ]
     ]
   },
@@ -251,17 +250,6 @@
   "title" : "InputEvent.Value",
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputevent\/value-swift.struct"
-},
-"doc://DeviceInput/documentation/DeviceInput/InputEvent/Value-swift.struct/RawRepresentable-Implementations": {
-  "abstract" : [
-
-  ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Value-swift.struct\/RawRepresentable-Implementations",
-  "kind" : "article",
-  "role" : "collectionGroup",
-  "title" : "RawRepresentable Implementations",
-  "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputevent\/value-swift.struct\/rawrepresentable-implementations"
 },
 "doc://DeviceInput/documentation/DeviceInput/InputEvent/Value-swift.struct/hashValue": {
   "abstract" : [
