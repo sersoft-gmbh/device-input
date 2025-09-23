@@ -1,0 +1,637 @@
+{
+  "abstract" : [
+    {
+      "text" : "Defines the type of input event.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput",
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "DeviceInput",
+    "externalID" : "s:11DeviceInput0B5EventV4KindO",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "enum"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "Kind"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "DeviceInput"
+      }
+    ],
+    "navigatorTitle" : [
+      {
+        "kind" : "identifier",
+        "text" : "Kind"
+      }
+    ],
+    "remoteSource" : {
+      "fileName" : "InputEventKind.swift",
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/device-input\/blob\/refs\/tags\/8.0.0\/Sources\/DeviceInput\/InputEventKind.swift#L5"
+    },
+    "role" : "symbol",
+    "roleHeading" : "Enumeration",
+    "symbolKind" : "enum",
+    "title" : "InputEvent.Kind"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "Linux"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "enum"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "Kind"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "relationshipsSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/DeviceInput\/SQ",
+        "doc:\/\/DeviceInput\/SH",
+        "doc:\/\/DeviceInput\/SY",
+        "doc:\/\/DeviceInput\/s8SendableP",
+        "doc:\/\/DeviceInput\/s16SendableMetatypeP"
+      ],
+      "kind" : "relationships",
+      "title" : "Conforms To",
+      "type" : "conformsTo"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "topicSections" : [
+    {
+      "anchor" : "Enumeration-Cases",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/absoluteAxis",
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/autoRepeat",
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/binarySwitch",
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/forceFeedback",
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/forceFeedbackStatus",
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/keyStateChange",
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/led",
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/miscellaneous",
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/power",
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/relativeAxis",
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/sound",
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/synchronization"
+      ],
+      "title" : "Enumeration Cases"
+    },
+    {
+      "anchor" : "Initializers",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/init(rawValue:)"
+      ],
+      "title" : "Initializers"
+    },
+    {
+      "anchor" : "Default-Implementations",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/Equatable-Implementations",
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/RawRepresentable-Implementations"
+      ],
+      "title" : "Default Implementations"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/deviceinput\/inputevent\/kind-swift.enum"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://DeviceInput/SH": {
+  "identifier" : "doc:\/\/DeviceInput\/SH",
+  "title" : "Swift.Hashable",
+  "type" : "unresolvable"
+},
+"doc://DeviceInput/SQ": {
+  "identifier" : "doc:\/\/DeviceInput\/SQ",
+  "title" : "Swift.Equatable",
+  "type" : "unresolvable"
+},
+"doc://DeviceInput/SY": {
+  "identifier" : "doc:\/\/DeviceInput\/SY",
+  "title" : "Swift.RawRepresentable",
+  "type" : "unresolvable"
+},
+"doc://DeviceInput/documentation/DeviceInput": {
+  "abstract" : [
+    {
+      "text" : "Process inputs read from ",
+      "type" : "text"
+    },
+    {
+      "code" : "\/dev\/input",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " device streams.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "DeviceInput",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent": {
+  "abstract" : [
+    {
+      "text" : "Describes an input event.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "InputEvent"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "InputEvent"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InputEvent",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent/Kind-swift.enum": {
+  "abstract" : [
+    {
+      "text" : "Defines the type of input event.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Kind"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Kind"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InputEvent.Kind",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent\/kind-swift.enum"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent/Kind-swift.enum/Equatable-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/Equatable-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Equatable Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent\/kind-swift.enum\/equatable-implementations"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent/Kind-swift.enum/RawRepresentable-Implementations": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/RawRepresentable-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "RawRepresentable Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent\/kind-swift.enum\/rawrepresentable-implementations"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent/Kind-swift.enum/absoluteAxis": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "absoluteAxis"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/absoluteAxis",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "InputEvent.Kind.absoluteAxis",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent\/kind-swift.enum\/absoluteaxis"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent/Kind-swift.enum/autoRepeat": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "autoRepeat"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/autoRepeat",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "InputEvent.Kind.autoRepeat",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent\/kind-swift.enum\/autorepeat"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent/Kind-swift.enum/binarySwitch": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "binarySwitch"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/binarySwitch",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "InputEvent.Kind.binarySwitch",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent\/kind-swift.enum\/binaryswitch"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent/Kind-swift.enum/forceFeedback": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "forceFeedback"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/forceFeedback",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "InputEvent.Kind.forceFeedback",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent\/kind-swift.enum\/forcefeedback"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent/Kind-swift.enum/forceFeedbackStatus": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "forceFeedbackStatus"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/forceFeedbackStatus",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "InputEvent.Kind.forceFeedbackStatus",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent\/kind-swift.enum\/forcefeedbackstatus"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent/Kind-swift.enum/init(rawValue:)": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "identifier",
+      "text" : "init"
+    },
+    {
+      "kind" : "text",
+      "text" : "?("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "rawValue"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:input.h@T@input_event_type",
+      "text" : "input_event_type"
+    },
+    {
+      "kind" : "text",
+      "text" : ")"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/init(rawValue:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "init(rawValue:)",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent\/kind-swift.enum\/init(rawvalue:)"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent/Kind-swift.enum/keyStateChange": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "keyStateChange"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/keyStateChange",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "InputEvent.Kind.keyStateChange",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent\/kind-swift.enum\/keystatechange"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent/Kind-swift.enum/led": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "led"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/led",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "InputEvent.Kind.led",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent\/kind-swift.enum\/led"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent/Kind-swift.enum/miscellaneous": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "miscellaneous"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/miscellaneous",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "InputEvent.Kind.miscellaneous",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent\/kind-swift.enum\/miscellaneous"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent/Kind-swift.enum/power": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "power"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/power",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "InputEvent.Kind.power",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent\/kind-swift.enum\/power"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent/Kind-swift.enum/relativeAxis": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "relativeAxis"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/relativeAxis",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "InputEvent.Kind.relativeAxis",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent\/kind-swift.enum\/relativeaxis"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent/Kind-swift.enum/sound": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "sound"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/sound",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "InputEvent.Kind.sound",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent\/kind-swift.enum\/sound"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent/Kind-swift.enum/synchronization": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "synchronization"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent\/Kind-swift.enum\/synchronization",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "InputEvent.Kind.synchronization",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent\/kind-swift.enum\/synchronization"
+},
+"doc://DeviceInput/s16SendableMetatypeP": {
+  "identifier" : "doc:\/\/DeviceInput\/s16SendableMetatypeP",
+  "title" : "Swift.SendableMetatype",
+  "type" : "unresolvable"
+},
+"doc://DeviceInput/s8SendableP": {
+  "identifier" : "doc:\/\/DeviceInput\/s8SendableP",
+  "title" : "Swift.Sendable",
+  "type" : "unresolvable"
+}
+}
+}
