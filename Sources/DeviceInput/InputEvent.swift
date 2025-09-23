@@ -1,8 +1,4 @@
-#if canImport(Darwin) || swift(>=6.0)
 public import Foundation
-#else
-@preconcurrency public import Foundation // Date
-#endif
 public import CInput
 
 /// Describes an input event.

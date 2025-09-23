@@ -3,7 +3,7 @@ public import FileStreamer
 public import CInput
 
 /// Represents an input device at a given file path.
-public struct InputDevice: Equatable, @unchecked Sendable { // unchecked because of FilePath
+public struct InputDevice: Equatable, Sendable {
     /// The file path to the input device.
     public let eventFile: FilePath
     /// Whether or not the device should be 'grabbed'.
@@ -33,11 +33,10 @@ extension InputDevice {
     /// An active stream sequence that asynchronously sends events.
     public struct Events: Sendable, Equatable, AsyncSequence {
         public typealias Element = InputEvent
-        public typealias AsyncIterator = Iterator
 
         /// The asynchronous iterator.
         @frozen
-        public struct Iterator: AsyncIteratorProtocol {
+        public struct AsyncIterator: AsyncIteratorProtocol {
             @usableFromInline
             final class _Storage {
                 @usableFromInline
@@ -51,7 +50,7 @@ extension InputDevice {
                 deinit {
                     guard let _device else { return }
                     Task {
-                        try await Iterator.streamsStorage._removeStreamSequence(for: _device)
+                        try await AsyncIterator.streamsStorage._removeStreamSequence(for: _device)
                     }
                 }
             }
@@ -60,7 +59,7 @@ extension InputDevice {
             let _storage: _Storage
 
             @usableFromInline
-            var _iterator: AsyncCompactMapSequence<FileStream<input_event>, InputEvent>.AsyncIterator?
+            var _iterator: AsyncCompactMapSequence<FileStream<input_event, any Error>, InputEvent>.AsyncIterator?
 
             @usableFromInline
             init(_device: InputDevice) {
@@ -68,7 +67,7 @@ extension InputDevice {
             }
 
             @usableFromInline
-            mutating func _setup() async throws {
+            mutating func _setup(isolation actor: isolated (any Actor)?) async throws {
                 assert(!Task.isCancelled)
                 assert(_storage._device != nil)
                 assert(_iterator == nil)
@@ -80,22 +79,22 @@ extension InputDevice {
             }
 
             @usableFromInline
-            mutating func _finalize() async throws {
+            mutating func _finalize(isolation actor: isolated (any Actor)?) async throws {
                 guard let device = _storage._device else { return }
                 (_storage._device, _iterator) = (nil, nil)
                 try await Self.streamsStorage._removeStreamSequence(for: device)
             }
 
             @inlinable
-            public mutating func next() async throws -> Element? {
+            public mutating func next(isolation actor: isolated (any Actor)?) async throws(any Error) -> InputEvent? {
                 guard !Task.isCancelled && _storage._device != nil else {
-                    try await _finalize()
+                    try await _finalize(isolation: actor)
                     return nil
                 }
-                if _iterator == nil { try await _setup() }
-                let next = try await _iterator?.next()
+                if _iterator == nil { try await _setup(isolation: actor) }
+                let next = try await _iterator?.next(isolation: actor)
                 if next == nil {
-                    try await _finalize()
+                    try await _finalize(isolation: actor)
                 }
                 return next
             }
@@ -118,11 +117,11 @@ extension InputDevice {
 
 extension InputDevice.Events.AsyncIterator {
     fileprivate final actor StreamsStorage {
-        private typealias StreamInformation = (stream: FileStream<input_event>, fileDescriptor: FileDescriptor, refCount: Int)
+        private typealias StreamInformation = (stream: FileStream<input_event, any Error>, fileDescriptor: FileDescriptor, refCount: Int)
 
         private var streamValues = Dictionary<FilePath, StreamInformation>()
 
-        func _getStreamSequence(for device: InputDevice) throws -> FileStream<input_event> {
+        func _getStreamSequence(for device: InputDevice) throws -> FileStream<input_event, any Error> {
             if var existing = streamValues[device.eventFile] {
                 existing.refCount += 1
                 streamValues[device.eventFile] = existing
@@ -141,7 +140,7 @@ extension InputDevice.Events.AsyncIterator {
                     throw error
                 }
             }
-            let newStream = FileStream<input_event>(fileDescriptor: fileDesc)
+            let newStream = FileStream<input_event, _>(fileDescriptor: fileDesc, failureBehavior: .throw)
             streamValues[device.eventFile] = (newStream, fileDesc, 1)
             return newStream
         }
