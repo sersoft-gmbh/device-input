@@ -37,6 +37,8 @@ extension InputDevice {
         /// The asynchronous iterator.
         @frozen
         public struct AsyncIterator: AsyncIteratorProtocol {
+            public typealias Failure = any Error
+
             @usableFromInline
             final class _Storage {
                 @usableFromInline
@@ -59,7 +61,7 @@ extension InputDevice {
             let _storage: _Storage
 
             @usableFromInline
-            var _iterator: AsyncCompactMapSequence<FileStream<input_event, any Error>, InputEvent>.AsyncIterator?
+            var _iterator: AsyncCompactMapSequence<FileStream<input_event, Failure>, Element>.AsyncIterator?
 
             @usableFromInline
             init(_device: InputDevice) {
@@ -86,7 +88,7 @@ extension InputDevice {
             }
 
             @inlinable
-            public mutating func next(isolation actor: isolated (any Actor)?) async throws(any Error) -> InputEvent? {
+            public mutating func _next(isolation actor: isolated (any Actor)?) async throws(Failure) -> Element? {
                 guard !Task.isCancelled && _storage._device != nil else {
                     try await _finalize(isolation: actor)
                     return nil
@@ -98,6 +100,18 @@ extension InputDevice {
                 }
                 return next
             }
+
+#if compiler(>=6.1)
+            @inlinable
+            public mutating func next(isolation actor: isolated (any Actor)?) async throws(Failure) -> Element? {
+                try await _next(isolation: actor)
+            }
+#else
+            @inlinable
+            public mutating func next() async throws -> Element? {
+                try await _next(isolation: #isolation)
+            }
+#endif
         }
 
         /// The device that is streaming.
