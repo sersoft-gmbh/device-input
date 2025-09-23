@@ -1,30 +1,25 @@
 {
-  "abstract" : [
-    {
-      "text" : "The device that is streaming.",
-      "type" : "text"
-    }
-  ],
   "hierarchy" : {
     "paths" : [
       [
         "doc:\/\/DeviceInput\/documentation\/DeviceInput",
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice",
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct"
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct",
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/device"
+    "url" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator\/Failure"
   },
   "kind" : "symbol",
   "metadata" : {
-    "externalID" : "s:11DeviceInput0bA0V6EventsV6deviceACvp",
+    "externalID" : "s:11DeviceInput0bA0V6EventsV13AsyncIteratorV7Failurea",
     "fragments" : [
       {
         "kind" : "keyword",
-        "text" : "let"
+        "text" : "typealias"
       },
       {
         "kind" : "text",
@@ -32,16 +27,7 @@
       },
       {
         "kind" : "identifier",
-        "text" : "device"
-      },
-      {
-        "kind" : "text",
-        "text" : ": "
-      },
-      {
-        "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:11DeviceInput0bA0V",
-        "text" : "InputDevice"
+        "text" : "Failure"
       }
     ],
     "modules" : [
@@ -49,14 +35,20 @@
         "name" : "DeviceInput"
       }
     ],
+    "navigatorTitle" : [
+      {
+        "kind" : "identifier",
+        "text" : "Failure"
+      }
+    ],
     "remoteSource" : {
       "fileName" : "InputDevice.swift",
-      "url" : "https:\/\/github.com\/sersoft-gmbh\/device-input\/blob\/refs\/heads\/main\/Sources\/DeviceInput\/InputDevice.swift#L118"
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/device-input\/blob\/refs\/heads\/main\/Sources\/DeviceInput\/InputDevice.swift#L40"
     },
     "role" : "symbol",
-    "roleHeading" : "Instance Property",
-    "symbolKind" : "property",
-    "title" : "device"
+    "roleHeading" : "Type Alias",
+    "symbolKind" : "typealias",
+    "title" : "InputDevice.Events.AsyncIterator.Failure"
   },
   "primaryContentSections" : [
     {
@@ -71,7 +63,7 @@
           "tokens" : [
             {
               "kind" : "keyword",
-              "text" : "let"
+              "text" : "typealias"
             },
             {
               "kind" : "text",
@@ -79,17 +71,16 @@
             },
             {
               "kind" : "identifier",
-              "text" : "device"
+              "text" : "Failure"
             },
             {
               "kind" : "text",
-              "text" : ": "
+              "text" : " = any "
             },
             {
-              "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice",
               "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:11DeviceInput0bA0V",
-              "text" : "InputDevice"
+              "preciseIdentifier" : "s:s5ErrorP",
+              "text" : "Error"
             }
           ]
         }
@@ -108,7 +99,7 @@
   "variants" : [
     {
       "paths" : [
-        "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/device"
+        "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asynciterator\/failure"
       ],
       "traits" : [
         {
@@ -209,17 +200,17 @@
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct"
 },
-"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/device": {
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/AsyncIterator": {
   "abstract" : [
     {
-      "text" : "The device that is streaming.",
+      "text" : "The asynchronous iterator.",
       "type" : "text"
     }
   ],
   "fragments" : [
     {
       "kind" : "keyword",
-      "text" : "let"
+      "text" : "struct"
     },
     {
       "kind" : "text",
@@ -227,24 +218,52 @@
     },
     {
       "kind" : "identifier",
-      "text" : "device"
+      "text" : "AsyncIterator"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "AsyncIterator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InputDevice.Events.AsyncIterator",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asynciterator"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/AsyncIterator/Failure": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
     },
     {
       "kind" : "text",
-      "text" : ": "
+      "text" : " "
     },
     {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:11DeviceInput0bA0V",
-      "text" : "InputDevice"
+      "kind" : "identifier",
+      "text" : "Failure"
     }
   ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/device",
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator\/Failure",
   "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Failure"
+    }
+  ],
   "role" : "symbol",
-  "title" : "device",
+  "title" : "InputDevice.Events.AsyncIterator.Failure",
   "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/device"
+  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asynciterator\/failure"
 }
 }
 }

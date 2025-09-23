@@ -120,6 +120,14 @@
       "title" : "Instance Methods"
     },
     {
+      "anchor" : "Type-Aliases",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator\/Failure"
+      ],
+      "title" : "Type Aliases"
+    },
+    {
       "anchor" : "Default-Implementations",
       "generated" : true,
       "identifiers" : [
@@ -282,6 +290,37 @@
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asynciterator\/asynciteratorprotocol-implementations"
 },
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/AsyncIterator/Failure": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Failure"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator\/Failure",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Failure"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InputDevice.Events.AsyncIterator.Failure",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asynciterator\/failure"
+},
 "doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/AsyncIterator/next(isolation:)": {
   "abstract" : [
 
@@ -346,8 +385,26 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:11DeviceInput0B5EventV",
-      "text" : "InputEvent"
+      "preciseIdentifier" : "s:11DeviceInput0bA0V",
+      "text" : "InputDevice"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV",
+      "text" : "Events"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV7Elementa",
+      "text" : "Element"
     },
     {
       "kind" : "text",

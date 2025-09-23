@@ -76,8 +76,26 @@
       },
       {
         "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:11DeviceInput0B5EventV",
-        "text" : "InputEvent"
+        "preciseIdentifier" : "s:11DeviceInput0bA0V",
+        "text" : "InputDevice"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV",
+        "text" : "Events"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV7Elementa",
+        "text" : "Element"
       },
       {
         "kind" : "text",
@@ -91,7 +109,7 @@
     ],
     "remoteSource" : {
       "fileName" : "InputDevice.swift",
-      "url" : "https:\/\/github.com\/sersoft-gmbh\/device-input\/blob\/refs\/heads\/main\/Sources\/DeviceInput\/InputDevice.swift#L89"
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/device-input\/blob\/refs\/heads\/main\/Sources\/DeviceInput\/InputDevice.swift#L106"
     },
     "role" : "symbol",
     "roleHeading" : "Instance Method",
@@ -183,10 +201,30 @@
               "text" : " -> "
             },
             {
-              "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent",
+              "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice",
               "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:11DeviceInput0B5EventV",
-              "text" : "InputEvent"
+              "preciseIdentifier" : "s:11DeviceInput0bA0V",
+              "text" : "InputDevice"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV",
+              "text" : "Events"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Element",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV7Elementa",
+              "text" : "Element"
             },
             {
               "kind" : "text",
@@ -408,8 +446,26 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:11DeviceInput0B5EventV",
-      "text" : "InputEvent"
+      "preciseIdentifier" : "s:11DeviceInput0bA0V",
+      "text" : "InputDevice"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV",
+      "text" : "Events"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV7Elementa",
+      "text" : "Element"
     },
     {
       "kind" : "text",
@@ -423,17 +479,14 @@
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asynciterator\/next(isolation:)"
 },
-"doc://DeviceInput/documentation/DeviceInput/InputEvent": {
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/Element": {
   "abstract" : [
-    {
-      "text" : "Describes an input event.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
       "kind" : "keyword",
-      "text" : "struct"
+      "text" : "typealias"
     },
     {
       "kind" : "text",
@@ -441,21 +494,21 @@
     },
     {
       "kind" : "identifier",
-      "text" : "InputEvent"
+      "text" : "Element"
     }
   ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent",
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Element",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
       "kind" : "identifier",
-      "text" : "InputEvent"
+      "text" : "Element"
     }
   ],
   "role" : "symbol",
-  "title" : "InputEvent",
+  "title" : "InputDevice.Events.Element",
   "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputevent"
+  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/element"
 }
 }
 }
