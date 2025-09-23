@@ -1,4 +1,18 @@
 {
+  "abstract" : [
+    {
+      "text" : "Process inputs read from ",
+      "type" : "text"
+    },
+    {
+      "code" : "\/dev\/input",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " device streams.",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -23,6 +37,241 @@
     "symbolKind" : "module",
     "title" : "DeviceInput"
   },
+  "primaryContentSections" : [
+    {
+      "content" : [
+        {
+          "anchor" : "Installation",
+          "level" : 2,
+          "text" : "Installation",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "Add the following dependency to your ",
+              "type" : "text"
+            },
+            {
+              "code" : "Package.swift",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : ":",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "code" : [
+            ".package(url: \"https:\/\/github.com\/sersoft-gmbh\/device-input.git\", from: \"8.0.0\"),"
+          ],
+          "syntax" : "swift",
+          "type" : "codeListing"
+        },
+        {
+          "anchor" : "Compatibility",
+          "level" : 2,
+          "text" : "Compatibility",
+          "type" : "heading"
+        },
+        {
+          "items" : [
+            {
+              "content" : [
+                {
+                  "inlineContent" : [
+                    {
+                      "text" : "For Swift as of version 5.3, use DeviceInput version 4.x.y.",
+                      "type" : "text"
+                    }
+                  ],
+                  "type" : "paragraph"
+                }
+              ]
+            },
+            {
+              "content" : [
+                {
+                  "inlineContent" : [
+                    {
+                      "text" : "For Swift as of version 5.5, use DeviceInput version 5.x.y.",
+                      "type" : "text"
+                    }
+                  ],
+                  "type" : "paragraph"
+                }
+              ]
+            },
+            {
+              "content" : [
+                {
+                  "inlineContent" : [
+                    {
+                      "text" : "For Swift as of version 5.6, use DeviceInput version 6.x.y.",
+                      "type" : "text"
+                    }
+                  ],
+                  "type" : "paragraph"
+                }
+              ]
+            },
+            {
+              "content" : [
+                {
+                  "inlineContent" : [
+                    {
+                      "text" : "For Swift as of version 5.9, use DeviceInput version 7.x.y.",
+                      "type" : "text"
+                    }
+                  ],
+                  "type" : "paragraph"
+                }
+              ]
+            },
+            {
+              "content" : [
+                {
+                  "inlineContent" : [
+                    {
+                      "text" : "For Swift as of version 6.0, use DeviceInput version 8.x.y.",
+                      "type" : "text"
+                    }
+                  ],
+                  "type" : "paragraph"
+                }
+              ]
+            }
+          ],
+          "type" : "unorderedList"
+        },
+        {
+          "anchor" : "Usage",
+          "level" : 2,
+          "text" : "Usage",
+          "type" : "heading"
+        },
+        {
+          "anchor" : "Input-Device",
+          "level" : 3,
+          "text" : "Input Device",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "An ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " is the entry point for streaming input events. Create an input device by passing it the path to the input file. By default, an input device “grabs” its input file when it begins streaming for events. By doing so, no other process (e.g. the default system input handler) will receive the events of the input device. However, this only works on Linux. You can manually pass ",
+              "type" : "text"
+            },
+            {
+              "code" : "false",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " to the ",
+              "type" : "text"
+            },
+            {
+              "code" : "grabDevice",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " parameter in the initializer if you explicitly don’t want to grab the device.",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "You then use the asynchronouse ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/events-swift.property",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " sequence on the input device.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "anchor" : "Input-Event",
+          "level" : 3,
+          "text" : "Input Event",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "The ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " sequence emits ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " structs over time. It represents an ",
+              "type" : "text"
+            },
+            {
+              "code" : "input_event",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " from the ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "https:\/\/git.kernel.org\/pub\/scm\/linux\/kernel\/git\/torvalds\/linux.git\/tree\/include\/uapi\/linux\/input.h",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : ", but uses native Swift types instead of C types. Constants help dealing with events. However, it is currently optimized for handling key state change events. Axis events and other kinds of events sent by the ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "https:\/\/www.kernel.org\/doc\/html\/latest\/input\/input_uapi.html",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " might need additional work.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    }
+  ],
   "schemaVersion" : {
     "major" : 0,
     "minor" : 3,
@@ -58,7 +307,18 @@
 "references": {
 "doc://DeviceInput/documentation/DeviceInput": {
   "abstract" : [
-
+    {
+      "text" : "Process inputs read from ",
+      "type" : "text"
+    },
+    {
+      "code" : "\/dev\/input",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " device streams.",
+      "type" : "text"
+    }
   ],
   "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput",
   "kind" : "symbol",
@@ -101,6 +361,86 @@
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputdevice"
 },
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct": {
+  "abstract" : [
+    {
+      "text" : "An active stream sequence that asynchronously sends events.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Events"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Events"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InputDevice.Events",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/events-swift.property": {
+  "abstract" : [
+    {
+      "text" : "The async events sequence.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "events"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:11DeviceInput0bA0V",
+      "text" : "InputDevice"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV",
+      "text" : "Events"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/events-swift.property",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "events",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.property"
+},
 "doc://DeviceInput/documentation/DeviceInput/InputEvent": {
   "abstract" : [
     {
@@ -134,6 +474,30 @@
   "title" : "InputEvent",
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputevent"
+},
+"https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/include/uapi/linux/input.h": {
+  "identifier" : "https:\/\/git.kernel.org\/pub\/scm\/linux\/kernel\/git\/torvalds\/linux.git\/tree\/include\/uapi\/linux\/input.h",
+  "title" : "linux source",
+  "titleInlineContent" : [
+    {
+      "text" : "linux source",
+      "type" : "text"
+    }
+  ],
+  "type" : "link",
+  "url" : "https:\/\/git.kernel.org\/pub\/scm\/linux\/kernel\/git\/torvalds\/linux.git\/tree\/include\/uapi\/linux\/input.h"
+},
+"https://www.kernel.org/doc/html/latest/input/input_uapi.html": {
+  "identifier" : "https:\/\/www.kernel.org\/doc\/html\/latest\/input\/input_uapi.html",
+  "title" : "input subsystem",
+  "titleInlineContent" : [
+    {
+      "text" : "input subsystem",
+      "type" : "text"
+    }
+  ],
+  "type" : "link",
+  "url" : "https:\/\/www.kernel.org\/doc\/html\/latest\/input\/input_uapi.html"
 }
 }
 }

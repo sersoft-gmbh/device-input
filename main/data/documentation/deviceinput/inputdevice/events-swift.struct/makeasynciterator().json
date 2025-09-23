@@ -14,7 +14,7 @@
   },
   "kind" : "symbol",
   "metadata" : {
-    "externalID" : "s:11DeviceInput0bA0V6EventsV17makeAsyncIteratorAE0F0VyF",
+    "externalID" : "s:11DeviceInput0bA0V6EventsV17makeAsyncIteratorAE0eF0VyF",
     "fragments" : [
       {
         "kind" : "keyword",
@@ -52,7 +52,7 @@
       },
       {
         "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV13AsyncIteratora",
+        "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV13AsyncIteratorV",
         "text" : "AsyncIterator"
       }
     ],
@@ -63,7 +63,7 @@
     ],
     "remoteSource" : {
       "fileName" : "InputDevice.swift",
-      "url" : "https:\/\/github.com\/sersoft-gmbh\/device-input\/blob\/refs\/heads\/main\/Sources\/DeviceInput\/InputDevice.swift#L113"
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/device-input\/blob\/refs\/heads\/main\/Sources\/DeviceInput\/InputDevice.swift#L112"
     },
     "role" : "symbol",
     "roleHeading" : "Instance Method",
@@ -120,7 +120,7 @@
             {
               "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator",
               "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV13AsyncIteratora",
+              "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV13AsyncIteratorV",
               "text" : "AsyncIterator"
             }
           ]
@@ -153,7 +153,18 @@
 "references": {
 "doc://DeviceInput/documentation/DeviceInput": {
   "abstract" : [
-
+    {
+      "text" : "Process inputs read from ",
+      "type" : "text"
+    },
+    {
+      "code" : "\/dev\/input",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " device streams.",
+      "type" : "text"
+    }
   ],
   "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput",
   "kind" : "symbol",
@@ -232,12 +243,15 @@
 },
 "doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/AsyncIterator": {
   "abstract" : [
-
+    {
+      "text" : "The asynchronous iterator.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
       "kind" : "keyword",
-      "text" : "typealias"
+      "text" : "struct"
     },
     {
       "kind" : "text",
@@ -302,7 +316,7 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV13AsyncIteratora",
+      "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV13AsyncIteratorV",
       "text" : "AsyncIterator"
     }
   ],

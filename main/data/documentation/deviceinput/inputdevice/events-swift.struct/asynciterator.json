@@ -1,4 +1,10 @@
 {
+  "abstract" : [
+    {
+      "text" : "The asynchronous iterator.",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -14,11 +20,11 @@
   },
   "kind" : "symbol",
   "metadata" : {
-    "externalID" : "s:11DeviceInput0bA0V6EventsV13AsyncIteratora",
+    "externalID" : "s:11DeviceInput0bA0V6EventsV13AsyncIteratorV",
     "fragments" : [
       {
         "kind" : "keyword",
-        "text" : "typealias"
+        "text" : "struct"
       },
       {
         "kind" : "text",
@@ -42,11 +48,11 @@
     ],
     "remoteSource" : {
       "fileName" : "InputDevice.swift",
-      "url" : "https:\/\/github.com\/sersoft-gmbh\/device-input\/blob\/refs\/heads\/main\/Sources\/DeviceInput\/InputDevice.swift#L36"
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/device-input\/blob\/refs\/heads\/main\/Sources\/DeviceInput\/InputDevice.swift#L39"
     },
     "role" : "symbol",
-    "roleHeading" : "Type Alias",
-    "symbolKind" : "typealias",
+    "roleHeading" : "Structure",
+    "symbolKind" : "struct",
     "title" : "InputDevice.Events.AsyncIterator"
   },
   "primaryContentSections" : [
@@ -61,8 +67,16 @@
           ],
           "tokens" : [
             {
+              "kind" : "attribute",
+              "text" : "@frozen"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
               "kind" : "keyword",
-              "text" : "typealias"
+              "text" : "struct"
             },
             {
               "kind" : "text",
@@ -71,41 +85,21 @@
             {
               "kind" : "identifier",
               "text" : "AsyncIterator"
-            },
-            {
-              "kind" : "text",
-              "text" : " = "
-            },
-            {
-              "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice",
-              "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:11DeviceInput0bA0V",
-              "text" : "InputDevice"
-            },
-            {
-              "kind" : "text",
-              "text" : "."
-            },
-            {
-              "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct",
-              "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV",
-              "text" : "Events"
-            },
-            {
-              "kind" : "text",
-              "text" : "."
-            },
-            {
-              "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator",
-              "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV8IteratorV",
-              "text" : "Iterator"
             }
           ]
         }
       ],
       "kind" : "declarations"
+    }
+  ],
+  "relationshipsSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/DeviceInput\/ScI"
+      ],
+      "kind" : "relationships",
+      "title" : "Conforms To",
+      "type" : "conformsTo"
     }
   ],
   "schemaVersion" : {
@@ -115,6 +109,24 @@
   },
   "sections" : [
 
+  ],
+  "topicSections" : [
+    {
+      "anchor" : "Instance-Methods",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator\/next(isolation:)"
+      ],
+      "title" : "Instance Methods"
+    },
+    {
+      "anchor" : "Default-Implementations",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator\/AsyncIteratorProtocol-Implementations"
+      ],
+      "title" : "Default Implementations"
+    }
   ],
   "variants" : [
     {
@@ -130,9 +142,25 @@
   ]
 , 
 "references": {
+"doc://DeviceInput/ScI": {
+  "identifier" : "doc:\/\/DeviceInput\/ScI",
+  "title" : "_Concurrency.AsyncIteratorProtocol",
+  "type" : "unresolvable"
+},
 "doc://DeviceInput/documentation/DeviceInput": {
   "abstract" : [
-
+    {
+      "text" : "Process inputs read from ",
+      "type" : "text"
+    },
+    {
+      "code" : "\/dev\/input",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " device streams.",
+      "type" : "text"
+    }
   ],
   "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput",
   "kind" : "symbol",
@@ -211,12 +239,15 @@
 },
 "doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/AsyncIterator": {
   "abstract" : [
-
+    {
+      "text" : "The asynchronous iterator.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
       "kind" : "keyword",
-      "text" : "typealias"
+      "text" : "struct"
     },
     {
       "kind" : "text",
@@ -240,17 +271,25 @@
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asynciterator"
 },
-"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/Iterator": {
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/AsyncIterator/AsyncIteratorProtocol-Implementations": {
   "abstract" : [
-    {
-      "text" : "The asynchronous iterator.",
-      "type" : "text"
-    }
+
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator\/AsyncIteratorProtocol-Implementations",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "AsyncIteratorProtocol Implementations",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asynciterator\/asynciteratorprotocol-implementations"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/AsyncIterator/next(isolation:)": {
+  "abstract" : [
+
   ],
   "fragments" : [
     {
       "kind" : "keyword",
-      "text" : "struct"
+      "text" : "func"
     },
     {
       "kind" : "text",
@@ -258,21 +297,69 @@
     },
     {
       "kind" : "identifier",
-      "text" : "Iterator"
-    }
-  ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator",
-  "kind" : "symbol",
-  "navigatorTitle" : [
+      "text" : "next"
+    },
     {
-      "kind" : "identifier",
-      "text" : "Iterator"
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "isolation"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "isolated"
+    },
+    {
+      "kind" : "text",
+      "text" : " (any "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ScA",
+      "text" : "Actor"
+    },
+    {
+      "kind" : "text",
+      "text" : ")?) "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "async"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "throws"
+    },
+    {
+      "kind" : "text",
+      "text" : " -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:11DeviceInput0B5EventV",
+      "text" : "InputEvent"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
     }
   ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator\/next(isolation:)",
+  "kind" : "symbol",
   "role" : "symbol",
-  "title" : "InputDevice.Events.Iterator",
+  "title" : "next(isolation:)",
   "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/iterator"
+  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asynciterator\/next(isolation:)"
 }
 }
 }

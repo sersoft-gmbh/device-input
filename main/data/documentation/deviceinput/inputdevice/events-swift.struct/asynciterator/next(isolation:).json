@@ -1,60 +1,21 @@
 {
-  "abstract" : [
-    {
-      "text" : "Default implementation of ",
-      "type" : "text"
-    },
-    {
-      "code" : "next()",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " in terms of ",
-      "type" : "text"
-    },
-    {
-      "code" : "next(isolation:)",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : ", which",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "is required to maintain backward compatibility with existing async",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "iterators.",
-      "type" : "text"
-    }
-  ],
   "hierarchy" : {
     "paths" : [
       [
         "doc:\/\/DeviceInput\/documentation\/DeviceInput",
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice",
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct",
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator"
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator\/next()-8sy53"
+    "url" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator\/next(isolation:)"
   },
   "kind" : "symbol",
   "metadata" : {
-    "extendedModule" : "_Concurrency",
-    "externalID" : "s:ScI12_ConcurrencyE4next7ElementQzSgyYa7FailureQzYKF::SYNTHESIZED::s:11DeviceInput0bA0V6EventsV8IteratorV",
+    "externalID" : "s:11DeviceInput0bA0V6EventsV13AsyncIteratorV4next9isolationAA0B5EventVSgScA_pSgYi_tYaKF",
     "fragments" : [
       {
         "kind" : "keyword",
@@ -70,7 +31,32 @@
       },
       {
         "kind" : "text",
-        "text" : "() "
+        "text" : "("
+      },
+      {
+        "kind" : "externalParam",
+        "text" : "isolation"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "keyword",
+        "text" : "isolated"
+      },
+      {
+        "kind" : "text",
+        "text" : " (any "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:ScA",
+        "text" : "Actor"
+      },
+      {
+        "kind" : "text",
+        "text" : ")?) "
       },
       {
         "kind" : "keyword",
@@ -86,37 +72,12 @@
       },
       {
         "kind" : "text",
-        "text" : "("
+        "text" : " -> "
       },
       {
         "kind" : "typeIdentifier",
-        "text" : "Self"
-      },
-      {
-        "kind" : "text",
-        "text" : "."
-      },
-      {
-        "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:ScI7FailureQa",
-        "text" : "Failure"
-      },
-      {
-        "kind" : "text",
-        "text" : ") -> "
-      },
-      {
-        "kind" : "typeIdentifier",
-        "text" : "Self"
-      },
-      {
-        "kind" : "text",
-        "text" : "."
-      },
-      {
-        "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:ScI7ElementQa",
-        "text" : "Element"
+        "preciseIdentifier" : "s:11DeviceInput0B5EventV",
+        "text" : "InputEvent"
       },
       {
         "kind" : "text",
@@ -125,53 +86,17 @@
     ],
     "modules" : [
       {
-        "name" : "DeviceInput",
-        "relatedModules" : [
-          "_Concurrency"
-        ]
+        "name" : "DeviceInput"
       }
     ],
-    "platforms" : [
-      {
-        "beta" : false,
-        "deprecated" : false,
-        "introducedAt" : "18.0",
-        "name" : "iOS",
-        "unavailable" : false
-      },
-      {
-        "beta" : false,
-        "deprecated" : false,
-        "introducedAt" : "15.0",
-        "name" : "macOS",
-        "unavailable" : false
-      },
-      {
-        "beta" : false,
-        "deprecated" : false,
-        "introducedAt" : "18.0",
-        "name" : "tvOS",
-        "unavailable" : false
-      },
-      {
-        "beta" : false,
-        "deprecated" : false,
-        "introducedAt" : "2.0",
-        "name" : "visionOS",
-        "unavailable" : false
-      },
-      {
-        "beta" : false,
-        "deprecated" : false,
-        "introducedAt" : "11.0",
-        "name" : "watchOS",
-        "unavailable" : false
-      }
-    ],
+    "remoteSource" : {
+      "fileName" : "InputDevice.swift",
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/device-input\/blob\/refs\/heads\/main\/Sources\/DeviceInput\/InputDevice.swift#L89"
+    },
     "role" : "symbol",
     "roleHeading" : "Instance Method",
     "symbolKind" : "method",
-    "title" : "next()"
+    "title" : "next(isolation:)"
   },
   "primaryContentSections" : [
     {
@@ -206,7 +131,40 @@
             },
             {
               "kind" : "text",
-              "text" : "() "
+              "text" : "("
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "isolation"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "internalParam",
+              "text" : "actor"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "isolated"
+            },
+            {
+              "kind" : "text",
+              "text" : " (any "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:ScA",
+              "text" : "Actor"
+            },
+            {
+              "kind" : "text",
+              "text" : ")?) "
             },
             {
               "kind" : "keyword",
@@ -222,37 +180,13 @@
             },
             {
               "kind" : "text",
-              "text" : "("
+              "text" : " -> "
             },
             {
+              "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent",
               "kind" : "typeIdentifier",
-              "text" : "Self"
-            },
-            {
-              "kind" : "text",
-              "text" : "."
-            },
-            {
-              "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:ScI7FailureQa",
-              "text" : "Failure"
-            },
-            {
-              "kind" : "text",
-              "text" : ") -> "
-            },
-            {
-              "kind" : "typeIdentifier",
-              "text" : "Self"
-            },
-            {
-              "kind" : "text",
-              "text" : "."
-            },
-            {
-              "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:ScI7ElementQa",
-              "text" : "Element"
+              "preciseIdentifier" : "s:11DeviceInput0B5EventV",
+              "text" : "InputEvent"
             },
             {
               "kind" : "text",
@@ -275,7 +209,7 @@
   "variants" : [
     {
       "paths" : [
-        "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/iterator\/next()-8sy53"
+        "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asynciterator\/next(isolation:)"
       ],
       "traits" : [
         {
@@ -288,7 +222,18 @@
 "references": {
 "doc://DeviceInput/documentation/DeviceInput": {
   "abstract" : [
-
+    {
+      "text" : "Process inputs read from ",
+      "type" : "text"
+    },
+    {
+      "code" : "\/dev\/input",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " device streams.",
+      "type" : "text"
+    }
   ],
   "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput",
   "kind" : "symbol",
@@ -365,7 +310,7 @@
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct"
 },
-"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/Iterator": {
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/AsyncIterator": {
   "abstract" : [
     {
       "text" : "The asynchronous iterator.",
@@ -383,60 +328,25 @@
     },
     {
       "kind" : "identifier",
-      "text" : "Iterator"
+      "text" : "AsyncIterator"
     }
   ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator",
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
       "kind" : "identifier",
-      "text" : "Iterator"
+      "text" : "AsyncIterator"
     }
   ],
   "role" : "symbol",
-  "title" : "InputDevice.Events.Iterator",
+  "title" : "InputDevice.Events.AsyncIterator",
   "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/iterator"
+  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asynciterator"
 },
-"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/Iterator/next()-8sy53": {
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/AsyncIterator/next(isolation:)": {
   "abstract" : [
-    {
-      "text" : "Default implementation of ",
-      "type" : "text"
-    },
-    {
-      "code" : "next()",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " in terms of ",
-      "type" : "text"
-    },
-    {
-      "code" : "next(isolation:)",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : ", which",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "is required to maintain backward compatibility with existing async",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "iterators.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -453,7 +363,32 @@
     },
     {
       "kind" : "text",
-      "text" : "() "
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "isolation"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "isolated"
+    },
+    {
+      "kind" : "text",
+      "text" : " (any "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ScA",
+      "text" : "Actor"
+    },
+    {
+      "kind" : "text",
+      "text" : ")?) "
     },
     {
       "kind" : "keyword",
@@ -469,49 +404,58 @@
     },
     {
       "kind" : "text",
-      "text" : "("
+      "text" : " -> "
     },
     {
       "kind" : "typeIdentifier",
-      "text" : "Self"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:ScI7FailureQa",
-      "text" : "Failure"
-    },
-    {
-      "kind" : "text",
-      "text" : ") -> "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "text" : "Self"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:ScI7ElementQa",
-      "text" : "Element"
+      "preciseIdentifier" : "s:11DeviceInput0B5EventV",
+      "text" : "InputEvent"
     },
     {
       "kind" : "text",
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator\/next()-8sy53",
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator\/next(isolation:)",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "next()",
+  "title" : "next(isolation:)",
   "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/iterator\/next()-8sy53"
+  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asynciterator\/next(isolation:)"
+},
+"doc://DeviceInput/documentation/DeviceInput/InputEvent": {
+  "abstract" : [
+    {
+      "text" : "Describes an input event.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "InputEvent"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputEvent",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "InputEvent"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InputEvent",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputevent"
 }
 }
 }

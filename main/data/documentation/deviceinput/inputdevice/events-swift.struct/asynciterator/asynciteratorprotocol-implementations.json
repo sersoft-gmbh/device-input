@@ -5,13 +5,13 @@
         "doc:\/\/DeviceInput\/documentation\/DeviceInput",
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice",
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct",
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator"
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator\/AsyncIteratorProtocol-Implementations"
+    "url" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator\/AsyncIteratorProtocol-Implementations"
   },
   "kind" : "article",
   "metadata" : {
@@ -37,8 +37,8 @@
       "anchor" : "Instance-Methods",
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator\/next()-8sy53",
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator\/next(isolation:)"
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator\/next()",
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator\/next(isolation:)-3rqwr"
       ],
       "title" : "Instance Methods"
     }
@@ -46,7 +46,7 @@
   "variants" : [
     {
       "paths" : [
-        "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/iterator\/asynciteratorprotocol-implementations"
+        "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asynciterator\/asynciteratorprotocol-implementations"
       ],
       "traits" : [
         {
@@ -59,7 +59,18 @@
 "references": {
 "doc://DeviceInput/documentation/DeviceInput": {
   "abstract" : [
-
+    {
+      "text" : "Process inputs read from ",
+      "type" : "text"
+    },
+    {
+      "code" : "\/dev\/input",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " device streams.",
+      "type" : "text"
+    }
   ],
   "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput",
   "kind" : "symbol",
@@ -136,7 +147,7 @@
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct"
 },
-"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/Iterator": {
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/AsyncIterator": {
   "abstract" : [
     {
       "text" : "The asynchronous iterator.",
@@ -154,23 +165,23 @@
     },
     {
       "kind" : "identifier",
-      "text" : "Iterator"
+      "text" : "AsyncIterator"
     }
   ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator",
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
       "kind" : "identifier",
-      "text" : "Iterator"
+      "text" : "AsyncIterator"
     }
   ],
   "role" : "symbol",
-  "title" : "InputDevice.Events.Iterator",
+  "title" : "InputDevice.Events.AsyncIterator",
   "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/iterator"
+  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asynciterator"
 },
-"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/Iterator/next()-8sy53": {
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/AsyncIterator/next()": {
   "abstract" : [
     {
       "text" : "Default implementation of ",
@@ -277,14 +288,14 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator\/next()-8sy53",
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator\/next()",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "next()",
   "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/iterator\/next()-8sy53"
+  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asynciterator\/next()"
 },
-"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/Iterator/next(isolation:)": {
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/AsyncIterator/next(isolation:)-3rqwr": {
   "abstract" : [
     {
       "text" : "Default implementation of ",
@@ -416,12 +427,12 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator\/next(isolation:)",
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator\/next(isolation:)-3rqwr",
   "kind" : "symbol",
   "role" : "symbol",
   "title" : "next(isolation:)",
   "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/iterator\/next(isolation:)"
+  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asynciterator\/next(isolation:)-3rqwr"
 }
 }
 }

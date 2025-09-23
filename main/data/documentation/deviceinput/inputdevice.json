@@ -86,7 +86,8 @@
     {
       "identifiers" : [
         "doc:\/\/DeviceInput\/SQ",
-        "doc:\/\/DeviceInput\/s8SendableP"
+        "doc:\/\/DeviceInput\/s8SendableP",
+        "doc:\/\/DeviceInput\/s16SendableMetatypeP"
       ],
       "kind" : "relationships",
       "title" : "Conforms To",
@@ -166,7 +167,18 @@
 },
 "doc://DeviceInput/documentation/DeviceInput": {
   "abstract" : [
-
+    {
+      "text" : "Process inputs read from ",
+      "type" : "text"
+    },
+    {
+      "code" : "\/dev\/input",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " device streams.",
+      "type" : "text"
+    }
   ],
   "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput",
   "kind" : "symbol",
@@ -519,6 +531,11 @@
   "title" : "init(eventFile:grabDevice:)",
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputdevice\/init(eventfile:grabdevice:)"
+},
+"doc://DeviceInput/s16SendableMetatypeP": {
+  "identifier" : "doc:\/\/DeviceInput\/s16SendableMetatypeP",
+  "title" : "Swift.SendableMetatype",
+  "type" : "unresolvable"
 },
 "doc://DeviceInput/s8SendableP": {
   "identifier" : "doc:\/\/DeviceInput\/s8SendableP",

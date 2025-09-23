@@ -89,6 +89,7 @@
       "identifiers" : [
         "doc:\/\/DeviceInput\/SQ",
         "doc:\/\/DeviceInput\/s8SendableP",
+        "doc:\/\/DeviceInput\/s16SendableMetatypeP",
         "doc:\/\/DeviceInput\/Sci"
       ],
       "kind" : "relationships",
@@ -109,7 +110,7 @@
       "anchor" : "Structures",
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator"
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator"
       ],
       "title" : "Structures"
     },
@@ -133,7 +134,6 @@
       "anchor" : "Type-Aliases",
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator",
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Element"
       ],
       "title" : "Type Aliases"
@@ -174,7 +174,18 @@
 },
 "doc://DeviceInput/documentation/DeviceInput": {
   "abstract" : [
-
+    {
+      "text" : "Process inputs read from ",
+      "type" : "text"
+    },
+    {
+      "code" : "\/dev\/input",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " device streams.",
+      "type" : "text"
+    }
   ],
   "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput",
   "kind" : "symbol",
@@ -253,12 +264,15 @@
 },
 "doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/AsyncIterator": {
   "abstract" : [
-
+    {
+      "text" : "The asynchronous iterator.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
       "kind" : "keyword",
-      "text" : "typealias"
+      "text" : "struct"
     },
     {
       "kind" : "text",
@@ -334,40 +348,6 @@
   "title" : "Equatable Implementations",
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/equatable-implementations"
-},
-"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/Iterator": {
-  "abstract" : [
-    {
-      "text" : "The asynchronous iterator.",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "struct"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "Iterator"
-    }
-  ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "Iterator"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "InputDevice.Events.Iterator",
-  "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/iterator"
 },
 "doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/device": {
   "abstract" : [
@@ -447,7 +427,7 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV13AsyncIteratora",
+      "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV13AsyncIteratorV",
       "text" : "AsyncIterator"
     }
   ],
@@ -457,6 +437,11 @@
   "title" : "makeAsyncIterator()",
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/makeasynciterator()"
+},
+"doc://DeviceInput/s16SendableMetatypeP": {
+  "identifier" : "doc:\/\/DeviceInput\/s16SendableMetatypeP",
+  "title" : "Swift.SendableMetatype",
+  "type" : "unresolvable"
 },
 "doc://DeviceInput/s8SendableP": {
   "identifier" : "doc:\/\/DeviceInput\/s8SendableP",

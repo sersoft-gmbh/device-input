@@ -5,7 +5,7 @@
       "type" : "text"
     },
     {
-      "code" : "next(isolation:)",
+      "code" : "next()",
       "type" : "codeVoice"
     },
     {
@@ -13,7 +13,7 @@
       "type" : "text"
     },
     {
-      "code" : "next()",
+      "code" : "next(isolation:)",
       "type" : "codeVoice"
     },
     {
@@ -43,18 +43,18 @@
         "doc:\/\/DeviceInput\/documentation\/DeviceInput",
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice",
         "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct",
-        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator"
+        "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator\/next(isolation:)"
+    "url" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator\/next()"
   },
   "kind" : "symbol",
   "metadata" : {
     "extendedModule" : "_Concurrency",
-    "externalID" : "s:ScI12_ConcurrencyE4next9isolation7ElementQzSgScA_pSgYi_tYa7FailureQzYKF::SYNTHESIZED::s:11DeviceInput0bA0V6EventsV8IteratorV",
+    "externalID" : "s:ScI12_ConcurrencyE4next7ElementQzSgyYa7FailureQzYKF::SYNTHESIZED::s:11DeviceInput0bA0V6EventsV13AsyncIteratorV",
     "fragments" : [
       {
         "kind" : "keyword",
@@ -70,32 +70,7 @@
       },
       {
         "kind" : "text",
-        "text" : "("
-      },
-      {
-        "kind" : "externalParam",
-        "text" : "isolation"
-      },
-      {
-        "kind" : "text",
-        "text" : ": "
-      },
-      {
-        "kind" : "keyword",
-        "text" : "isolated"
-      },
-      {
-        "kind" : "text",
-        "text" : " (any "
-      },
-      {
-        "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:ScA",
-        "text" : "Actor"
-      },
-      {
-        "kind" : "text",
-        "text" : ")?) "
+        "text" : "() "
       },
       {
         "kind" : "keyword",
@@ -196,7 +171,7 @@
     "role" : "symbol",
     "roleHeading" : "Instance Method",
     "symbolKind" : "method",
-    "title" : "next(isolation:)"
+    "title" : "next()"
   },
   "primaryContentSections" : [
     {
@@ -231,40 +206,7 @@
             },
             {
               "kind" : "text",
-              "text" : "("
-            },
-            {
-              "kind" : "externalParam",
-              "text" : "isolation"
-            },
-            {
-              "kind" : "text",
-              "text" : " "
-            },
-            {
-              "kind" : "internalParam",
-              "text" : "actor"
-            },
-            {
-              "kind" : "text",
-              "text" : ": "
-            },
-            {
-              "kind" : "keyword",
-              "text" : "isolated"
-            },
-            {
-              "kind" : "text",
-              "text" : " (any "
-            },
-            {
-              "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:ScA",
-              "text" : "Actor"
-            },
-            {
-              "kind" : "text",
-              "text" : ")?) "
+              "text" : "() "
             },
             {
               "kind" : "keyword",
@@ -333,7 +275,7 @@
   "variants" : [
     {
       "paths" : [
-        "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/iterator\/next(isolation:)"
+        "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asynciterator\/next()"
       ],
       "traits" : [
         {
@@ -346,7 +288,18 @@
 "references": {
 "doc://DeviceInput/documentation/DeviceInput": {
   "abstract" : [
-
+    {
+      "text" : "Process inputs read from ",
+      "type" : "text"
+    },
+    {
+      "code" : "\/dev\/input",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " device streams.",
+      "type" : "text"
+    }
   ],
   "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput",
   "kind" : "symbol",
@@ -423,7 +376,7 @@
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct"
 },
-"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/Iterator": {
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/AsyncIterator": {
   "abstract" : [
     {
       "text" : "The asynchronous iterator.",
@@ -441,30 +394,30 @@
     },
     {
       "kind" : "identifier",
-      "text" : "Iterator"
+      "text" : "AsyncIterator"
     }
   ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator",
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
       "kind" : "identifier",
-      "text" : "Iterator"
+      "text" : "AsyncIterator"
     }
   ],
   "role" : "symbol",
-  "title" : "InputDevice.Events.Iterator",
+  "title" : "InputDevice.Events.AsyncIterator",
   "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/iterator"
+  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asynciterator"
 },
-"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/Iterator/next(isolation:)": {
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/AsyncIterator/next()": {
   "abstract" : [
     {
       "text" : "Default implementation of ",
       "type" : "text"
     },
     {
-      "code" : "next(isolation:)",
+      "code" : "next()",
       "type" : "codeVoice"
     },
     {
@@ -472,7 +425,7 @@
       "type" : "text"
     },
     {
-      "code" : "next()",
+      "code" : "next(isolation:)",
       "type" : "codeVoice"
     },
     {
@@ -511,32 +464,7 @@
     },
     {
       "kind" : "text",
-      "text" : "("
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "isolation"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "keyword",
-      "text" : "isolated"
-    },
-    {
-      "kind" : "text",
-      "text" : " (any "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:ScA",
-      "text" : "Actor"
-    },
-    {
-      "kind" : "text",
-      "text" : ")?) "
+      "text" : "() "
     },
     {
       "kind" : "keyword",
@@ -589,12 +517,12 @@
       "text" : "?"
     }
   ],
-  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Iterator\/next(isolation:)",
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator\/next()",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "next(isolation:)",
+  "title" : "next()",
   "type" : "topic",
-  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/iterator\/next(isolation:)"
+  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asynciterator\/next()"
 }
 }
 }
