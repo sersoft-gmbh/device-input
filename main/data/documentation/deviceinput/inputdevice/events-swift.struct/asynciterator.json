@@ -292,7 +292,10 @@
 },
 "doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/AsyncIterator/Failure": {
   "abstract" : [
-
+    {
+      "text" : "The type of failure produced by iteration.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -323,7 +326,18 @@
 },
 "doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/AsyncIterator/next(isolation:)": {
   "abstract" : [
-
+    {
+      "text" : "Asynchronously advances to the next element and returns it, or ends the",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "sequence if there is no next element.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

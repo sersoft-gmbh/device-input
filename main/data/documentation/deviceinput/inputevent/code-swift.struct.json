@@ -294,7 +294,18 @@
 },
 "doc://DeviceInput/documentation/DeviceInput/InputEvent/Code-swift.struct/RawValue-swift.typealias": {
   "abstract" : [
-
+    {
+      "text" : "The raw type that can be used to represent all values of the conforming",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "type.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -374,7 +385,10 @@
 },
 "doc://DeviceInput/documentation/DeviceInput/InputEvent/Code-swift.struct/init(rawValue:)": {
   "abstract" : [
-
+    {
+      "text" : "Creates a new instance with the specified raw value.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -430,7 +444,10 @@
 },
 "doc://DeviceInput/documentation/DeviceInput/InputEvent/Code-swift.struct/rawValue-swift.property": {
   "abstract" : [
-
+    {
+      "text" : "The corresponding value of the raw type.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

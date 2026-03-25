@@ -412,7 +412,10 @@
 },
 "doc://DeviceInput/documentation/DeviceInput/InputEvent/Kind-swift.enum/init(rawValue:)": {
   "abstract" : [
-
+    {
+      "text" : "Creates a new instance with the specified raw value.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

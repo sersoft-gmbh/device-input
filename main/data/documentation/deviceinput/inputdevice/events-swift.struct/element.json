@@ -1,4 +1,10 @@
 {
+  "abstract" : [
+    {
+      "text" : "The type of element produced by this asynchronous sequence.",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -202,7 +208,10 @@
 },
 "doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/Element": {
   "abstract" : [
-
+    {
+      "text" : "The type of element produced by this asynchronous sequence.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
