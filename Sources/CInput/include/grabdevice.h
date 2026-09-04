@@ -3,7 +3,7 @@
 
 #include "defines.h"
 
-#define _CAN_GRAB _HAS_LINUX_INPUT
+#define _CAN_GRAB _HAS_LINUX_INPUT || _HAS_SYS_IOCTL
 #if _CAN_GRAB
 #define _GRAB_CONST
 #define _GRAB_UNUSED

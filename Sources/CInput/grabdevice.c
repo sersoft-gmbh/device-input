@@ -1,8 +1,14 @@
 #include "grabdevice.h"
 
-#if _CAN_GRAB
+#if _HAS_SYS_IOCTL
 #include <sys/ioctl.h>
+#endif
+
+#if _HAS_LINUX_INPUT
 #include <linux/input.h>
+#else
+// Copied from <linux/input.h>
+#define EVIOCGRAB _IOW('E', 0x90, int)
 #endif
 
 static inline _GRAB_CONST int _perform_grab_action(_GRAB_UNUSED int fd, _GRAB_UNUSED int action) {
