@@ -52,7 +52,11 @@ extension InputDevice {
                 deinit {
                     guard let _device else { return }
                     Task {
-                        try await AsyncIterator.streamsStorage._removeStreamSequence(for: _device)
+                        do {
+                            try await AsyncIterator.streamsStorage._removeStreamSequence(for: _device)
+                        } catch {
+                            print("Removing the stream sequence in deinit failed: \(error)")
+                        }
                     }
                 }
             }
