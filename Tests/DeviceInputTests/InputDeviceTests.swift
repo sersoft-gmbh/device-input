@@ -82,7 +82,14 @@ struct InputDeviceTests {
             }
             try await Task.sleep(nanoseconds: 1_000_000) // wait for loop to be set up
             try handle.closeAfter {
-#if compiler(>=6.2)
+#if compiler(>=6.4)
+                try eventsToSend.dropLast(4).withUnsafeBytes {
+                    _ = unsafe try handle.write($0)
+                }
+                try eventsToSend.dropFirst(3).withUnsafeBytes {
+                    _ = unsafe try handle.write($0)
+                }
+#elseif compiler(>=6.2)
                 unsafe try eventsToSend.dropLast(4).withUnsafeBytes {
                     _ = unsafe try handle.write($0)
                 }
@@ -143,7 +150,11 @@ struct InputDeviceTests {
             }
             try await Task.sleep(nanoseconds: 1_000_000) // wait for loop to be set up
             try handle.closeAfter {
-#if compiler(>=6.2)
+#if compiler(>=6.4)
+                try eventsToSend.dropLast(4).withUnsafeBytes {
+                    _ = unsafe try handle.write($0)
+                }
+#elseif compiler(>=6.2)
                 unsafe try eventsToSend.dropLast(4).withUnsafeBytes {
                     _ = unsafe try handle.write($0)
                 }
@@ -153,7 +164,11 @@ struct InputDeviceTests {
                 }
 #endif
                 task.cancel()
-#if compiler(>=6.2)
+#if compiler(>=6.4)
+                try eventsToSend.dropFirst(3).withUnsafeBytes {
+                    _ = unsafe try handle.write($0)
+                }
+#elseif compiler(>=6.2)
                 unsafe try eventsToSend.dropFirst(3).withUnsafeBytes {
                     _ = unsafe try handle.write($0)
                 }

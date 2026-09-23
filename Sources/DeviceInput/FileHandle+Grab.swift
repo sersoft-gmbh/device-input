@@ -10,7 +10,7 @@ internal import Musl
 #elseif os(Windows)
 internal import ucrt
 #else
-#error("Unknown platform")
+#error("Unsupported platform")
 #endif
 
 // Results in errno if i == -1
