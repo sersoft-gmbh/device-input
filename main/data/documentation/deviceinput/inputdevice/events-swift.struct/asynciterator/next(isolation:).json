@@ -1,18 +1,4 @@
 {
-  "abstract" : [
-    {
-      "text" : "Asynchronously advances to the next element and returns it, or ends the",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "sequence if there is no next element.",
-      "type" : "text"
-    }
-  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -61,7 +47,15 @@
       },
       {
         "kind" : "text",
-        "text" : " (any "
+        "text" : " ("
+      },
+      {
+        "kind" : "keyword",
+        "text" : "any"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
       },
       {
         "kind" : "typeIdentifier",
@@ -86,25 +80,16 @@
       },
       {
         "kind" : "text",
-        "text" : " -> "
+        "text" : "("
       },
       {
         "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:11DeviceInput0bA0V",
-        "text" : "InputDevice"
+        "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV13AsyncIteratorV7Failurea",
+        "text" : "Failure"
       },
       {
         "kind" : "text",
-        "text" : "."
-      },
-      {
-        "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV",
-        "text" : "Events"
-      },
-      {
-        "kind" : "text",
-        "text" : "."
+        "text" : ") -> "
       },
       {
         "kind" : "typeIdentifier",
@@ -123,7 +108,7 @@
     ],
     "remoteSource" : {
       "fileName" : "InputDevice.swift",
-      "url" : "https:\/\/github.com\/sersoft-gmbh\/device-input\/blob\/refs\/heads\/main\/Sources\/DeviceInput\/InputDevice.swift#L110"
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/device-input\/blob\/refs\/heads\/main\/Sources\/DeviceInput\/InputDevice.swift#L95"
     },
     "role" : "symbol",
     "roleHeading" : "Instance Method",
@@ -187,7 +172,15 @@
             },
             {
               "kind" : "text",
-              "text" : " (any "
+              "text" : " ("
+            },
+            {
+              "kind" : "keyword",
+              "text" : "any"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
             },
             {
               "kind" : "typeIdentifier",
@@ -212,27 +205,17 @@
             },
             {
               "kind" : "text",
-              "text" : " -> "
+              "text" : "("
             },
             {
-              "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice",
+              "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator\/Failure",
               "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:11DeviceInput0bA0V",
-              "text" : "InputDevice"
+              "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV13AsyncIteratorV7Failurea",
+              "text" : "Failure"
             },
             {
               "kind" : "text",
-              "text" : "."
-            },
-            {
-              "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct",
-              "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV",
-              "text" : "Events"
-            },
-            {
-              "kind" : "text",
-              "text" : "."
+              "text" : ") -> "
             },
             {
               "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/Element",
@@ -248,42 +231,6 @@
         }
       ],
       "kind" : "declarations"
-    },
-    {
-      "content" : [
-        {
-          "anchor" : "return-value",
-          "level" : 2,
-          "text" : "Return Value",
-          "type" : "heading"
-        },
-        {
-          "inlineContent" : [
-            {
-              "text" : "The next element, if it exists, or ",
-              "type" : "text"
-            },
-            {
-              "code" : "nil",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " to signal the end of",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "the sequence.",
-              "type" : "text"
-            }
-          ],
-          "type" : "paragraph"
-        }
-      ],
-      "kind" : "content"
     }
   ],
   "schemaVersion" : {
@@ -432,20 +379,40 @@
   "type" : "topic",
   "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asynciterator"
 },
+"doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/AsyncIterator/Failure": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Failure"
+    }
+  ],
+  "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator\/Failure",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Failure"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InputDevice.Events.AsyncIterator.Failure",
+  "type" : "topic",
+  "url" : "\/documentation\/deviceinput\/inputdevice\/events-swift.struct\/asynciterator\/failure"
+},
 "doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/AsyncIterator/next(isolation:)": {
   "abstract" : [
-    {
-      "text" : "Asynchronously advances to the next element and returns it, or ends the",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "sequence if there is no next element.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -478,7 +445,15 @@
     },
     {
       "kind" : "text",
-      "text" : " (any "
+      "text" : " ("
+    },
+    {
+      "kind" : "keyword",
+      "text" : "any"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
     },
     {
       "kind" : "typeIdentifier",
@@ -503,25 +478,16 @@
     },
     {
       "kind" : "text",
-      "text" : " -> "
+      "text" : "("
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:11DeviceInput0bA0V",
-      "text" : "InputDevice"
+      "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV13AsyncIteratorV7Failurea",
+      "text" : "Failure"
     },
     {
       "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV",
-      "text" : "Events"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
+      "text" : ") -> "
     },
     {
       "kind" : "typeIdentifier",
@@ -542,10 +508,7 @@
 },
 "doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/Element": {
   "abstract" : [
-    {
-      "text" : "The type of element produced by this asynchronous sequence.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {

@@ -1,10 +1,4 @@
 {
-  "abstract" : [
-    {
-      "text" : "The type of failure produced by iteration.",
-      "type" : "text"
-    }
-  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -81,7 +75,15 @@
             },
             {
               "kind" : "text",
-              "text" : " = any "
+              "text" : " = "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "any"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
             },
             {
               "kind" : "typeIdentifier",
@@ -242,10 +244,7 @@
 },
 "doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/AsyncIterator/Failure": {
   "abstract" : [
-    {
-      "text" : "The type of failure produced by iteration.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {

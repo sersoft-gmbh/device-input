@@ -1,18 +1,4 @@
 {
-  "abstract" : [
-    {
-      "text" : "Creates the asynchronous iterator that produces elements of this",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "asynchronous sequence.",
-      "type" : "text"
-    }
-  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -48,24 +34,6 @@
       },
       {
         "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:11DeviceInput0bA0V",
-        "text" : "InputDevice"
-      },
-      {
-        "kind" : "text",
-        "text" : "."
-      },
-      {
-        "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV",
-        "text" : "Events"
-      },
-      {
-        "kind" : "text",
-        "text" : "."
-      },
-      {
-        "kind" : "typeIdentifier",
         "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV13AsyncIteratorV",
         "text" : "AsyncIterator"
       }
@@ -77,7 +45,7 @@
     ],
     "remoteSource" : {
       "fileName" : "InputDevice.swift",
-      "url" : "https:\/\/github.com\/sersoft-gmbh\/device-input\/blob\/refs\/heads\/main\/Sources\/DeviceInput\/InputDevice.swift#L130"
+      "url" : "https:\/\/github.com\/sersoft-gmbh\/device-input\/blob\/refs\/heads\/main\/Sources\/DeviceInput\/InputDevice.swift#L118"
     },
     "role" : "symbol",
     "roleHeading" : "Instance Method",
@@ -112,26 +80,6 @@
               "text" : "() -> "
             },
             {
-              "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice",
-              "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:11DeviceInput0bA0V",
-              "text" : "InputDevice"
-            },
-            {
-              "kind" : "text",
-              "text" : "."
-            },
-            {
-              "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct",
-              "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV",
-              "text" : "Events"
-            },
-            {
-              "kind" : "text",
-              "text" : "."
-            },
-            {
               "identifier" : "doc:\/\/DeviceInput\/documentation\/DeviceInput\/InputDevice\/Events-swift.struct\/AsyncIterator",
               "kind" : "typeIdentifier",
               "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV13AsyncIteratorV",
@@ -141,42 +89,6 @@
         }
       ],
       "kind" : "declarations"
-    },
-    {
-      "content" : [
-        {
-          "anchor" : "return-value",
-          "level" : 2,
-          "text" : "Return Value",
-          "type" : "heading"
-        },
-        {
-          "inlineContent" : [
-            {
-              "text" : "An instance of the ",
-              "type" : "text"
-            },
-            {
-              "code" : "AsyncIterator",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " type used to produce",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "elements of the asynchronous sequence.",
-              "type" : "text"
-            }
-          ],
-          "type" : "paragraph"
-        }
-      ],
-      "kind" : "content"
     }
   ],
   "schemaVersion" : {
@@ -327,18 +239,7 @@
 },
 "doc://DeviceInput/documentation/DeviceInput/InputDevice/Events-swift.struct/makeAsyncIterator()": {
   "abstract" : [
-    {
-      "text" : "Creates the asynchronous iterator that produces elements of this",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "asynchronous sequence.",
-      "type" : "text"
-    }
+
   ],
   "fragments" : [
     {
@@ -356,24 +257,6 @@
     {
       "kind" : "text",
       "text" : "() -> "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:11DeviceInput0bA0V",
-      "text" : "InputDevice"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:11DeviceInput0bA0V6EventsV",
-      "text" : "Events"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
     },
     {
       "kind" : "typeIdentifier",
